@@ -2,7 +2,11 @@ const initialState = {
     signUp: {
         isSigningUp: false,
         isSignedUp: false,
-        error: ''
+        error: '',
+        id: null,
+        username: '',
+        password: '',
+        name: '',
     }
 }
 

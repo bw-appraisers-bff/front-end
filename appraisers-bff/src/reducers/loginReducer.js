@@ -2,7 +2,11 @@ const initialState = {
     login: {
         isLoggedIn: false,
         isLogginIn: false,
-        error: ''
+        error: '',
+        id: null,
+        username: '',
+        password: '',
+        name: ''
     }
 }
 

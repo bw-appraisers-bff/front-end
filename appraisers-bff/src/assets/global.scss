@@ -1,0 +1,58 @@
+// General Styles
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html, body {
+  font-family: $font-content;
+  color: $text-black;
+}
+
+
+h1, h2, h3, h4, h5 {
+  font-family: $font-header;
+  color: $text-black;
+}
+
+h1 {
+  font-size: 4.8rem;
+}
+
+h2 {
+  font-size: 3.2rem;
+}
+
+h3 {
+  font-size: 2.8rem;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
+// App Container
+
+.App {
+  width: 100%
+  max-width: 800px;
+}
+
+// Navigation styles
+
+.navbar {
+  background-color: $brand-aqua;
+  border-bottom: 2px solid $nav-border;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  @include flex-style(row, nowrap, space-between, center);
+
+}
+
+

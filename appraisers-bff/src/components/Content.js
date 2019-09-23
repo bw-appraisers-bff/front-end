@@ -11,7 +11,7 @@ import Saved from './Saved';
 const Content = () => {
 
     return(
-        <div className="container content red-outline">
+        <div className="content red-outline">
             <h4>parent component for dynamically rendering content based on routes</h4>
 
             <div>

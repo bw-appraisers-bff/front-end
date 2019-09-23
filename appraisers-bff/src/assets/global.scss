@@ -41,19 +41,76 @@ p {
 
 // App Container
 
-.App {
+.root {
   width: 100%;
-  max-width: 800px;
+}
+
+.app-container {
+  width: 100%;
+  @include flex-style(column, nowrap, center, center);
+
 }
 
 // Navigation styles
 
-.navbar {
+.nav-wrapper{
   background-color: $brand-aqua;
   border-bottom: 2px solid $nav-border;
+  width: 100%;
+  height: 50px;
+  @include flex-style(row, nowrap, center, center);
+}
+.navbar {
   position: fixed;
   top: 0;
+  height: 50px;
   width: 100%;
-  height: 150px;
+  max-width: 800px;
+  padding: 0px 5px;
   @include flex-style(row, nowrap, space-between, center);
+  
+    .navbar-img {
+      img {
+        height: 50px;
+        padding: 5px
+      }
+    }
+    .nav-links {
+      a {
+        @include nav-link-style;
+        margin: 0px 10px;
+      }
+    }
+}
+
+// Content styles
+
+.content {
+  padding-top: 50px;
+  width: 100%;
+  max-width: 800px;
+  @include flex-style(column, nowrap, space-between, center);
+}
+
+// Footer styles
+
+.footer-wrapper {
+  background-color: $brand-aqua;
+  border-top: 2px solid $nav-border;
+  width: 100%;
+  height: 50px;
+  @include flex-style(row, nowrap, center, center);
+}
+.footer {
+  width: 100%;
+  max-width: 800px;
+  color: $text-white;
+  padding: 0px 10px;
+  @include flex-style(row, nowrap, space-between, center);
+    .footer-links {
+      a {
+        @include footer-link-style;
+        margin: 0px 5px;
+      }
+    }
 }

@@ -1,37 +1,37 @@
 //would like to use a combineReducer but I'm going to start out with a large file will refactor
 
 const initialState = {
-    user = {
+    user: {
         id: '',
         username: '',
         password: '',
         name: ''
     },
-    favorite = {
-        userId = '',
-        houseId = '',
-        nameEntry = '',
-        interestLevel = ''
+    favorite: {
+        userId: '',
+        houseId: '',
+        nameEntry: '',
+        interestLevel: ''
     },
-    house = {
-        id = '',
-        name = '',
-        description = '',
-        streetAddress = '',
-        city = '',
-        state = '',
-        zipcode = '',
-        yearBuilt = '',
-        sqFoot = '',
-        bathrooms = '',
-        bedrooms = ''
+    house: {
+        id: '',
+        name: '',
+        description: '',
+        streetAddress: '',
+        city: '',
+        state: '',
+        zipcode: '',
+        yearBuilt: '',
+        sqFoot: '',
+        bathrooms: '',
+        bedrooms: ''
     },
-    price = {
-        id = '',
-        houseId = '',
-        priceBase = '',
-        priceMargin = '',
-        confidenceInterval = ''
+    price: {
+        id: '',
+        houseId: '',
+        priceBase: '',
+        priceMargin: '',
+        confidenceInterval: ''
     }
 }
 

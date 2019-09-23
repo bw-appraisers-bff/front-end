@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink, Route } from "react-router-dom";
 
 const Navbar = props => {
   //setting props.isLoggedIn to true

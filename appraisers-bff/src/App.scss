@@ -1,24 +1,46 @@
+// Imports
+
+// -- Reset
+@import './assets/normalize.css';
+
+// -- Fonts
+@import url('https://fonts.googleapis.com/css?family=Lato|Merriweather&display=swap');
+
+// -- Variables
+
+$light-cream: #FFFEFA;  // text on dark background
+$off-black: #2E2F38; // text on light background
+
+$brand-aqua: #124950; // navbar and foot background color
+$primary-aqua: #6CCAC6; // active buttons
+$inactive-aqua: #092C39; // inactive buttons
+$warning-yellow: #B29205; // warning buttons
+$delete-red: #931210; // delete buttons
+$secondary-beige: #B59883; // secondary buttons
+$input-field: #EFEFEF; // off-color for form fields
+$star-yellow: #FCC400; // bright yellow for saved items
+
+$font-header: 'Lato', sans-serif;
+$font-content: 'Merriweather', serif;
+
+$text-black: $off-black;
+$text-white: $light-cream;
+$nav-border: $inactive-aqua;
+
+// -- Mixins
+
+@mixin flex-style($direction, $wrap, $justify, $align) {
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// -- Global Styles
+@import './assets/global.scss';
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
 }
 
 .red-outline {

@@ -11,7 +11,7 @@ import Content from "./components/Content";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app-container">
       {/*NAVBAR COMPONENT: authenticated vs unauthenticated rendering */}
       <Navbar />
 

@@ -1,4 +1,5 @@
 import React from "react";
+
 import { NavLink, Route } from "react-router-dom";
 
 const Navbar = props => {
@@ -7,28 +8,25 @@ const Navbar = props => {
   function NavLinks() {
     if (!props.isLoggedIn) {
       return (
-        <div className="navbar-links-signin">
-          <a>Log In</a>
-          <a>Sign Up</a>
+        <div className="nav-links">
+          <NavLink to="/login">Log In</NavLink>
+          <NavLink to="/singup">Sign Up</NavLink>
         </div>
       );
     } else {
       return (
-        <div className="navbar-links-signin">
-          <a>Home</a>
-          <a>Appraise</a>
-          <a>Saved List</a>
+        <div className="nav-links">
+          <NavLink to="/appraise">Appraise</NavLink>
+          <NavLink to="/login">Saved List</NavLink>
         </div>
       );
     }
   }
   return (
-    <div className="navbar">
-      <nav>
+    <div className="nav-wrapper">
+      <nav className="navbar">
         <div className="navbar-img">
-          <div className="icon-wrapper">
-            <img src="images/nav-logo.png" alt="Appraisers bff logo"></img>
-          </div>
+          <img src="images/nav-logo.png" alt="Appraisers bff logo"></img>
         </div>
         <NavLinks />
       </nav>

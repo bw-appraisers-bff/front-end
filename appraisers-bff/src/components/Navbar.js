@@ -24,7 +24,7 @@ const Navbar = props => {
   return (
     <div className="navbar">
       <nav>
-        <div className="navbar-imgs">
+        <div className="navbar-img">
           <div className="icon-wrapper">
             <img src="images/house-logo.png" alt="bff-icon"></img>
           </div>

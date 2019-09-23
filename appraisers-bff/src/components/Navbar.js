@@ -26,15 +26,10 @@ const Navbar = props => {
       <nav>
         <div className="navbar-img">
           <div className="icon-wrapper">
-            <img src="images/house-logo.png" alt="bff-icon"></img>
-          </div>
-          {/* <img src="images/bff-logo.png" alt="bff-appraiser-logo"></img> */}
-          <div className="logo-wrapper">
-            <p>BFF Appraisers </p>
+            <img src="images/nav-logo.png" alt="Appraisers bff logo"></img>
           </div>
         </div>
         <NavLinks />
-        {/* so do I put the conditonal rendering of links here? */}
       </nav>
     </div>
   );

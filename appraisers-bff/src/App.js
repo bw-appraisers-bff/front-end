@@ -2,7 +2,6 @@
 import React from "react";
 
 //style
-import logo from "./logo.svg";
 import "./App.scss";
 
 //components

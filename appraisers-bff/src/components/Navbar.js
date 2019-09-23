@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+
+import { NavLink, Route } from "react-router-dom";
 
 const Navbar = props => {
   //setting props.isLoggedIn to true
@@ -23,12 +24,12 @@ const Navbar = props => {
   }
   return (
     <div className="nav-wrapper">
-        <nav className="navbar">
-            <div className="navbar-img">
-                <img src="images/nav-logo.png" alt="Appraisers bff logo"></img>
-            </div>
-            <NavLinks />
-        </nav>
+      <nav className="navbar">
+        <div className="navbar-img">
+          <img src="images/nav-logo.png" alt="Appraisers bff logo"></img>
+        </div>
+        <NavLinks />
+      </nav>
     </div>
   );
 };

@@ -1,23 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import axios from "axios";
-import { postHouse } from '../actions';
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
-import AppraiseForm from './AppraiseForm'
 
-const Appraise = () => {  
+const Appraise = ({ errors, touched, values, status }) => {  
     return (
-<<<<<<< HEAD
-    <div className="form-container">
-    <h1>Appraise Now</h1>
     <Form>
         <Field type="text" name="sqft" placeholder="Square Footage" />
         {touched.sqft && errors.sqft && <p className="error">{errors.sqft}</p>}
 
         <Field type="text" name="yearbuilt" placeholder="Year Built" />
         {touched.yearbuilt && errors.yearbuilt && <p className="error">{errors.yearbuilt}</p>}
-
+        {/*Hello world */}
         <Field component="select"  className="form-select" name="bedrm" >
             <option>Select number of Bedrooms</option>
             <option value="1">1</option>
@@ -56,7 +50,6 @@ const Appraise = () => {
 
       <button type="submit">Submit!</button>
     </Form>
-  </div>
   );
 };
   
@@ -100,28 +93,17 @@ validationSchema: Yup.object().shape({
         .required("You must enter a number")
 }),
 
-handleSubmit(values, { setStatus, resetForm, props }) {
-    console.log("handleSubmit: props: ", props)
-    props.postHouse(values)
+handleSubmit(values, { setStatus, resetForm }) {
+    axios
+    // values is our object with all our data on it.
+    .post("https://reqres.in/api/users/", values)
+    .then(res => {
+        setStatus(res.data);
+        console.log(res);
+    })
+    .catch(err => console.log(err.response));
     resetForm('');
 }
 })(Appraise); // currying functions in Javascript
 
-const mapStateToProps = state => {
-    console.log("MPSTP: STATE: ", state.house)
-    return{
-        house: state.house
-    }
-}
-
-export default connect(mapStateToProps, { postHouse })(FormikAppraise);
-=======
-        <div className="form-container">
-            <h2>Appraise Now</h2>
-            <AppraiseForm />
-        </div>
-    );
-    }
-
-export default Appraise
->>>>>>> a240d31734733fd4ce99756b7b8a1dce0ec02401
+export default FormikAppraise

@@ -64,15 +64,20 @@ const FormikLogin = withFormik({
       .required("Password is required.")
       .min(8, "Password must be 8 characters minimum")
   }),
-  handleSubmit(event, values, props, { resetForm, setStatus }) {
-    event.preventDefault();
-    props.login({
-      username: values.username,
-      password: values.password
-    })
+  handleSubmit(values, { resetForm, setStatus, props }) {
+    // event.preventDefault();
+    console.log(props)
+    props.login(values, props.history)
     resetForm( { username: "", password: "" });
-    props.history.push('/login');
   }
 })(Login);
 
-export default connect(null, { login })(FormikLogin);
+const mapStateToProps = state => {
+  return{
+    isLogginIn: state.isLogginIn,
+    isLoggedIn: state.isLogginIn,
+    error: state.error
+  }
+}
+
+export default connect(mapStateToProps, { login })(FormikLogin);

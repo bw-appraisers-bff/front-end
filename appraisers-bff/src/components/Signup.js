@@ -1,21 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { withFormik, Form, Field, setStatus } from "formik";
+import React from "react";
+import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-// ``.oneOf([Boom], "Passwords must match")
-
 const Signup = ({ values, errors, touched, status }) => {
-  const initialState = {
-    username: "",
-    password: "",
-    confirmation: ""
-  };
-
-  const [signupForm, setSignupForm] = useState(initialState);
-
-  // look into making a unified userform to DRY code
   return (
     <div className="container signup">
       <div className="form-container">
@@ -38,7 +27,7 @@ const Signup = ({ values, errors, touched, status }) => {
             <p className="error">{errors.confirmation}</p>
           )}
           <div className="button-container">
-            <button>Sign Up</button>
+            <button type="button">Sign Up</button>
             <Link to="/login">Already have an account?</Link>
           </div>
         </Form>
@@ -47,15 +36,16 @@ const Signup = ({ values, errors, touched, status }) => {
   );
 };
 
-function equalTo(ref: any, msg: any) {
+//checks if two inputs are equal to each other
+function equalTo(ref, msg) {
   return Yup.mixed().test({
     name: "equalTo",
     exclusive: false,
-    message: msg || "${path} must be the same as ${reference}",
+    message: msg || "",
     params: {
       reference: ref.path
     },
-    test: function(value: any) {
+    test: function(value) {
       return value === this.resolve(ref);
     }
   });

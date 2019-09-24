@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { withFormik, Form, Field, setStatus } from "formik";
+import React from "react";
+import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Login = ({ values, errors, touched, status }) => {
-  const initialState = {
-    username: "",
-    password: ""
-  };
-
-  const [loginForm, setLoginForm] = useState(initialState);
-
   // useEffect(() => {
   //   if (status) {
   //     setLoginForm({ status });

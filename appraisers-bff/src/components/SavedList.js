@@ -7,7 +7,7 @@ class SavedList extends React.Component {
         this.state = {
             something: ''
         }
-    } //maybe I don't need this with mapToProps
+    } //maybe I don't need this with mapToProps??
 
   render() {
     return (

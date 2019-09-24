@@ -18,6 +18,9 @@ import {
   GET_FAVORITES_FAIL
 } from "../actions";
 
+
+//make auth state for conditional rendering on nav bar
+
 const initialState = {
   login: {
     isLoggingIn: false,

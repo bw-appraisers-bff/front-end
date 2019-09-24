@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field, setStatus } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Login = ({ values, errors, touched, status }) => {
   const initialState = {
@@ -11,11 +12,11 @@ const Login = ({ values, errors, touched, status }) => {
 
   const [loginForm, setLoginForm] = useState(initialState);
 
-  useEffect(() => {
-    if (status) {
-      setLoginForm({ status });
-    }
-  }, [status]);
+  // useEffect(() => {
+  //   if (status) {
+  //     setLoginForm({ status });
+  //   }
+  // }, [status]);
 
   // const handleChanges = event => {
   //   setLoginForm({ ...loginForm, [event.target.name]: event.target.value });
@@ -38,11 +39,13 @@ const Login = ({ values, errors, touched, status }) => {
 
           <div className="button-container">
             <button type="submit">Login</button>
-            <a hrerf="#">Forgot Password?</a>
+            <Link to="/">Forgot Password?</Link>
           </div>
-          <p>
-            Don't have an <span>account</span>? Join Now
-          </p>
+          <Link to="/signup">
+            <p>
+              Don't have an <span>account</span>? Join Now
+            </p>
+          </Link>
         </Form>
       </div>
     </div>
@@ -50,9 +53,9 @@ const Login = ({ values, errors, touched, status }) => {
 };
 
 const FormikLogin = withFormik({
-  mapPropsToValues({ name, password }) {
+  mapPropsToValues({ username, password }) {
     return {
-      name: name || "",
+      username: username || "",
       password: password || ""
     };
   },
@@ -67,11 +70,11 @@ const FormikLogin = withFormik({
     axios
       .post("https://reqres.in/api/users/", values)
       .then(res => {
-        console.log(setStatus(res))
-        setStatus(res)
-        console.log("login response", res) })
+        setStatus(res);
+        console.log("login response", res);
+      })
       .catch(e => console.log(e));
-    resetForm( { username: "", password: "" });
+    resetForm({ username: "", password: "" });
   }
 })(Login);
 

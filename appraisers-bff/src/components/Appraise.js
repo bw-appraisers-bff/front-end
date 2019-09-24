@@ -5,7 +5,7 @@ import * as Yup from "yup";
 
 const Appraise = ({ errors, touched, values, status }) => {  
     return (
-    <div className="appraise-form">
+    <div className="form-container">
     <h1>Appraise Now</h1>
     <Form>
         <Field type="text" name="sqft" placeholder="Square Footage" />

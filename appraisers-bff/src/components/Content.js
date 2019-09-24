@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, Route } from "react-router-dom";
 
 //components
-// import { FormikLogin } from "./Login";
+import FormikLogin from "./Login";
 import Signup from "./Signup";
 import Appraise from "./Appraise";
 import Result from "./Result";
@@ -28,9 +28,9 @@ const Content = () => {
       {/* UNAUTHENTICATED ROUTES */}
 
       {/*Route for login page on "/" path or "/login" */}
-      {/* <Route exact path="/" component={FormikLogin} /> */}
+      <Route exact path="/" component={FormikLogin} />
 
-      {/* <Route path="/login" component={FormikLogin} /> */}
+      <Route path="/login" component={FormikLogin} />
 
       {/*Route for sign up page on "/signup" path */}
       <Route path="/signup" component={Signup} />

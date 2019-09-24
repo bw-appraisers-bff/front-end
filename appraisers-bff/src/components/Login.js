@@ -17,18 +17,18 @@ const Login = ({ values, errors, touched, status }) => {
     }
   }, [status]);
 
-  const handleChanges = event => {
-    setLoginForm({ ...loginForm, [event.target.name]: event.target.value });
-  };
-
-  // const submitForm = event => {
-  //   event.preventDefault();
-  //   axios
-  //     .post("https://reqres.in/api/users/")
-  //     .then(res => console.log("login response", res))
-  //     .catch(e => console.log(e));
-  //   setLoginForm(initialState);
+  // const handleChanges = event => {
+  //   setLoginForm({ ...loginForm, [event.target.name]: event.target.value });
   // };
+
+  const submitForm = event => {
+    event.preventDefault();
+    axios
+      .post("https://reqres.in/api/users/")
+      .then(res => console.log("login response", res))
+      .catch(e => console.log(e));
+    setLoginForm(initialState);
+  };
   // look into making a unified userform to DRY code
 
   return (
@@ -64,13 +64,16 @@ const FormikLogin = withFormik({
       .required("Password is required.")
       .min(8, "Password must be 8 characters minimum")
   }),
-  handleSubmit(values, { setStatus }) {
-    event.preventDefault();
+  handleSubmit(values, { resetForm, setStatus }) {
+    // event.preventDefault();
     axios
       .post("https://reqres.in/api/users/", values)
-      .then(res => console.log("login response", res))
+      .then(res => {
+        console.log(setStatus(res))
+        setStatus(res)
+        console.log("login response", res) })
       .catch(e => console.log(e));
-    setLoginForm(initialState);
+    resetForm( { username: "", password: "" });
   }
 })(Login);
 

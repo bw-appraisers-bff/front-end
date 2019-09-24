@@ -11,19 +11,7 @@ import SavedList from "./SavedList";
 
 const Content = () => {
   return (
-    <div className="container content">
-      <h4>
-        parent component for dynamically rendering content based on routes
-      </h4>
-
-      <div>
-        <span>Test routes:</span>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/signup">Signup</NavLink>
-        <NavLink to="/appraise">Appraise</NavLink>
-        <NavLink to="/result">Result</NavLink>
-        <NavLink to="/Saved">Saved</NavLink>
-      </div>
+    <div className="content">
 
       {/* UNAUTHENTICATED ROUTES */}
 
@@ -47,6 +35,15 @@ const Content = () => {
 
       {/*Route for dashboard page on "/saved" path */}
       <Route path="/saved" component={SavedList} />
+      
+      <div>
+        <span>Test routes:</span>
+        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/signup">Signup</NavLink>
+        <NavLink to="/appraise">Appraise</NavLink>
+        <NavLink to="/result">Result</NavLink>
+        <NavLink to="/Saved">Saved</NavLink>
+      </div>
     </div>
   );
 };

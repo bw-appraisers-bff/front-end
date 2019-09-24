@@ -17,7 +17,6 @@ import {
   GET_FAVORITES_SUCCESS,
   GET_FAVORITES_FAIL
 } from "../actions";
-import { FastField } from "formik";
 
 const initialState = {
   login: {

@@ -9,19 +9,23 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Content from "./components/Content";
 
-function App() {
-  return (
-    <div className="app-container">
-      {/*NAVBAR COMPONENT: authenticated vs unauthenticated rendering */}
-      <Navbar />
+import SavedList from './components/SavedList.js';
 
-      {/* Content COMPONENT: authenticated vs unauthenticated rendering */}
-      <Content />
+class App extends React.Component {
+  render() {
+    return (
+      <div className="app-container">
+        {/*NAVBAR COMPONENT: authenticated vs unauthenticated rendering */}
+        <Navbar />
 
-      {/*FOOTER COMPONENT*/}
-      <Footer />
-    </div>
-  );
+        {/* Content COMPONENT: authenticated vs unauthenticated rendering */}
+        <Content />
+
+        {/*FOOTER COMPONENT*/}
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;

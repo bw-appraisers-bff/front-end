@@ -17,9 +17,9 @@ const Login = ({ values, errors, touched, status }) => {
     }
   }, [status]);
 
-  const handleChanges = event => {
-    setLoginForm({ ...loginForm, [event.target.name]: event.target.value });
-  };
+  // const handleChanges = event => {
+  //   setLoginForm({ ...loginForm, [event.target.name]: event.target.value });
+  // };
 
   const submitForm = event => {
     event.preventDefault();

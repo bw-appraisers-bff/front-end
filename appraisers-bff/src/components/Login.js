@@ -13,7 +13,7 @@ const Login = ({ values, errors, touched, status }) => {
 
   useEffect(() => {
     if (status) {
-      setLoginForm({ ...loginForm, status });
+      setLoginForm({ status });
     }
   }, [status]);
 
@@ -21,25 +21,23 @@ const Login = ({ values, errors, touched, status }) => {
   //   setLoginForm({ ...loginForm, [event.target.name]: event.target.value });
   // };
 
-  const submitForm = event => {
-    event.preventDefault();
-    axios
-      .post("https://reqres.in/api/users/")
-      .then(res => console.log("login response", res))
-      .catch(e => console.log(e));
-    setLoginForm(initialState);
-  };
-  // look into making a unified userform to DRY code
-
   return (
     <div className="container login">
       <div className="form-container">
         <h2>Login</h2>
-        <Form onSubmit={submitForm}>
+        <Form>
           <Field type="text" name="username" placeholder="Username" />
+          {touched.username && errors.username && (
+            <p className="error">{errors.username}</p>
+          )}
+
           <Field type="password" name="password" placeholder="password" />
+          {touched.password && errors.password && (
+            <p className="error">{errors.password}</p>
+          )}
+
           <div className="button-container">
-            <button>Login</button>
+            <button type="submit">Login</button>
             <a hrerf="#">Forgot Password?</a>
           </div>
           <p>

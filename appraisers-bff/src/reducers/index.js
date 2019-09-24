@@ -17,12 +17,14 @@ import {
   GET_FAVORITES_SUCCESS,
   GET_FAVORITES_FAIL
 } from "../actions";
-import { FastField } from "formik";
+
+
+//make auth state for conditional rendering on nav bar
 
 const initialState = {
   login: {
     isLoggingIn: false,
-    isLoggedIn: true,
+    isLoggedIn: false,
     error: "",
   },
   user: {

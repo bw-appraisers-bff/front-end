@@ -1,5 +1,6 @@
 //libraries and frameworks
 import React from "react";
+import { connect } from 'react-redux';
 
 //style
 import "./App.scss";
@@ -12,11 +13,14 @@ import Content from "./components/Content";
 import SavedList from './components/SavedList.js';
 
 class App extends React.Component {
+  constructor(props) {
+    super();
+  }
   render() {
     return (
       <div className="app-container">
         {/*NAVBAR COMPONENT: authenticated vs unauthenticated rendering */}
-        <Navbar />
+        <Navbar isLoggedIn={this.props.isLoggedIn}/>
 
         {/* Content COMPONENT: authenticated vs unauthenticated rendering */}
         <Content />
@@ -28,4 +32,10 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.login.isLoggedIn
+  }
+}
+
+export default connect(mapStateToProps)(App);

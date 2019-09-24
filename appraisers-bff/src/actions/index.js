@@ -21,6 +21,7 @@ export const login = (creds, history) => dispatch => {
         console.log(res.data.token)
         dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
         localStorage.setItem('token', res.data.token);
+        history.push('/appraise');
     })
     .catch(err => {
                 // console.log("I am an error");

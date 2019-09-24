@@ -24,7 +24,7 @@ import {
 const initialState = {
   login: {
     isLoggingIn: false,
-    isLoggedIn: true,
+    isLoggedIn: false,
     error: "",
   },
   user: {

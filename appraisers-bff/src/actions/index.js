@@ -1,5 +1,4 @@
 import { axiosWithAuth } from '../utils/axiosWithAuth.js';
-import axios from 'axios';
 
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -8,7 +7,7 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 //posting to BE api for token
 export const login = () => dispatch => {
     dispatch({ type: LOGIN_START });
-    axios
+    axiosWithAuth()
         .post(`/auth/login`)
         .then(res => console.log("LOGIN RES: ", res))
         .catch(err => dispatch({ type: LOGIN_FAIL, payload: err}))
@@ -21,10 +20,22 @@ export const SIGNUP_FAIL = 'SIGNUP_FAIL';
 
 export const signUp = () => dispatch => {
     dispatch({ type: SIGNUP_START });
-    axiosWithAuth
+    axiosWithAuth()
         .post(`/auth/login`)
         .then(res => console.log("SIGNUP RES: ", res))
         .catch(err => dispatch({ type: SIGNUP_FAIL, payload: err }));
+}
+
+export const GET_HOUSE_START = 'GET_HOUSE_START';
+export const GET_HOUSE_SUCCESS = 'GET_HOUSE_SUCCESS';
+export const GET_HOUSE_FAIL = 'GET_HOUSE_FAIL';
+
+export const getHouse = () => dispatch => {
+    dispatch({ type: GET_HOUSE_START });
+    axiosWithAuth()
+        .get(`/houses`)
+        .then(res => console.log("GETHOUSE RES: ", res))
+        .catch(err => dispatch({ type: GET_HOUSE_FAIL, payload:err }));
 }
 
 //sends information to BE -> DS to be put into algo
@@ -34,7 +45,7 @@ export const POST_HOUSE_FAIL = 'POST_HOUSE_FAIL';
 
 export const postHouse = () => dispatch => {
     dispatch({ type: LOGIN_START });
-    axiosWithAuth
+    axiosWithAuth()
         .post(`/houses`)
         .then(res => console.log("POSTHOUSE RES: ", res))
         .catch(err => dispatch({ type: POST_HOUSE_FAIL, payload:err }));
@@ -47,7 +58,7 @@ export const GET_PRICE_FAIL = 'GET_PRICE_FAIL';
 
 export const getPrice = () => dispatch => {
     dispatch({ type: GET_PRICE_START });
-    axiosWithAuth
+    axiosWithAuth()
         .get(`/prices`)
         .then(res => console.log('GETPRICE: RES: ', res))
         .catch(err => dispatch({ type: GET_PRICE_FAIL, payload: err }));
@@ -60,7 +71,7 @@ export const GET_FAVORITES_FAIL = 'GET_FAVORITES_FAIL';
 
 export const getFavorites = () => dispatch => {
     dispatch({ type: GET_FAVORITES_START });
-    axiosWithAuth
+    axiosWithAuth()
         .get(`/users/:id/favories`)
         .then(res => console.log('GETFAVORITE: RES: ', res))
         .catch(err => dispatch({ type: GET_PRICE_FAIL, payload: err }));

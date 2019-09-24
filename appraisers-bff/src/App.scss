@@ -18,6 +18,7 @@ $warning-yellow: #B29205; // warning buttons
 $delete-red: #931210; // delete buttons
 $secondary-beige: #B59883; // secondary buttons
 $input-field: #EFEFEF; // off-color for form fields
+$field-border: #757065; // dark color for form field border
 $star-yellow: #FCC400; // bright yellow for saved items
 
 $font-header: 'Lato', sans-serif;
@@ -84,9 +85,9 @@ $nav-border: $inactive-aqua;
 // -- Global Styles
 @import './assets/global.scss';
 
-// -- Container Styles
+// -- Form Styles
 
-@import './assets/container.scss';
+@import './assets/forms.scss';
 
 .red-outline {
   border: 1px solid red;

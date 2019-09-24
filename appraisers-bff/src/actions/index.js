@@ -7,15 +7,7 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 
 //posting to BE api for token
 export const login = (creds, history) => dispatch => {
-    // console.log("IWASINVOKED")
     dispatch({ type: LOGIN_START });
-    // axiosWithAuth()
-    //     .post(`/auth/login`, creds)
-    //     .then(res => console.log("LOGIN RES: ", res))
-    //     .catch(err => {
-    //         console.log("I am an error");
-    //         dispatch({ type: LOGIN_FAIL, payload: err})
-    //     })
     axios.post(`https://appraisersbff.herokuapp.com/auth/login`, creds)
     .then(res => {
         console.log(res.data.token)
@@ -23,11 +15,8 @@ export const login = (creds, history) => dispatch => {
         localStorage.setItem('token', res.data.token);
         history.push('/appraise');
     })
-    .catch(err => {
-                // console.log("I am an error");
-                dispatch({ type: LOGIN_FAIL, payload: err})
-            })
-}
+    .catch(err => dispatch({ type: LOGIN_FAIL, payload: err}))
+};
 
 //creating a user from BE api
 export const SIGNUP_START = 'SIGNUP_START';

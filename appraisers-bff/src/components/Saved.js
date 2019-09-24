@@ -1,24 +1,19 @@
 import React from "react";
 import { Card, Icon } from "semantic-ui-react";
 
-const extra = (
-  <a>
-    <Icon name="user" />
-    16 Friends
-  </a>
-);
+import '../assets/saved.scss';
 
-const Saved = () => {
+const Saved = (props) => {
   return (
     <div className="container saved">
       <div className="saved-list-card">
-        <Card
-          image="/images/heart.png" //if we want an img
-          header="Elliot Baker" // title/name of search
-          meta="Friend" //could be level of interest
-          description="Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat." //rerender props of the search
+        {/* <Card
+          image={imgUrl} //if we want an img
+          header={name} // title/name of search
+          meta={interest} //could be level of interest
+          description={history} //rerender props of the search
           extra={extra} //edit delete buttons?
-        />
+        /> */}
       </div>
     </div>
   );

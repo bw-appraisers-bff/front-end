@@ -21,9 +21,6 @@ class App extends React.Component {
         {/* Content COMPONENT: authenticated vs unauthenticated rendering */}
         <Content />
 
-        <SavedList /> 
-        {/* to test */}
-
         {/*FOOTER COMPONENT*/}
         <Footer />
       </div>

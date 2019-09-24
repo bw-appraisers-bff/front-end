@@ -64,15 +64,9 @@ const FormikLogin = withFormik({
       .required("Password is required.")
       .min(8, "Password must be 8 characters minimum")
   }),
-  handleSubmit(values, { resetForm, setStatus }) {
-    // event.preventDefault();
-    axios
-      .post("https://reqres.in/api/users/", values)
-      .then(res => {
-        console.log(setStatus(res))
-        setStatus(res)
-        console.log("login response", res) })
-      .catch(e => console.log(e));
+  handleSubmit(event, values, { resetForm, setStatus }) {
+    event.preventDefault();
+    
     resetForm( { username: "", password: "" });
   }
 })(Login);

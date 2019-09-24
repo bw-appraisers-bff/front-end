@@ -32,19 +32,13 @@ const initialState = {
         interestLevel: ''
     },
     house: {
-        id: '',
-        name: '',
-        description: '',
-        streetAddress: '',
-        city: '',
-        state: '',
-        zipcode: '',
-        yearBuilt: '',
-        sqFoot: '',
-        bathrooms: '',
-        bedrooms: '',
-        houseData: [],
-    },
+        id: null,
+        zipCode: null,
+        yearBuilt: null,
+        squareFootage: null,
+        bedrooms: null,
+        bathrooms: null,
+    }, // maybe we could parse the strings?
     price: {
         id: '',
         houseId: '',

@@ -20,6 +20,7 @@ h4,
 h5 {
   font-family: $font-header;
   color: $text-black;
+  margin: .1rem;
 }
 
 h1 {
@@ -95,10 +96,13 @@ p {
 // Content styles
 
 .content {
-  padding-top: 50px;
   width: 100%;
   max-width: 800px;
   @include flex-style(column, nowrap, space-between, center);
+}
+
+.result {
+  width: 100%;
 }
 
 // Footer styles

@@ -1,0 +1,77 @@
+// Card Styles
+.result-card {
+  width: 85%;
+  max-width: 600px;
+  margin:  25px auto;
+  padding: 32px;
+  background-color: $inactive-aqua;
+  color: $text-white;
+  box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  @include flex-style(column, nowrap, space-between, center);
+
+    h1, h2, h3, h4, h5 {
+    font-family: $font-header;
+    color: $text-white;
+  }
+
+  button {
+    max-width: 150px;
+    margin: 16px 0;
+    padding: 12px 20px;
+    border-style: none;
+    border-radius: 5px;
+    background-color: $primary-aqua;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: $text-black;
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+
+    &:active {
+      background-color: $brand-aqua;
+    }
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed !important;
+    }
+  }
+}
+
+
+.card-container {
+  width: 85%;
+  max-width: 600px;
+  margin:  100px auto;
+  padding: 32px;
+  font-weight: bold;
+  background-color: $light-cream;
+  box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+
+  button {
+    max-width: 150px;
+    margin: 32px 0;
+    padding: 12px 20px;
+    border-style: none;
+    border-radius: 5px;
+    background-color: $inactive-aqua;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+
+    &:active {
+      background-color: $primary-aqua;
+    }
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed !important;
+    }
+  }
+}

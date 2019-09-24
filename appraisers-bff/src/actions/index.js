@@ -25,8 +25,8 @@ export const SIGNUP_FAIL = 'SIGNUP_FAIL';
 
 export const signUp = (user) => dispatch => {
     dispatch({ type: SIGNUP_START });
-    axiosWithAuth()
-        .post(`/auth/register`, user)
+    axios
+        .post(`https://appraisersbff.herokuapp.com/auth/register`, user)
         .then(res => console.log("SIGNUP RES: ", res))
         .catch(err => dispatch({ type: SIGNUP_FAIL, payload: err }));
 }

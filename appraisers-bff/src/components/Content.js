@@ -7,6 +7,7 @@ import Signup from "./Signup";
 import Appraise from "./Appraise";
 import Result from "./Result";
 import Saved from "./Saved";
+import SavedList from "./SavedList";
 
 const Content = () => {
   return (
@@ -45,7 +46,7 @@ const Content = () => {
       <Route path="/result" component={Result} />
 
       {/*Route for dashboard page on "/saved" path */}
-      <Route path="/saved" component={Saved} />
+      <Route path="/saved" component={SavedList} />
     </div>
   );
 };

@@ -42,7 +42,8 @@ const initialState = {
         yearBuilt: '',
         sqFoot: '',
         bathrooms: '',
-        bedrooms: ''
+        bedrooms: '',
+        houseData: [],
     },
     price: {
         id: '',
@@ -56,13 +57,6 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
         
-        case POST_HOUSE_START:
-            return {
-                ...state,
-                house: {
-                    ...action.payload
-                }
-            }
 
         default:
             return state;

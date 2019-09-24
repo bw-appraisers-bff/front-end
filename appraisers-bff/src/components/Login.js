@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { connect } from 'react-redux';
+import { login } from '../actions';
 import { withFormik, Form, Field, setStatus } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -75,4 +77,4 @@ const FormikLogin = withFormik({
   }
 })(Login);
 
-export default FormikLogin;
+export default connect(null, { login })(FormikLogin);

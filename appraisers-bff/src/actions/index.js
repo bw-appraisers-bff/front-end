@@ -9,8 +9,7 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const login = () => dispatch => {
     dispatch({ type: LOGIN_START });
     axios
-        // .post(`/auth/login`)
-        .post(`https://reqres.in/api/users/`)
+        .post(`/auth/login`)
         .then(res => console.log("LOGIN RES: ", res))
         .catch(err => dispatch({ type: LOGIN_FAIL, payload: err}))
 }

@@ -23,7 +23,7 @@ const initialState = {
   login: {
     isLoggingIn: false,
     isLoggedIn: true,
-    error: ""
+    error: "",
   },
   user: {
     // id: '',

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import axios from "axios";
+import { postHouse } from '../actions';
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 
@@ -96,17 +98,18 @@ validationSchema: Yup.object().shape({
         .required("You must enter a number")
 }),
 
-handleSubmit(values, { setStatus, resetForm }) {
-    axios
-    // values is our object with all our data on it.
-    .post("https://reqres.in/api/users/", values)
-    .then(res => {
-        setStatus(res.data);
-        console.log(res);
-    })
-    .catch(err => console.log(err.response));
+handleSubmit(values, { setStatus, resetForm, props }) {
+    console.log("handleSubmit: props: ", props)
+    props.postHouse(values)
     resetForm('');
 }
 })(Appraise); // currying functions in Javascript
 
-export default FormikAppraise
+const mapStateToProps = state => {
+    console.log("MPSTP: STATE: ", state.house)
+    return{
+        house: state.house
+    }
+}
+
+export default connect(mapStateToProps, { postHouse })(FormikAppraise);

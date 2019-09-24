@@ -67,20 +67,21 @@ const FormikLogin = withFormik({
       .required("Password is required.")
       .min(8, "Password must be 8 characters minimum")
   }),
-  handleSubmit(values, { resetForm, setStatus, props }) {
+  handleSubmit(values, { resetForm, props }) {
     // event.preventDefault();
-    console.log(props)
+    console.log("VALUES",values)
+    console.log("PROPS", props)
     props.login(values, props.history)
-    resetForm( { username: "", password: "" });
     resetForm({ username: "", password: "" });
   }
 })(Login);
 
 const mapStateToProps = state => {
+  // console.log("LOGIN: MTSP: STATE: ", state)
   return{
-    isLogginIn: state.isLogginIn,
-    isLoggedIn: state.isLogginIn,
-    error: state.error
+    isLogginIn: state.login.isLogginIn,
+    isLoggedIn: state.login.isLogginIn,
+    error: state.login.error
   }
 }
 

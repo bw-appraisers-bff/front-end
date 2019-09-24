@@ -1,16 +1,31 @@
 import { axiosWithAuth } from '../utils/axiosWithAuth.js';
+import axios from 'axios';
 
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 
 //posting to BE api for token
-export const login = (creds) => dispatch => {
+export const login = (creds, history) => dispatch => {
+    // console.log("IWASINVOKED")
     dispatch({ type: LOGIN_START });
-    axiosWithAuth()
-        .post(`/auth/login`, creds)
-        .then(res => console.log("LOGIN RES: ", res))
-        .catch(err => dispatch({ type: LOGIN_FAIL, payload: err}))
+    // axiosWithAuth()
+    //     .post(`/auth/login`, creds)
+    //     .then(res => console.log("LOGIN RES: ", res))
+    //     .catch(err => {
+    //         console.log("I am an error");
+    //         dispatch({ type: LOGIN_FAIL, payload: err})
+    //     })
+    axios.post(`https://appraisersbff.herokuapp.com/auth/login`, creds)
+    .then(res => {
+        console.log(res.data.token)
+        dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
+        localStorage.setItem('token', res.data.token);
+    })
+    .catch(err => {
+                // console.log("I am an error");
+                dispatch({ type: LOGIN_FAIL, payload: err})
+            })
 }
 
 //creating a user from BE api

@@ -1,5 +1,7 @@
 import React from "react";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink, Route, Switch } from "react-router-dom";
+
+import PrivateRoute from '../utils/PrivateRoute.js';
 
 //components
 import FormikLogin from "./Login";
@@ -8,6 +10,7 @@ import Appraise from "./Appraise";
 import Result from "./Result";
 import Saved from "./Saved";
 import SavedList from "./SavedList";
+import Login from "./Login";
 
 const Content = () => {
   return (
@@ -22,19 +25,6 @@ const Content = () => {
 
       {/*Route for sign up page on "/signup" path */}
       <Route path="/signup" component={Signup} />
-
-      {/* AUTHENTICATED ROUTES */}
-
-      {/*Route for input page on "/appraise" path */}
-
-      {/* "/" should now lead to "/appraise" after authentication */}
-      <Route path="/appraise" component={Appraise} />
-
-      {/*Route for output page on "/result" path */}
-      <Route path="/result" component={Result} />
-
-      {/*Route for dashboard page on "/saved" path */}
-      <Route path="/saved" component={SavedList} />
       
       <div>
         <span>Test routes:</span>
@@ -44,6 +34,15 @@ const Content = () => {
         <NavLink to="/result">Result</NavLink>
         <NavLink to="/Saved">Saved</NavLink>
       </div>
+
+      <Switch>
+       <PrivateRoute path='/appraise' component={Appraise} />
+       <PrivateRoute path="/result" component={Result} />
+       <PrivateRoute path="/saved" component={SavedList} />
+       <Route path="/login" component={FormikLogin} />
+       <Route component={FormikLogin} />
+     </Switch>
+
     </div>
   );
 };

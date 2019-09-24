@@ -1,5 +1,7 @@
-import React from "react";
-import { withFormik, Form, Field } from "formik";
+import React, { useState, useEffect } from "react";
+import { connect } from 'react-redux';
+import { login } from '../actions';
+import { withFormik, Form, Field, setStatus } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -58,17 +60,22 @@ const FormikLogin = withFormik({
       .required("Password is required.")
       .min(8, "Password must be 8 characters minimum")
   }),
-  handleSubmit(values, { resetForm, setStatus }) {
+  handleSubmit(values, { resetForm, props }) {
     // event.preventDefault();
-    axios
-      .post("https://reqres.in/api/users/", values)
-      .then(res => {
-        setStatus(res);
-        console.log("login response", res);
-      })
-      .catch(e => console.log(e));
+    console.log("VALUES",values)
+    console.log("PROPS", props)
+    props.login(values, props.history)
     resetForm({ username: "", password: "" });
   }
 })(Login);
 
-export default FormikLogin;
+const mapStateToProps = state => {
+  // console.log("LOGIN: MTSP: STATE: ", state)
+  return{
+    isLogginIn: state.login.isLogginIn,
+    isLoggedIn: state.login.isLogginIn,
+    error: state.login.error
+  }
+}
+
+export default connect(mapStateToProps, { login })(FormikLogin);

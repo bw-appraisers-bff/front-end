@@ -1,0 +1,116 @@
+// General Styles
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  font-family: $font-content;
+  color: $text-black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-header;
+  color: $text-black;
+}
+
+h1 {
+  font-size: 4.8rem;
+}
+
+h2 {
+  font-size: 3.2rem;
+}
+
+h3 {
+  font-size: 2.8rem;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
+// App Container
+
+.root {
+  width: 100%;
+}
+
+.app-container {
+  width: 100%;
+  @include flex-style(column, nowrap, center, center);
+
+}
+
+// Navigation styles
+
+.nav-wrapper{
+  background-color: $brand-aqua;
+  border-bottom: 2px solid $nav-border;
+  width: 100%;
+  height: 50px;
+  @include flex-style(row, nowrap, center, center);
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  max-width: 800px;
+  padding: 0px 5px;
+  @include flex-style(row, nowrap, space-between, center);
+  
+    .navbar-img {
+      img {
+        height: 50px;
+        padding: 5px
+      }
+    }
+    .nav-links {
+      a {
+        @include nav-link-style;
+        margin: 0px 10px;
+      }
+    }
+}
+
+// Content styles
+
+.content {
+  padding-top: 50px;
+  width: 100%;
+  max-width: 800px;
+  @include flex-style(column, nowrap, space-between, center);
+}
+
+// Footer styles
+
+.footer-wrapper {
+  background-color: $brand-aqua;
+  border-top: 2px solid $nav-border;
+  width: 100%;
+  height: 50px;
+  @include flex-style(row, nowrap, center, center);
+}
+.footer {
+  width: 100%;
+  max-width: 800px;
+  color: $text-white;
+  padding: 0px 10px;
+  @include flex-style(row, nowrap, space-between, center);
+    .footer-links {
+      a {
+        @include footer-link-style;
+        margin: 0px 5px;
+      }
+    }
+}

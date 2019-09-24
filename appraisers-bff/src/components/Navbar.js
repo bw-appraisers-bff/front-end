@@ -10,7 +10,7 @@ const Navbar = props => {
       return (
         <div className="nav-links">
           <NavLink to="/login">Log In</NavLink>
-          <NavLink to="/singup">Sign Up</NavLink>
+          <NavLink to="/signup">Sign Up</NavLink>
         </div>
       );
     } else {

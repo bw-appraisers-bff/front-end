@@ -53,12 +53,19 @@ p {
 
 // Navigation styles
 
-.nav-wrapper{
-  background-color: $brand-aqua;
-  border-bottom: 2px solid $nav-border;
+.nav-placeholder {
   width: 100%;
   height: 50px;
   @include flex-style(row, nowrap, center, center);
+}
+
+.nav-wrapper{
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  @include flex-style(row, nowrap, center, center);
+  background-color: $brand-aqua;
+  border-bottom: 2px solid $nav-border;
 }
 .navbar {
   position: fixed;
@@ -67,6 +74,8 @@ p {
   width: 100%;
   max-width: 800px;
   padding: 0px 5px;
+  background-color: $brand-aqua;
+  border-bottom: 2px solid $nav-border;
   @include flex-style(row, nowrap, space-between, center);
   
     .navbar-img {

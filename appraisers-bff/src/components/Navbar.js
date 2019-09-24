@@ -23,13 +23,15 @@ const Navbar = props => {
     }
   }
   return (
-    <div className="nav-wrapper">
-      <nav className="navbar">
-        <div className="navbar-img">
-          <img src="images/nav-logo.png" alt="Appraisers bff logo"></img>
-        </div>
-        <NavLinks />
-      </nav>
+    <div className="nav-placeholder">
+      <div className="nav-wrapper">
+        <nav className="navbar">
+          <div className="navbar-img">
+            <img src="images/nav-logo.png" alt="Appraisers bff logo"></img>
+          </div>
+          <NavLinks />
+        </nav>
+      </div>
     </div>
   );
 };

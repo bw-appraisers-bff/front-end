@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Signup = ({ values, errors, touched, status }) => {
+  
   return (
     <div className="container signup">
       <div className="form-container">
@@ -27,10 +28,15 @@ const Signup = ({ values, errors, touched, status }) => {
             <p className="error">{errors.confirmation}</p>
           )}
           <div className="button-container">
-            <button type="button">Sign Up</button>
-            <Link to="/login">Already have an account?</Link>
+            <button type="submit" className="primary-button">Sign Up</button>
           </div>
         </Form>
+        <div className="button-container">
+          <span>Have an account?</span>
+          <a href="/login">
+            <button type="button" className="secondary-button" >Log in</button>
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -58,7 +64,7 @@ const FormikSignup = withFormik({
     return {
       username: username || "",
       password: password || "",
-      confirmation: confirmation || ""
+      confirmation: confirmation || "", 
     };
   },
   validationSchema: Yup.object().shape({

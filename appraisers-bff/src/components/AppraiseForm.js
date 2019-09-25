@@ -47,8 +47,9 @@ const Appraise = ({ errors, touched, values, status }) => {
             <option value="12345">12345</option>
         </Field>
         {touched.zipcode && errors.zipcode && <p className="error">{errors.zipcode}</p>}
-
-      <button type="submit">Submit!</button>
+        <div className="button-container">
+          <button type="submit" className="primary-button">Appraise Now</button>
+        </div>
     </Form>
   );
 };

@@ -40,6 +40,78 @@ p {
   line-height: 1.4;
 }
 
+a {
+  color: $text-black;
+}
+
+// button {
+//   max-width: 150px;
+//   margin: auto;
+//   padding: 12px 20px;
+//   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+//   font-size: 1.7rem;
+//   font-weight: 500;
+//   cursor: pointer;
+//   outline: none;
+//   -webkit-appearance: none;
+
+ 
+//   &:disabled {
+//     opacity: 0.5;
+//     cursor: not-allowed !important;
+//   }
+// }
+
+.primary-button {
+  border-style: none;
+  border-radius: 5px;
+  background-color: $inactive-aqua;
+  color:$text-white;
+  max-width: 250px;
+  margin: auto;
+  padding: 12px 20px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  font-size: 1.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+
+  &:active {
+    background-color: $primary-aqua;
+  }
+
+ 
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+  }
+}
+
+.secondary-button {
+  background-color: $light-cream;
+  border: 2px solid $inactive-aqua;
+  border-radius: 5px;
+  color: $text-black;
+  max-width: 250px;
+  margin: auto;
+  padding: 12px 20px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  font-size: 1.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+
+  &:active {
+    background-color: $secondary-beige;
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+  }
+}
+
 // App Container
 
 .root {
@@ -51,6 +123,8 @@ p {
   @include flex-style(column, nowrap, center, center);
 
 }
+
+// Universal Styles
 
 // Navigation styles
 

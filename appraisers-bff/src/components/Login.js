@@ -33,15 +33,15 @@ const Login = ({ values, errors, touched, status }) => {
           )}
 
           <div className="button-container">
-            <button type="submit">Login</button>
-            <Link to="/">Forgot Password?</Link>
+            <button type="submit" class="primary-button">Log in</button>
           </div>
-          <Link to="/signup">
-            <p>
-              Don't have an <span>account</span>? Join Now
-            </p>
-          </Link>
         </Form>
+        <div className="button-container">
+          <span>Don't have an account?</span>
+          <a href="/signup">
+            <button type="button" className="secondary-button" >Get Started</button>
+          </a>
+        </div>
       </div>
     </div>
   );

@@ -1,30 +1,18 @@
 import React from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
 
-import PrivateRoute from '../utils/PrivateRoute.js';
+import PrivateRoute from "../utils/PrivateRoute.js";
 
 //components
 import FormikLogin from "./Login";
 import Signup from "./Signup";
 import Appraise from "./Appraise";
 import Result from "./Result";
-import Saved from "./Saved";
 import SavedList from "./SavedList";
-import Login from "./Login";
 
 const Content = () => {
   return (
     <div className="content">
-
-      {/* UNAUTHENTICATED ROUTES */}
-
-      {/*Route for login page on "/" path or "/login" */}
-      <Route exact path="/" component={FormikLogin} />
-
-      {/* <Route path="/login" component={FormikLogin} /> */}
-
-      {/*Route for sign up page on "/signup" path */}
-      
       <div>
         <span>Test routes:</span>
         <NavLink to="/login">Login</NavLink>
@@ -35,14 +23,12 @@ const Content = () => {
       </div>
 
       <Switch>
-       <PrivateRoute path='/appraise' component={Appraise} />
-       <PrivateRoute path="/result" component={Result} />
-       <PrivateRoute path="/saved" component={SavedList} />
-       <Route path="/login" component={FormikLogin} />
-     </Switch>
-     <Route path="/signup" component={Signup} />
-
-
+        <PrivateRoute path="/appraise" component={Appraise} />
+        <PrivateRoute path="/result" component={Result} />
+        <PrivateRoute path="/saved" component={SavedList} />
+        <Route path="/login" component={FormikLogin} />
+      </Switch>
+      <Route path="/signup" component={Signup} />
     </div>
   );
 };

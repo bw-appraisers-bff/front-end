@@ -2,12 +2,20 @@ import React from "react";
 import { connect } from 'react-redux';
 import { login } from '../actions';
 import { withFormik, Form, Field } from "formik";
+import { useSpring, animated } from 'react-spring'
+import { NavLink } from "react-router-dom";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
 
 const Login = ({ values, errors, touched, status }) => {
+
+  const fadeIn = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { mass: 1, tension: 140, friction: 70 }
+  });
+
   return (
-    <div className="container login">
+    <animated.div style={fadeIn} className="login">
       <div className="form-container">
         <h2>Login</h2>
         <Form>
@@ -27,12 +35,12 @@ const Login = ({ values, errors, touched, status }) => {
         </Form>
         <div className="button-container">
           <span>Don't have an account?</span>
-          <a href="/signup">
+          <NavLink to="/signup">
             <button type="button" className="secondary-button" >Get Started</button>
-          </a>
+          </NavLink>
         </div>
       </div>
-    </div>
+    </animated.div>
   );
 };
 

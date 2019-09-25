@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AppraiseForm from './AppraiseForm'
 import ResultCard from './ResultCard'
+import {useSpring, animated } from 'react-spring'
 import axios from 'axios';
 
 const dummyData = [
@@ -12,21 +13,26 @@ const Result = () => {
     let example = dummyData[0];
     const dollarValue = example.value.toLocaleString();
 
+    const fadeIn = useSpring({
+        opacity: 1,
+        from: { opacity: 0 },
+        config: { mass: 1, tension: 140, friction: 70 }
+      });
     useEffect(() => {
         axios.get(`https://appraisersbff.herokuapp.com/houses`).then(res => console.log("GETHOUSE RES", res)).catch(err => console.log(err))
     }, [])
 
     return(
         <>
-            <div className="result-card">
+            <animated.div className="result-card" style={fadeIn}>
                 <ResultCard house={example} />
                 <button>Save Result</button>
-            </div>
+            </animated.div>
 
-            <div className="form-container">
+            <animated.div className="form-container" style={fadeIn}>
                 <h2>Re-appraise</h2>
                 <AppraiseForm />
-            </div>
+            </animated.div>
         </>
     );
 }

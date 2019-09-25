@@ -15,7 +15,9 @@ import {
   GET_PRICE_FAIL,
   GET_FAVORITES_START,
   GET_FAVORITES_SUCCESS,
-  GET_FAVORITES_FAIL
+  GET_FAVORITES_FAIL,
+  GET_HOUSE_START,
+  GET_HOUSE_SUCCESS
 } from "../actions";
 
 //make auth state for conditional rendering on nav bar
@@ -95,15 +97,15 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state
       };
-
-    case POST_HOUSE_START:
+    case GET_HOUSE_START:
       return {
         ...state
-      };
-    case POST_HOUSE_FAIL:
-      return {
-        ...state
-      };
+      }
+      case GET_HOUSE_SUCCESS:
+          return {
+            ...state,
+            house: action.payload
+          }
 
     default:
       return state;

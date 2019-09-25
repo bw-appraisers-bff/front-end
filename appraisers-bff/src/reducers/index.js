@@ -103,7 +103,6 @@ export const reducer = (state = initialState, action) => {
     case POST_HOUSE_FAIL:
       return {
         ...state
-        
       };
 
     default:

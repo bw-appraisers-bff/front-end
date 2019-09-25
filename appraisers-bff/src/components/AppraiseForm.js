@@ -8,8 +8,8 @@ import PrivateRoute from '../utils/PrivateRoute';
 const Appraise = ({ errors, touched, values, status }) => {  
     return (
     <Form>
-        <Field type="text" name="sqft" placeholder="Square Footage" />
-        {touched.sqft && errors.sqft && <p className="error">{errors.sqft}</p>}
+        <Field type="text" name="squareFootage" placeholder="Square Footage" />
+        {touched.squareFootage && errors.squareFootage && <p className="error">{errors.squareFootage}</p>}
 
         <Field type="text" name="yearbuilt" placeholder="Year Built" />
         {touched.yearbuilt && errors.yearbuilt && <p className="error">{errors.yearbuilt}</p>}
@@ -65,9 +65,9 @@ const Appraise = ({ errors, touched, values, status }) => {
 
 const FormikAppraise = withFormik({
 // object destructuring. We could do values.species but we are destructuring it so we can just put species. You see the same thing in Props a lot so instead of props.values you would see {values}
-mapPropsToValues({ sqft, yearbuilt, bedrm, bathrm, zipcode }) {
+mapPropsToValues({ squareFootage, yearbuilt, bedrm, bathrm, zipcode }) {
     return {
-    sqft: sqft || "",
+    squareFootage: squareFootage || "",
     yearbuilt: yearbuilt || "",
     bedrm: bedrm || "",
     bathrm: bathrm || "",
@@ -76,7 +76,7 @@ mapPropsToValues({ sqft, yearbuilt, bedrm, bathrm, zipcode }) {
 },
 
 validationSchema: Yup.object().shape({
-    sqft: Yup.number()
+    squareFootage: Yup.number()
         .typeError("Please enter the number of square feet")
         .positive("Please enter the number of square feet")
         .required("Please enter the number of square feet"),
@@ -99,7 +99,15 @@ handleSubmit(values, { setStatus, resetForm, props }) {
     console.log("Appraise Form: Props: ", props)
     console.log("Appraise Form: Values: ", values)
     // console.log("Parsing attempt: ", Number(values))
-    Object.keys(values).map(i => console.log(Number(i)))
+    Object.keys(values).forEach(i => console.log(parseInt(i, 10)))
+    const house = {
+        squareFootage: Number(values.squareFootage),
+        yearBuilt: Number(values.yearbuilt),
+        zipCode: Number(values.zipcode),
+        bedrooms: Number(values.bedrooms),
+        bathrooms: parseFloat(values.bathrooms)
+    }
+    console.log('houseObj: ', house)
     // axios
     // // values is our object with all our data on it.
     // .post("https://reqres.in/api/users/", values)
@@ -108,7 +116,7 @@ handleSubmit(values, { setStatus, resetForm, props }) {
     //     console.log(res);
     // })
     // .catch(err => console.log(err.response));
-    props.postHouse(values)
+    props.postHouse(house)
     resetForm('');
 }
 })(Appraise); // currying functions in Javascript

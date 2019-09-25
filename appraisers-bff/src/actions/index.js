@@ -52,7 +52,10 @@ export const postHouse = (house) => dispatch => {
     axiosWithAuth()
         .post(`/houses`, house)
         .then(res => console.log("POSTHOUSE RES: ", res))
-        .catch(err => dispatch({ type: POST_HOUSE_FAIL, payload:err }));
+        .catch(err => {
+            console.log("POSTHOUSE: USER: ", house)
+            dispatch({ type: POST_HOUSE_FAIL, payload:err })
+        });
 }
 
 // hoping this will get price from DS to display

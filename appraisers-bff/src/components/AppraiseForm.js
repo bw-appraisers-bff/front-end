@@ -99,8 +99,6 @@ validationSchema: Yup.object().shape({
 handleSubmit(values, { setStatus, resetForm, props }) {
     console.log("Appraise Form: Props: ", props)
     console.log("Appraise Form: Values: ", values)
-    // console.log("Parsing attempt: ", Number(values))
-    Object.keys(values).forEach(i => console.log(parseInt(i, 10)))
     const house = {
         "zipCode": Number(values.zipcode),
         "yearBuilt": Number(values.yearbuilt),
@@ -108,17 +106,8 @@ handleSubmit(values, { setStatus, resetForm, props }) {
         "bedrooms": Number(values.bedrm),
         "bathrooms": parseFloat(values.bathrm)
     }
-    console.log('houseObj: ', house)
-    // axios
-    // // values is our object with all our data on it.
-    // .post("https://reqres.in/api/users/", values)
-    // .then(res => {
-    //     setStatus(res.data);
-    //     console.log(res);
-    // })
-    // .catch(err => console.log(err.response));
     props.postHouse(house)
-    resetForm('');
+    // resetForm('');
 }
 })(Appraise); // currying functions in Javascript
 

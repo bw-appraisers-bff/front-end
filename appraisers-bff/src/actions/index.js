@@ -42,7 +42,7 @@ export const getHouse = () => dispatch => {
     dispatch({ type: GET_HOUSE_START });
     axiosWithAuth()
         .get(`/houses`)
-        .then(res => console.log("GETHOUSE RES: ", res))
+        .then(res => console.log("GETHOUSE RES: ", res.data))
         .catch(err => dispatch({ type: GET_HOUSE_FAIL, payload:err }));
 }
 

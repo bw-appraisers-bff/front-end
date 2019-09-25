@@ -101,11 +101,11 @@ handleSubmit(values, { setStatus, resetForm, props }) {
     // console.log("Parsing attempt: ", Number(values))
     Object.keys(values).forEach(i => console.log(parseInt(i, 10)))
     const house = {
-        zipCode: Number(values.zipcode),
-        yearBuilt: Number(values.yearbuilt),
-        squareFootage: Number(values.squareFootage),
-        bedrooms: Number(values.bedrm),
-        bathrooms: parseFloat(values.bathrm)
+        "zipCode": Number(values.zipcode),
+        "yearBuilt": Number(values.yearbuilt),
+        "squareFootage": Number(values.squareFootage),
+        "bedrooms": Number(values.bedrm),
+        "bathrooms": parseFloat(values.bathrm)
     }
     console.log('houseObj: ', house)
     // axios

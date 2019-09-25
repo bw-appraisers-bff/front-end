@@ -18,14 +18,13 @@ import {
   GET_FAVORITES_FAIL
 } from "../actions";
 
-
 //make auth state for conditional rendering on nav bar
 
 const initialState = {
   login: {
     isLoggingIn: false,
     isLoggedIn: false,
-    error: "",
+    error: ""
   },
   user: {
     // id: '',
@@ -84,21 +83,29 @@ export const reducer = (state = initialState, action) => {
           error: action.payload
         }
       };
-      case SIGNUP_START:
-          return {
-            ...state,
-          };
-        case SIGNUP_SUCCESS:
-          return {
-            ...state,
-            user: {
-              
-            }
-          };
-        case SIGNUP_FAIL:
-          return {
-            ...state,
-          };
+    case SIGNUP_START:
+      return {
+        ...state
+      };
+    case SIGNUP_SUCCESS:
+      return {
+        ...state,
+        user: {}
+      };
+    case SIGNUP_FAIL:
+      return {
+        ...state
+      };
+
+    case POST_HOUSE_START:
+      return {
+        ...state
+      };
+    case POST_HOUSE_FAIL:
+      return {
+        ...state
+        
+      };
 
     default:
       return state;

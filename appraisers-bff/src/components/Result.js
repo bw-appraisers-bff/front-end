@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AppraiseForm from './AppraiseForm'
 import ResultCard from './ResultCard'
 import {useSpring, animated } from 'react-spring'
@@ -17,6 +17,9 @@ const Result = () => {
         from: { opacity: 0 },
         config: { mass: 1, tension: 140, friction: 70 }
       });
+    useEffect(() => {
+        axios.get(`https://appraisersbff.herokuapp.com/houses`).then(res => console.log("GETHOUSE RES", res)).catch(err => console.log(err))
+    }, [])
 
     return(
         <>

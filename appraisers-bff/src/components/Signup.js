@@ -43,7 +43,7 @@ const Signup = ({ values, errors, touched, status }) => {
         <div className="button-container">
           <span>Have an account?</span>
           <NavLink to="/login">
-            <button type="button" className="secondary-button" >Log in</button>
+            <button type="submit" className="secondary-button" >Log in</button>
           </NavLink>
         </div>
       </div>
@@ -95,7 +95,6 @@ const FormikSignup = withFormik({
     console.log(user);
     props.signUp(user);
     props.history.push("/login");
-    resetForm({ username: "", password: "", confirmation: "" });
   }
 })(Signup);
 

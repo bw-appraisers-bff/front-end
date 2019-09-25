@@ -12,25 +12,25 @@ const AboutUs = ( ) => {
                     </p>
                 </div>
             </div>
-            <div className="photo-container">
+            {/* <div className="photo-container">
                 <div className="bioCard">
                     <div className="bioImage">
-                    <img src="images/teamPics/MichaelFinal" alt="Michael Guadalupe"/>
+                    <img src="../../../images/teamPics/MichaelFinal.png" alt="Michael Guadalupe"/>
                     </div>
-                    <h3>Name</h3>
-                    <p>Role</p>
-                    
+                    <h3>Michael Guadalupe</h3>
+                    <p>Role: Front End Dev</p>
+                    <a href="https://github.com/MichaelHMods" className="git">MichaelHMods</a>
 
-                </div>
+            </div> */}
 
+            
 
 
             
             </div>
 
 
-    
-    </div>
+ 
     )
 }
 export default AboutUs;

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AppraiseForm from './AppraiseForm'
 import ResultCard from './ResultCard'
+import axios from 'axios';
 
 const dummyData = [
     {"id":1,"zipCode":90210,"yearBuilt":1960,"squareFootage":1000,"bedrooms":10,"bathrooms":5.5,"value":100500},
@@ -10,6 +11,10 @@ const dummyData = [
 const Result = () => {
     let example = dummyData[0];
     const dollarValue = example.value.toLocaleString();
+
+    useEffect(() => {
+        axios.get(`https://appraisersbff.herokuapp.com/houses`).then(res => console.log("GETHOUSE RES", res)).catch(err => console.log(err))
+    }, [])
 
     return(
         <>

@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from 'react-redux';
+import { signUp } from '../actions'
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -27,7 +29,7 @@ const Signup = ({ values, errors, touched, status }) => {
             <p className="error">{errors.confirmation}</p>
           )}
           <div className="button-container">
-            <button type="button">Sign Up</button>
+            <button type="submit">Sign Up</button>
             <Link to="/login">Already have an account?</Link>
           </div>
         </Form>
@@ -70,16 +72,25 @@ const FormikSignup = withFormik({
       .equalTo(Yup.ref("password"), "Passwords must be the same")
       .required("Please confirm your password")
   }),
-  handleSubmit(values, { resetForm, setStatus }) {
-    axios
-      .post("https://reqres.in/api/users/", values)
-      .then(res => {
-        setStatus(res);
-        console.log("signup response", res);
-      })
-      .catch(e => console.log(e));
-    resetForm({ username: "", password: "", confirmation: "" });
+  handleSubmit(values, { resetForm, setStatus, props }) {
+    console.log("SIGNUP: VALUES: ", values)
+    console.log("SIGNUP: PROPS: ", props)
+    const user = {
+      username: values.username,
+      password: values.password
+    }
+    console.log(user)
+    // axios
+    //   .post("https://reqres.in/api/users/", values)
+    //   .then(res => {
+    //     setStatus(res);
+    //     console.log("signup response", res);
+    //   })
+    //   .catch(e => console.log(e));
+    props.signUp(user)
+    props.history.push('/login');
+    // resetForm({ username: "", password: "", confirmation: "" });
   }
 })(Signup);
 
-export default FormikSignup;
+export default connect(null, { signUp })(FormikSignup);

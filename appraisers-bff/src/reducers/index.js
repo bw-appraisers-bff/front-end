@@ -84,6 +84,18 @@ export const reducer = (state = initialState, action) => {
           error: action.payload
         }
       };
+      case SIGNUP_START:
+          return {
+            ...state,
+          };
+        case SIGNUP_SUCCESS:
+          return {
+            ...state,
+          };
+        case SIGNUP_FAIL:
+          return {
+            ...state,
+          };
 
     default:
       return state;

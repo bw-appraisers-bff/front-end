@@ -27,8 +27,13 @@ export const signUp = (user) => dispatch => {
     dispatch({ type: SIGNUP_START });
     axios
         .post(`https://appraisersbff.herokuapp.com/auth/register`, user)
-        .then(res => console.log("SIGNUP RES: ", res))
-        .catch(err => dispatch({ type: SIGNUP_FAIL, payload: err }));
+        .then(res => {
+            console.log("SIGNUP RES: ", res)
+        })
+        .catch(err => {
+            console.log("I'm an error", err)
+            dispatch({ type: SIGNUP_FAIL, payload: err })
+        });
 }
 
 export const GET_HOUSE_START = 'GET_HOUSE_START';

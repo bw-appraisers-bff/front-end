@@ -62,8 +62,8 @@ const FormikLogin = withFormik({
   }),
   handleSubmit(values, { resetForm, props }) {
     // event.preventDefault();
-    console.log("VALUES",values)
-    console.log("PROPS", props)
+    // console.log("VALUES",values)
+    // console.log("PROPS", props)
     props.login(values, props.history)
     resetForm({ username: "", password: "" });
   }

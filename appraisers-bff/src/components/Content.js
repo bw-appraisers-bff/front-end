@@ -21,10 +21,9 @@ const Content = () => {
       {/*Route for login page on "/" path or "/login" */}
       <Route exact path="/" component={FormikLogin} />
 
-      <Route path="/login" component={FormikLogin} />
+      {/* <Route path="/login" component={FormikLogin} /> */}
 
       {/*Route for sign up page on "/signup" path */}
-      <Route path="/signup" component={Signup} />
       
       <div>
         <span>Test routes:</span>
@@ -41,6 +40,8 @@ const Content = () => {
        <PrivateRoute path="/saved" component={SavedList} />
        <Route path="/login" component={FormikLogin} />
      </Switch>
+     <Route path="/signup" component={Signup} />
+
 
     </div>
   );

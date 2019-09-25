@@ -21,6 +21,7 @@
     margin: 0;
     position: absolute;
     color: $delete-red;
+    font-size: 1.0rem;
   }
 
   input,
@@ -92,27 +93,9 @@
     font-weight: normal;
   }
 
-  button {
-    max-width: 150px;
-    margin: 32px 0;
-    padding: 12px 20px;
-    border-style: none;
-    border-radius: 5px;
-    background-color: $inactive-aqua;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
-    font-size: 1.7rem;
-    font-weight: 500;
-    color: #fff;
-    cursor: pointer;
-    outline: none;
-    -webkit-appearance: none;
-
-    &:active {
-      background-color: $primary-aqua;
-    }
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed !important;
-    }
+  .button-container{
+    margin-top: 32px;
+    @include flex-style(column, nowrap, space-between, center);
   }
+
 }

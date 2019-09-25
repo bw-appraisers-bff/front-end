@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getHouse } from '../actions'
+import { getFav, getHouse } from '../actions'
 import AppraiseForm from './AppraiseForm'
 import ResultCard from './ResultCard'
 
@@ -14,9 +14,14 @@ const Result = props => {
     let example = dummyData[0];
     const dollarValue = example.value.toLocaleString();
 
-    console.log("props.getHouse invoking", props.getHouse())
-    const data = props.getHouse();
-    console.log('DATA: ', data)
+    // props.getFav(props.decodedToken)
+    //needs to be fixed 
+    // props.getHouse()
+    //history.push() from appraise form with ID to get price and easier to populate previous data?
+
+    // console.log("props.getHouse invoking", props.getHouse())
+    // const data = props.getHouse();
+    // console.log('DATA: ', data)
     return(
         <>
             <div className="result-card">
@@ -32,4 +37,11 @@ const Result = props => {
     );
 }
 
-export default connect(null, { getHouse })(Result);
+const mapStateToProps = state => {
+    console.log("MSTP: STATE: ", state.decodedToken)
+    return{
+        decodedToken: state.decodedToken
+    }
+}
+
+export default connect(mapStateToProps, { getFav, getHouse })(Result);

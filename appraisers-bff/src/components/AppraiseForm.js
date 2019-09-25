@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { postHouse } from '../actions'
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
-import PrivateRoute from '../utils/PrivateRoute';
 
 const Appraise = ({ errors, touched, values, status }) => {  
     return (
@@ -106,7 +105,7 @@ handleSubmit(values, { setStatus, resetForm, props }) {
         "bedrooms": Number(values.bedrm),
         "bathrooms": parseFloat(values.bathrm)
     }
-    props.postHouse(house)
+    props.postHouse(house, props.history)
     // resetForm('');
 }
 })(Appraise); // currying functions in Javascript

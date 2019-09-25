@@ -15,7 +15,7 @@ export const login = (creds, history) => dispatch => {
         dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
         localStorage.setItem('token', res.data.token);
         console.log('decodedToken: ', decode(res.data.token))
-        dispatch({ type: LOGIN_DECODE, payload: res.data.token })
+        dispatch({ type: LOGIN_DECODE, payload: decode(res.data.token) })
         history.push('/appraise');
     })
     .catch(err => dispatch({ type: LOGIN_FAIL, payload: err}))
@@ -71,10 +71,10 @@ export const GET_PRICE_START = 'GET_PRICE_START';
 export const GET_PRICE_SUCCESS = 'GET_PRICE_SUCCESS';
 export const GET_PRICE_FAIL = 'GET_PRICE_FAIL';
 
-export const getPrice = () => dispatch => {
+export const getPrice = (user) => dispatch => {
     dispatch({ type: GET_PRICE_START });
     axiosWithAuth()
-        .get(`/prices`)
+        .get(`/prices`, user)
         .then(res => console.log('GETPRICE: RES: ', res))
         .catch(err => dispatch({ type: GET_PRICE_FAIL, payload: err }));
 }
@@ -84,10 +84,17 @@ export const GET_FAVORITES_START = 'GET_FAVORITES_START';
 export const GET_FAVORITES_SUCCESS = 'GET_FAVORITES_SUCCESS';
 export const GET_FAVORITES_FAIL = 'GET_FAVORITES_FAIL'; 
 
-export const getFavorites = () => dispatch => {
+export const getFav = user => dispatch => {
     dispatch({ type: GET_FAVORITES_START });
     axiosWithAuth()
-        .get(`/users/:id/favories`)
-        .then(res => console.log('GETFAVORITE: RES: ', res))
-        .catch(err => dispatch({ type: GET_PRICE_FAIL, payload: err }));
+        .get(`/fav`, {'username': 'admin'})
+        .then(res => {
+            console.log("then user: ", user)
+            console.log('GETFAVORITE: RES: ', res)
+        })
+        .catch(err => {
+            console.log("err user: ", user)
+            console.log("err res: ", err.response.data)
+            dispatch({ type: GET_PRICE_FAIL, payload: err })
+        });
 }

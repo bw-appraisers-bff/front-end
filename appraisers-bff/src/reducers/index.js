@@ -3,6 +3,7 @@
 import {
   LOGIN_START,
   LOGIN_SUCCESS,
+  LOGIN_DECODE,
   LOGIN_FAIL,
   SIGNUP_START,
   SIGNUP_SUCCESS,
@@ -27,6 +28,9 @@ const initialState = {
     isLoggingIn: false,
     isLoggedIn: false,
     error: ""
+  },
+  decodedToken: {
+    username: ''
   },
   user: {
     // id: '',
@@ -77,6 +81,13 @@ export const reducer = (state = initialState, action) => {
           isLoggedIn: true
         }
       };
+    case LOGIN_DECODE:
+      return {
+        ...state,
+        decodedToken: {
+          username: action.payload.username
+        }
+      }
     case LOGIN_FAIL:
       return {
         ...state,

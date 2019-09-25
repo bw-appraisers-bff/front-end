@@ -10,7 +10,6 @@ export const login = (creds, history) => dispatch => {
     dispatch({ type: LOGIN_START });
     axios.post(`https://appraisersbff.herokuapp.com/auth/login`, creds)
     .then(res => {
-        console.log(res.data.token)
         dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
         localStorage.setItem('token', res.data.token);
         history.push('/appraise');
@@ -27,7 +26,7 @@ export const signUp = (user) => dispatch => {
     dispatch({ type: SIGNUP_START });
     axios
         .post(`https://appraisersbff.herokuapp.com/auth/register`, user)
-        .then(res => console.log("SIGNUP RES: ", res))
+        .then(res => dispatch({ type: SIGNUP_SUCCESS }))
         .catch(err => dispatch({ type: SIGNUP_FAIL, payload: err }));
 }
 
@@ -48,12 +47,15 @@ export const POST_HOUSE_START = 'POST_HOUSE_START';
 export const POST_HOUSE_SUCCESS = 'POST_HOUSE_SUCCESS';
 export const POST_HOUSE_FAIL = 'POST_HOUSE_FAIL';
 
-export const postHouse = () => dispatch => {
+export const postHouse = (house) => dispatch => {
     dispatch({ type: LOGIN_START });
     axiosWithAuth()
-        .post(`/houses`)
+        .post(`/houses`, house)
         .then(res => console.log("POSTHOUSE RES: ", res))
-        .catch(err => dispatch({ type: POST_HOUSE_FAIL, payload:err }));
+        .catch(err => {
+            console.log("POSTHOUSE: USER: ", house)
+            dispatch({ type: POST_HOUSE_FAIL, payload:err })
+        });
 }
 
 // hoping this will get price from DS to display

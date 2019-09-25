@@ -1,51 +1,58 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 
-import PrivateRoute from '../utils/PrivateRoute.js';
+import PrivateRoute from "../utils/PrivateRoute.js";
 
 //components
 import Signup from "./Signup";
 import Appraise from "./Appraise";
 import Result from "./Result";
-import Saved from "./Saved";
 import SavedList from "./SavedList";
-import Login from "./Login";
 
-const Content = () => {
-  const [credentials, setCredentials] = useState("boo");
-
-  return (
-    <div className="content">
-      {/* UNAUTHENTICATED ROUTES */}
-
-      <Route exact path="/" render={(props) => (
-        <Signup {...props} credentials={credentials} setCredentials={setCredentials} />
-      )} />
-      <Route path="/signup" component={Signup} />       
-      <Route path="/login" component={Login} />
-
-      
-      
-      {/* AUTHENTICATED ROUTES */}
-
-      <Switch>
-       <PrivateRoute path='/appraise' component={Appraise} />
-       <PrivateRoute path="/result" component={Result} />
-       <PrivateRoute path="/saved" component={SavedList} />
-     </Switch>
-
-     
-      <div>
-       <span>Test routes:</span>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/signup">Signup</NavLink>
-        <NavLink to="/appraise">Appraise</NavLink>
-        <NavLink to="/result">Result</NavLink>
-        <NavLink to="/Saved">Saved</NavLink>
+class Content extends React.Component {
+  constructor(props) {
+    super();
+  }
+  render () {
+    return (
+      <div className="content">
+        <div>
+          <span>Test routes:</span>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/signup">Signup</NavLink>
+          <NavLink to="/appraise">Appraise</NavLink>
+          <NavLink to="/result">Result</NavLink>
+          <NavLink to="/saved">Saved</NavLink>
+        </div>
+  
+        <Switch>
+          <PrivateRoute path="/appraise" component={Appraise} />
+          <PrivateRoute path="/result" component={Result} />
+          <PrivateRoute path="/saved" component={SavedList} />
+          <Route path="/login" component={ this.props.isLoggedIn ?
+                    Appraise : 
+                    FormikLogin } />
+        </Switch>
+  
+        <Route path="/signup" component={ this.props.isLoggedIn ?
+                    Appraise : 
+                    Signup } />
+  
+        <Route exact path="/" component={ this.props.isLoggedIn ?
+                    Appraise : 
+                    Signup } />
+        {/* Note: is not rending "Appraise" even if "isLoggedIn" is true */}
+        
       </div>
+    );
+  }
+}
 
-    </div>
-  );
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.login.isLoggedIn
+  };
 };
 
-export default Content;
+export default connect(mapStateToProps)(Content);

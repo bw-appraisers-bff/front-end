@@ -1,5 +1,6 @@
 import React from 'react';
 import AppraiseForm from './AppraiseForm'
+import ResultCard from './ResultCard'
 
 const dummyData = [
     {"id":1,"zipCode":90210,"yearBuilt":1960,"squareFootage":1000,"bedrooms":10,"bathrooms":5.5,"value":100500},
@@ -12,18 +13,9 @@ const Result = () => {
 
     return(
         <>
-            <div className="result">
-                <div className="result-card">
-                    <h1>{`Appraised at $ ${dollarValue}`}</h1>
-                    <p>Your Appraisal Inputs:</p>
-                    <p>
-                    {`${example.squareFootage} square foot home, built in ${example.yearBuilt} in zip code ${example.zipCode}` }
-                    </p>
-                    <p>
-                        {`With ${example.bedrooms} bedrooms and ${example.bathrooms} bathrooms` }
-                    </p>
-                    <button>Save Result</button>
-                </div>
+            <div className="result-card">
+                <ResultCard house={example} />
+                <button>Save Result</button>
             </div>
 
             <div className="form-container">

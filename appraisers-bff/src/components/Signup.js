@@ -5,7 +5,6 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import {useSpring, animated } from 'react-spring'
 import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 const Signup = ({ values, errors, touched, status }) => {
   

@@ -1,7 +1,32 @@
-import React from "react";
-import Saved from "./Saved.js";
+import React, { useState } from 'react';
+import SavedCard from "./SavedCard";
 
-class SavedList extends React.Component {
+const SavedList = props => {
+  const dummyData = [
+    {"id":1,"name":"First Saved","interestLevel":5,"house":
+      {"id":7,"zipCode":90210,"yearBuilt":1960,"squareFootage":1000,"bedrooms":10,"bathrooms":5.5,"value":100500}
+    },
+    {"id":2,"name":"Second Saved","interestLevel":3,"house":
+      {"id":8,"zipCode":10024,"yearBuilt":1975,"squareFootage":2500,"bedrooms":1,"bathrooms":0.5,"value":100500}
+    },
+    {"id":3,"name":"Third Saved","interestLevel":1,"house":
+      {"id":9,"zipCode":60007,"yearBuilt":1920,"squareFootage":5200,"bedrooms":3,"bathrooms":2,"value":100500}
+    }];
+
+  const [savedResults, setSavedResults] = useState(dummyData)
+
+  return (
+    <div className="saved">
+      {savedResults.map(result => (
+        // <Link to={`movies/${movie.id}`}>
+        <SavedCard {...props} key={result.id} result={result} />
+        // </Link>
+      ))}
+    </div>
+  );
+}
+
+class SavedListClass extends React.Component {
     constructor(props){
         super(props);
         this.state = {

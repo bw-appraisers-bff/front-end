@@ -14,7 +14,7 @@ const Result = props => {
     let example = dummyData[0];
     const dollarValue = example.value.toLocaleString();
 
-    props.getFav(props.decodedToken)
+    // props.getFav(props.decodedToken)
     //needs to be fixed 
     // props.getHouse()
     //history.push() from appraise form with ID to get price and easier to populate previous data?

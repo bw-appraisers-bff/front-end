@@ -45,7 +45,7 @@ const initialState = {
     interestLevel: ""
   },
   house: {
-    house: {}
+    priceOfHouse: {}
     // id: "",
     // zipCode: "",
     // yearBuilt: "",
@@ -110,11 +110,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state
       };
-    case GET_HOUSE_START:
+    case POST_HOUSE_START:
       return {
         ...state
       }
-      case GET_HOUSE_SUCCESS:
+      case POST_HOUSE_SUCCESS:
           return {
             ...state,
             house: {
@@ -125,7 +125,7 @@ export const reducer = (state = initialState, action) => {
               // bedrooms: action.payload.bedrooms,
               // bathrooms: action.payload.bathrooms,
               // price: action.payload.price,
-              house: action.payload
+              priceOfHouse: action.payload
 
             }
           }

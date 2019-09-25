@@ -101,9 +101,9 @@ handleSubmit(values, { setStatus, resetForm, props }) {
     // console.log("Parsing attempt: ", Number(values))
     Object.keys(values).forEach(i => console.log(parseInt(i, 10)))
     const house = {
-        squareFootage: Number(values.squareFootage),
-        yearBuilt: Number(values.yearbuilt),
         zipCode: Number(values.zipcode),
+        yearBuilt: Number(values.yearbuilt),
+        squareFootage: Number(values.squareFootage),
         bedrooms: Number(values.bedrooms),
         bathrooms: parseFloat(values.bathrooms)
     }

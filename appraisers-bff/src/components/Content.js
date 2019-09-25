@@ -10,6 +10,7 @@ import Appraise from "./Appraise";
 import Result from "./Result";
 import SavedList from "./SavedList";
 import FormikLogin from "./Login";
+import AboutUs from "./AboutUs";
 
 class Content extends React.Component {
   constructor(props) {
@@ -46,6 +47,11 @@ class Content extends React.Component {
           exact
           path="/"
           component={this.props.isLoggedIn ? Appraise : Signup}
+        />
+
+        <Route
+          path="/aboutus" 
+          component={AboutUs}
         />
         {/* Note: is not rending "Appraise" even if "isLoggedIn" is true */}
       </div>

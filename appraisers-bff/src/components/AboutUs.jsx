@@ -15,7 +15,7 @@ const AboutUs = ( ) => {
             <div className="photo-container">
                 <div className="bioCard">
                     <div className="bioImage">
-                    <img src="." alt=""/>
+                    <img src="images/teamPics/MichaelFinal" alt="Michael Guadalupe"/>
                     </div>
                     <h3>Name</h3>
                     <p>Role</p>

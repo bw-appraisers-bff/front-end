@@ -1,6 +1,6 @@
 //libraries and frameworks
 import React from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 //style
 import "./App.scss";
@@ -10,8 +10,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Content from "./components/Content";
 
-import SavedList from './components/SavedList.js';
-
 class App extends React.Component {
   constructor(props) {
     super();
@@ -20,7 +18,7 @@ class App extends React.Component {
     return (
       <div className="app-container">
         {/*NAVBAR COMPONENT: authenticated vs unauthenticated rendering */}
-        <Navbar isLoggedIn={this.props.isLoggedIn}/>
+        <Navbar isLoggedIn={this.props.isLoggedIn} />
 
         {/* Content COMPONENT: authenticated vs unauthenticated rendering */}
         <Content />
@@ -35,7 +33,7 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
     isLoggedIn: state.login.isLoggedIn
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(App);

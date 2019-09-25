@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-
 import PrivateRoute from "../utils/PrivateRoute.js";
 
 //components
@@ -15,6 +14,7 @@ class Content extends React.Component {
   constructor(props) {
     super();
   }
+
   render() {
     return (
       <div className="content">

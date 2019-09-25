@@ -27,6 +27,7 @@ const Content = () => {
         <PrivateRoute path="/result" component={Result} />
         <PrivateRoute path="/saved" component={SavedList} />
         <Route path="/login" component={FormikLogin} />
+        <Route exact path="/" component={FormikLogin} />
       </Switch>
       <Route path="/signup" component={Signup} />
     </div>

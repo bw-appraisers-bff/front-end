@@ -104,8 +104,8 @@ handleSubmit(values, { setStatus, resetForm, props }) {
         zipCode: Number(values.zipcode),
         yearBuilt: Number(values.yearbuilt),
         squareFootage: Number(values.squareFootage),
-        bedrooms: Number(values.bedrooms),
-        bathrooms: parseFloat(values.bathrooms)
+        bedrooms: Number(values.bedrm),
+        bathrooms: parseFloat(values.bathrm)
     }
     console.log('houseObj: ', house)
     // axios

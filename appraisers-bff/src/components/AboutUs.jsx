@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default AboutUS => () {
+const AboutUs = ( ) => {
     return (
         <div className="maincontainer">
             <div className="aboutUs">
@@ -13,6 +13,18 @@ export default AboutUS => () {
                 </div>
             </div>
             <div className="photo-container">
+                <div className="bioCard">
+                    <div className="bioImage">
+                    <img src="." alt=""/>
+                    </div>
+                    <h3>Name</h3>
+                    <p>Role</p>
+                    
+
+                </div>
+
+
+
             
             </div>
 
@@ -21,3 +33,4 @@ export default AboutUS => () {
     </div>
     )
 }
+export default AboutUs;

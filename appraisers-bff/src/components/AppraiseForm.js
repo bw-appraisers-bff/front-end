@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { postHouse } from '../actions'
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
+import PrivateRoute from '../utils/PrivateRoute';
 
 const Appraise = ({ errors, touched, values, status }) => {  
     return (
@@ -97,7 +98,8 @@ validationSchema: Yup.object().shape({
 handleSubmit(values, { setStatus, resetForm, props }) {
     console.log("Appraise Form: Props: ", props)
     console.log("Appraise Form: Values: ", values)
-    console.log("Parsing attempt: ", parseInt(values))
+    // console.log("Parsing attempt: ", Number(values))
+    Object.keys(values).map(i => console.log(Number(i)))
     // axios
     // // values is our object with all our data on it.
     // .post("https://reqres.in/api/users/", values)

@@ -74,7 +74,7 @@ const FormikSignup = withFormik({
   }),
   handleSubmit(values, { resetForm, setStatus, props }) {
     console.log("SIGNUP: VALUES: ", values)
-    console.log("SIGNUP: PROPS: ", props)
+    console.log("SIGNUP: PROPS: ", props.signUp)
     const user = {
       username: values.username,
       password: values.password

@@ -29,9 +29,11 @@ export const signUp = (user) => dispatch => {
         .post(`https://appraisersbff.herokuapp.com/auth/register`, user)
         .then(res => {
             console.log("SIGNUP RES: ", res)
+            dispatch({ type: SIGNUP_SUCCESS })
         })
         .catch(err => {
             console.log("I'm an error", err)
+            console.log("USER: ", user)
             dispatch({ type: SIGNUP_FAIL, payload: err })
         });
 }

@@ -91,6 +91,9 @@ export const reducer = (state = initialState, action) => {
         case SIGNUP_SUCCESS:
           return {
             ...state,
+            user: {
+              
+            }
           };
         case SIGNUP_FAIL:
           return {

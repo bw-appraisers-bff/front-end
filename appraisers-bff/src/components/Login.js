@@ -1,22 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { connect } from 'react-redux';
 import { login } from '../actions';
-import { withFormik, Form, Field, setStatus } from "formik";
+import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Login = ({ values, errors, touched, status }) => {
-  // useEffect(() => {
-  //   if (status) {
-  //     setLoginForm({ status });
-  //   }
-  // }, [status]);
-
-  // const handleChanges = event => {
-  //   setLoginForm({ ...loginForm, [event.target.name]: event.target.value });
-  // };
-
   return (
     <div className="container login">
       <div className="form-container">
@@ -61,16 +50,12 @@ const FormikLogin = withFormik({
       .min(8, "Password must be 8 characters minimum")
   }),
   handleSubmit(values, { resetForm, props }) {
-    // event.preventDefault();
-    // console.log("VALUES",values)
-    // console.log("PROPS", props)
     props.login(values, props.history)
     resetForm({ username: "", password: "" });
   }
 })(Login);
 
 const mapStateToProps = state => {
-  // console.log("LOGIN: MTSP: STATE: ", state)
   return{
     isLogginIn: state.login.isLogginIn,
     isLoggedIn: state.login.isLogginIn,

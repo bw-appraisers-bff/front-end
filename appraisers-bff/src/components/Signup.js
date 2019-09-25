@@ -1,9 +1,8 @@
 import React from "react";
-import { connect } from 'react-redux';
-import { signUp } from '../actions'
+import { connect } from "react-redux";
+import { signUp } from "../actions";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Signup = ({ values, errors, touched, status }) => {
@@ -73,24 +72,20 @@ const FormikSignup = withFormik({
       .required("Please confirm your password")
   }),
   handleSubmit(values, { resetForm, setStatus, props }) {
-    console.log("SIGNUP: VALUES: ", values)
-    console.log("SIGNUP: PROPS: ", props.signUp)
+    console.log("SIGNUP: VALUES: ", values);
+    console.log("SIGNUP: PROPS: ", props.signUp);
     const user = {
       username: values.username,
       password: values.password
-    }
-    console.log(user)
-    // axios
-    //   .post("https://reqres.in/api/users/", values)
-    //   .then(res => {
-    //     setStatus(res);
-    //     console.log("signup response", res);
-    //   })
-    //   .catch(e => console.log(e));
-    props.signUp(user)
-    props.history.push('/login');
-    // resetForm({ username: "", password: "", confirmation: "" });
+    };
+    console.log(user);
+    props.signUp(user);
+    props.history.push("/login");
+    resetForm({ username: "", password: "", confirmation: "" });
   }
 })(Signup);
 
-export default connect(null, { signUp })(FormikSignup);
+export default connect(
+  null,
+  { signUp }
+)(FormikSignup);

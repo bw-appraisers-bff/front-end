@@ -50,7 +50,7 @@ export const getHouse = () => dispatch => {
 export const POST_HOUSE_START = 'POST_HOUSE_START';
 export const POST_HOUSE_SUCCESS = 'POST_HOUSE_SUCCESS';
 export const POST_HOUSE_FAIL = 'POST_HOUSE_FAIL';
-
+//price from here.
 export const postHouse = (aHouse) => dispatch => {
     console.log("HOUSE IN ACTIONS: ", aHouse)
     dispatch({ type: POST_HOUSE_START });

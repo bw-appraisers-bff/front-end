@@ -22,7 +22,7 @@ const Login = ({ values, errors, touched, status }) => {
           )}
 
           <div className="button-container">
-            <button type="submit" class="primary-button">Log in</button>
+            <button type="submit" className="primary-button">Log in</button>
           </div>
         </Form>
         <div className="button-container">

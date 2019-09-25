@@ -45,20 +45,22 @@ const initialState = {
     interestLevel: ""
   },
   house: {
-    id: null,
-    zipCode: null,
-    yearBuilt: null,
-    squareFootage: null,
-    bedrooms: null,
-    bathrooms: null
-  }, // maybe we could parse the strings?
-  price: {
-    id: "",
-    houseId: "",
-    priceBase: "",
-    priceMargin: "",
-    confidenceInterval: ""
-  }
+    house: {}
+    // id: "",
+    // zipCode: "",
+    // yearBuilt: "",
+    // squareFootage: "",
+    // bedrooms: "",
+    // bathrooms: "",
+    // price: "",
+  },
+  // price: {
+  //   id: "",
+  //   houseId: "",
+  //   priceBase: "",
+  //   priceMargin: "",
+  //   confidenceInterval: ""
+  // }
 };
 
 export const reducer = (state = initialState, action) => {
@@ -115,7 +117,17 @@ export const reducer = (state = initialState, action) => {
       case GET_HOUSE_SUCCESS:
           return {
             ...state,
-            house: action.payload
+            house: {
+              // id: action.payload.id,
+              // zipCode: action.payload.zipCode,
+              // yearBuilt: action.payload.yearBuilt,
+              // squareFootage: action.payload.squareFootage,
+              // bedrooms: action.payload.bedrooms,
+              // bathrooms: action.payload.bathrooms,
+              // price: action.payload.price,
+              house: action.payload
+
+            }
           }
 
     default:

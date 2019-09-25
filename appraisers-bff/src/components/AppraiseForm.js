@@ -98,16 +98,33 @@ validationSchema: Yup.object().shape({
 handleSubmit(values, { setStatus, resetForm, props }) {
     console.log("Appraise Form: Props: ", props)
     console.log("Appraise Form: Values: ", values)
-    const house = {
+    const aHouse = {
         "zipCode": Number(values.zipcode),
         "yearBuilt": Number(values.yearbuilt),
         "squareFootage": Number(values.squareFootage),
         "bedrooms": Number(values.bedrm),
         "bathrooms": parseFloat(values.bathrm)
     }
-    props.postHouse(house, props.history)
+    console.log('history', props.history)
+    props.postHouse(aHouse, props.history)
     // resetForm('');
 }
 })(Appraise); // currying functions in Javascript
 
-export default connect(null, { postHouse })(FormikAppraise);
+const mapStateToProps = state => {
+    console.log("Appraise: mstp: state.house: ", state.house)
+    console.log("Appraise: mstp: state.house: ", state.house.house)
+    return{
+        house: {
+            id: state.id,
+            zipCode: state.zipCode,
+            yearBuilt: state.yearBuilt,
+            squareFootage: state.squareFootage,
+            bedrooms: state.bedrooms,
+            bathrooms: state.bathrooms,
+            price: state.price,
+        }
+    }
+}
+
+export default connect(mapStateToProps, { postHouse })(FormikAppraise);

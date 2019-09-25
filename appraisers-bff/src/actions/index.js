@@ -51,14 +51,14 @@ export const POST_HOUSE_START = 'POST_HOUSE_START';
 export const POST_HOUSE_SUCCESS = 'POST_HOUSE_SUCCESS';
 export const POST_HOUSE_FAIL = 'POST_HOUSE_FAIL';
 
-export const postHouse = (house) => dispatch => {
-    console.log("HOUSE IN ACTIONS: ", house)
+export const postHouse = (aHouse) => dispatch => {
+    console.log("HOUSE IN ACTIONS: ", aHouse)
     dispatch({ type: POST_HOUSE_START });
     axiosWithAuth()
-        .post(`/houses`, house)
+        .post(`/houses`, aHouse)
         .then(res => {
-            console.log("POSTHOUSE RES: ", res)
-            // dispatch({ type: POST_HOUSE_SUCCESS })
+            console.log("POSTHOUSE RES: ", res.data)
+            dispatch({ type: POST_HOUSE_SUCCESS, payload: res.data })
         })
         .catch(err => {
             console.log("I'm an error for postHouse", err)

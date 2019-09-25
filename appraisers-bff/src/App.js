@@ -10,15 +10,11 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Content from "./components/Content";
 
-class App extends React.Component {
-  constructor(props) {
-    super();
-  }
-  render() {
+const App = props => {
     return (
       <div className="app-container">
         {/*NAVBAR COMPONENT: authenticated vs unauthenticated rendering */}
-        <Navbar isLoggedIn={this.props.isLoggedIn} />
+        <Navbar isLoggedIn={props.isLoggedIn} />
 
         {/* Content COMPONENT: authenticated vs unauthenticated rendering */}
         <Content />
@@ -27,7 +23,6 @@ class App extends React.Component {
         <Footer />
       </div>
     );
-  }
 }
 
 const mapStateToProps = state => {

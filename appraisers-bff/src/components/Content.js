@@ -9,13 +9,13 @@ import Signup from "./Signup";
 import Appraise from "./Appraise";
 import Result from "./Result";
 import SavedList from "./SavedList";
-import FormikLogin from './Login';
+import FormikLogin from "./Login";
 
 class Content extends React.Component {
   constructor(props) {
     super();
   }
-  render () {
+  render() {
     return (
       <div className="content">
         <div>
@@ -26,25 +26,28 @@ class Content extends React.Component {
           <NavLink to="/result">Result</NavLink>
           <NavLink to="/saved">Saved</NavLink>
         </div>
-  
+
         <Switch>
           <PrivateRoute path="/appraise" component={Appraise} />
           <PrivateRoute path="/result" component={Result} />
           <PrivateRoute path="/saved" component={SavedList} />
-          <Route path="/login" component={ this.props.isLoggedIn ?
-                    Appraise : 
-                    FormikLogin } />
+          <Route
+            path="/login"
+            component={this.props.isLoggedIn ? Appraise : FormikLogin}
+          />
         </Switch>
-  
-        <Route path="/signup" component={ this.props.isLoggedIn ?
-                    Appraise : 
-                    Signup } />
-  
-        <Route exact path="/" component={ this.props.isLoggedIn ?
-                    Appraise : 
-                    Signup } />
+
+        <Route
+          path="/signup"
+          component={this.props.isLoggedIn ? Appraise : Signup}
+        />
+
+        <Route
+          exact
+          path="/"
+          component={this.props.isLoggedIn ? Appraise : Signup}
+        />
         {/* Note: is not rending "Appraise" even if "isLoggedIn" is true */}
-        
       </div>
     );
   }

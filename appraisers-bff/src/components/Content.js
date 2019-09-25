@@ -9,6 +9,7 @@ import Signup from "./Signup";
 import Appraise from "./Appraise";
 import Result from "./Result";
 import SavedList from "./SavedList";
+import FormikLogin from './Login';
 
 class Content extends React.Component {
   constructor(props) {

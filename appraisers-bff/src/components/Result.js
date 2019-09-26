@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getFav, getHouse } from "../actions";
+import { getFav, getHouse, postFav } from "../actions";
 import AppraiseForm from "./AppraiseForm";
 import ResultCard from "./ResultCard";
 
@@ -50,6 +50,11 @@ const Result = props => {
   // console.log("props.getHouse invoking", props.getHouse())
   // const data = props.getHouse();
   // console.log('DATA: ', data)
+
+  const handleSaveSubmit = e => {
+    e.preventDefault();
+    // props.postFav()
+  }
   return (
     <>
       <div className="result-card">

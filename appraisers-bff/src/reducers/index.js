@@ -11,14 +11,9 @@ import {
   POST_HOUSE_START,
   POST_HOUSE_SUCCESS,
   POST_HOUSE_FAIL,
-  GET_PRICE_START,
-  GET_PRICE_SUCCESS,
-  GET_PRICE_FAIL,
-  GET_FAVORITES_START,
-  GET_FAVORITES_SUCCESS,
-  GET_FAVORITES_FAIL,
-  GET_HOUSE_START,
-  GET_HOUSE_SUCCESS
+  POST_FAVORITES_START,
+  POST_FAVORITES_SUCCESS,
+  POST_FAVORITES_FAIL
 } from "../actions";
 
 //make auth state for conditional rendering on nav bar
@@ -30,7 +25,7 @@ const initialState = {
     error: ""
   },
   decodedToken: {
-    username: ''
+    username: ""
   },
   user: {
     // id: '',
@@ -38,15 +33,11 @@ const initialState = {
     password: ""
     // name: ''
   },
-  favorite: {
-    userId: "",
-    houseId: "",
-    nameEntry: "",
-    interestLevel: ""
-  },
+  favorites: [],
   house: {
     priceOfHouse: {}
   },
+  error: ''
 };
 
 export const reducer = (state = initialState, action) => {
@@ -75,7 +66,7 @@ export const reducer = (state = initialState, action) => {
         decodedToken: {
           username: action.payload.username
         }
-      }
+      };
     case LOGIN_FAIL:
       return {
         ...state,
@@ -90,7 +81,7 @@ export const reducer = (state = initialState, action) => {
       };
     case SIGNUP_SUCCESS:
       return {
-        ...state,
+        ...state
       };
     case SIGNUP_FAIL:
       return {
@@ -99,23 +90,28 @@ export const reducer = (state = initialState, action) => {
     case POST_HOUSE_START:
       return {
         ...state
-      }
-      case POST_HOUSE_SUCCESS:
-          return {
-            ...state,
-            house: {
-              // id: action.payload.id,
-              // zipCode: action.payload.zipCode,
-              // yearBuilt: action.payload.yearBuilt,
-              // squareFootage: action.payload.squareFootage,
-              // bedrooms: action.payload.bedrooms,
-              // bathrooms: action.payload.bathrooms,
-              // price: action.payload.price,
-              priceOfHouse: action.payload
-
-            }
-          }
-
+      };
+    case POST_HOUSE_SUCCESS:
+      return {
+        ...state,
+        house: {
+          priceOfHouse: action.payload
+        }
+      };
+      case POST_FAVORITES_START:
+        return {
+          ...state,
+        }
+      case POST_FAVORITES_SUCCESS:
+        return {
+          ...state,
+          favorites: [action.payload]
+        }
+      case POST_FAVORITES_FAIL:
+        return {
+          ...state,
+          error: action.payload
+        }
     default:
       return state;
   }

@@ -1,8 +1,10 @@
 import { axiosWithAuth } from '../utils/axiosWithAuth.js';
 import axios from 'axios';
+import decode from 'jwt-decode';
 
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_DECODE = 'LOGIN_DECODE'
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 
 //posting to BE api for token
@@ -12,6 +14,8 @@ export const login = (creds, history) => dispatch => {
     .then(res => {
         dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
         localStorage.setItem('token', res.data.token);
+        console.log('decodedToken: ', decode(res.data.token))
+        dispatch({ type: LOGIN_DECODE, payload: res.data.token })
         history.push('/appraise');
     })
     .catch(err => dispatch({ type: LOGIN_FAIL, payload: err}))

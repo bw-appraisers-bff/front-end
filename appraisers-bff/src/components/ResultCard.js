@@ -8,7 +8,7 @@ const ResultCard = props => {
 
   return (
     <div className="result-data">
-      <h1>{`Appraised at $${dollarValue}`}</h1>
+      <h2>{`Appraised at $${dollarValue}`}</h2>
       <p>Your Appraisal Inputs:</p>
       <p>
         {`${squareFootage} square foot home, built in ${yearBuilt} in zip code ${zipCode}` }

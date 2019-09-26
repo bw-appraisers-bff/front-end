@@ -111,11 +111,12 @@
 }
 
 .about-card {
+  
   width: 100%;
   position: relative;
   width: 26%;
   margin:1%;
-  z-index: -1;
+  // z-index: -1;
   // border: 1px solid dodgerblue;
 
 }
@@ -127,7 +128,6 @@
   position: absolute;
   top: 65%;
 
-
   h1 {
     color: $brand-aqua;
     font-size: 2rem;
@@ -136,6 +136,14 @@
   p {
     color: $brand-aqua;
     font-size: 1.5rem;
+  }
+
+  a {
+    color: blue;
+
+
+    z-index: inherit;
+    
   }
 }
 

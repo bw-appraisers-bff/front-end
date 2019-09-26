@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const AboutCard = props => {
     return(
@@ -9,7 +10,7 @@ const AboutCard = props => {
             <div className="bio-data">
                 <h1 className="about-name">{props.title.name}</h1>
                 <p className="about-role">Role:{props.title.role}</p>
-                <a href={props.title.github}>Contact Me</a>
+                <a href={props.title.github} >GitHub</a>
             </div>
         </div>
 

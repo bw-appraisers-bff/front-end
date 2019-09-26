@@ -7,9 +7,9 @@ const Footer = () => {
       <div className="footer">
         <span>Copyright Appraiser's BFF 2019</span>
         <div className="footer-links">
-          <a href="https://www.pinterest.com">P</a>
-          <a href="https://www.twitter.com">T</a>
-          <a href="https://www.facebook.com">F</a>
+          <a href="https://www.pinterest.com"><img src='../../../images/PinterestNavLogo.png'/></a>
+          <a href="https://www.twitter.com"><img src='../../../images/TwitterNavLogo.png'/></a>
+          <a href="https://www.facebook.com"><img src="../../../images/FBNavLogo.png"/> </a>
         </div>
         <div className="footer-links">
           <Link to="/">Contact Us</Link>

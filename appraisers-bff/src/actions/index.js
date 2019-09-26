@@ -70,19 +70,6 @@ export const postHouse = (aHouse, history) => dispatch => {
     });
 };
 
-// hoping this will get price from DS to display
-export const GET_PRICE_START = 'GET_PRICE_START';
-export const GET_PRICE_SUCCESS = 'GET_PRICE_SUCCESS';
-export const GET_PRICE_FAIL = 'GET_PRICE_FAIL';
-
-export const getPrice = (user) => dispatch => {
-    dispatch({ type: GET_PRICE_START });
-    axiosWithAuth()
-        .get(`/prices`, {username: 'admin'})
-        .then(res => console.log('GETPRICE: RES: ', res))
-        .catch(err => dispatch({ type: GET_PRICE_FAIL, payload: err }));
-}
-
 // saved properties
 export const GET_FAVORITES_START = "GET_FAVORITES_START";
 export const GET_FAVORITES_SUCCESS = "GET_FAVORITES_SUCCESS";
@@ -120,5 +107,24 @@ export const postFav = loved => dispatch => {
       console.log("err loved: ", loved);
       console.log("err res: ", err.response.data);
       dispatch({ type: POST_FAVORITES_FAIL, payload: err });
+    });
+};
+
+export const PUT_FAVORITES_START = "PUT_FAVORITES_START";
+export const PUT_FAVORITES_SUCCESS = "PUT_FAVORITES_SUCCESS";
+export const PUT_FAVORITES_FAIL = "PUT_FAVORITES_FAIL";
+
+export const putFav = (id, edited) => dispatch => {
+  dispatch({ type: PUT_FAVORITES_START });
+  axiosWithAuth()
+    .put(`/fav/${id}`, edited)
+    .then(res => {
+      console.log("then edited: ", edited);
+      console.log("PUTFAVORITE: RES: ", res);
+    })
+    .catch(err => {
+      console.log("err edited: ", edited);
+      console.log("err res: ", err.response.data);
+      dispatch({ type: PUT_FAVORITES_FAIL, payload: err });
     });
 };

@@ -53,8 +53,8 @@ const FormikSaved = withFormik({
     interestLevel: Yup.string()
   }),
   handleSubmit(values, { props }) {
-    console.log("RESULT: SAVED FORM: PROPS: ", props);
-    console.log("RESULT: SAVED FORM: HOUSEID: ", props.history.location.state.id);
+    // console.log("RESULT: SAVED FORM: PROPS: ", props);
+    // console.log("RESULT: SAVED FORM: HOUSEID: ", props.history.location.state.id);
     const postThisObj = {
       name: values.title,
       interestLevel: Number(values.interestLevel),
@@ -67,7 +67,7 @@ const FormikSaved = withFormik({
 })(Result);
 
 const mapStateToProps = state => {
-  console.log("result: mstp: state: ", state.decodedToken.token.id);
+  // console.log("result: mstp: state: ", state.decodedToken.token.id);
   return {
     decoded: state.decodedToken.token.id
   };

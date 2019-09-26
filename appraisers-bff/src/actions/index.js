@@ -9,14 +9,14 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 
 //posting to BE api for token
 export const login = (creds, history) => dispatch => {
-  console.log("LOGIN: HISTORY: ", history);
+  // console.log("LOGIN: HISTORY: ", history);
   dispatch({ type: LOGIN_START });
   axios
     .post(`https://appraisersbff.herokuapp.com/auth/login`, creds)
     .then(res => {
       dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
       localStorage.setItem("token", res.data.token);
-      console.log("decodedToken: ", decode(res.data.token));
+      // console.log("decodedToken: ", decode(res.data.token));
       dispatch({ type: LOGIN_DECODE, payload: decode(res.data.token) });
       history.push("/appraise");
     })
@@ -54,8 +54,8 @@ export const POST_HOUSE_SUCCESS = "POST_HOUSE_SUCCESS";
 export const POST_HOUSE_FAIL = "POST_HOUSE_FAIL";
 //price from here.
 export const postHouse = (aHouse, history) => dispatch => {
-  console.log("HOUSE IN ACTIONS: ", aHouse);
-  console.log("HISTORY IN ACTIONS: ", history);
+  // console.log("HOUSE IN ACTIONS: ", aHouse);
+  // console.log("HISTORY IN ACTIONS: ", history);
   dispatch({ type: POST_HOUSE_START });
   axiosWithAuth()
     .post(`/houses`, aHouse)
@@ -101,10 +101,10 @@ export const postFav = loved => dispatch => {
   axiosWithAuth()
     .post(`/fav`, loved)
     .then(res => {
-      console.log("POSTFAVORITE: RES: ", res);
+      // console.log("POSTFAVORITE: RES: ", res);
     })
     .catch(err => {
-      console.log("err loved: ", loved);
+      // console.log("err loved: ", loved);
       console.log("err res: ", err.response.data);
       dispatch({ type: POST_FAVORITES_FAIL, payload: err });
     });

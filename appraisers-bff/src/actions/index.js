@@ -62,7 +62,7 @@ export const postHouse = (aHouse, history) => dispatch => {
     .then(res => {
       console.log("POSTHOUSE RES: ", res.data);
       dispatch({ type: POST_HOUSE_SUCCESS, payload: res.data });
-      history.push("/result");
+      history.push("/result", res.data);
     })
     .catch(err => {
       console.log("I'm an error for postHouse", err);

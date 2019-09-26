@@ -90,11 +90,6 @@
   max-width: 100%;
   margin: 3% 0;
 
-  
- 
-  // border: 1px solid pink;
- 
-
 }
 
 
@@ -122,6 +117,10 @@
 
 }
 
+.bio-pic {
+  border-radius: 10px;
+}
+
 .bio-data {
   display: flex;
   flex-direction: column;
@@ -142,6 +141,7 @@
   p {
     color: $brand-aqua;
     font-size: 1.5rem;
+    padding-right:3%;
     
   }
 

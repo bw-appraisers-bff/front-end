@@ -11,7 +11,7 @@ const ResultCard = ({ house }) => {
     squareFootage
   } = house;
 
-  const dollarValue = price.toString();
+  const dollarValue = price.toLocaleString();
 
   return (
     <div className="result-data">

@@ -6,54 +6,9 @@ import { getFav } from "../actions";
 import SavedCard from "./SavedCard";
 
 const SavedList = props => {
-  console.log("SavedList: Props: ", props);
-
-  const { getFav, decodedToken } = props;
-
-  const dummyData = [
-    {
-      id: 1,
-      name: "First Saved",
-      interestLevel: 5,
-      house: {
-        id: 7,
-        zipCode: 90210,
-        yearBuilt: 1960,
-        squareFootage: 1000,
-        bedrooms: 10,
-        bathrooms: 5.5,
-        value: 100500
-      }
-    },
-    {
-      id: 2,
-      name: "Second Saved",
-      interestLevel: 3,
-      house: {
-        id: 8,
-        zipCode: 10024,
-        yearBuilt: 1975,
-        squareFootage: 2500,
-        bedrooms: 1,
-        bathrooms: 0.5,
-        value: 100500
-      }
-    },
-    {
-      id: 3,
-      name: "Third Saved",
-      interestLevel: 1,
-      house: {
-        id: 9,
-        zipCode: 60007,
-        yearBuilt: 1920,
-        squareFootage: 5200,
-        bedrooms: 3,
-        bathrooms: 2,
-        value: 100500
-      }
-    }
-  ];
+  const { getFav, decodedToken, favorites } = props;
+  // console.log("favorites default", favorites);
+  // console.log("SavedList: Props: ", props);
 
   const fadeIn = useSpring({
     opacity: 1,
@@ -61,36 +16,47 @@ const SavedList = props => {
     config: { mass: 1, tension: 140, friction: 70 }
   });
 
-  const [savedResults, setSavedResults] = useState(dummyData);
-  //learning how to avoid merge conflicts
-
   const tokenObj = {
     username: decodedToken
-  }
-  console.log("tokenObj ", tokenObj)
+  };
+
+  // console.log("tokenObj ", tokenObj);
   useEffect(() => {
-    console.log("useEffect token ", tokenObj)
-    getFav(tokenObj);
-  }, [])
+    // console.log("useEffect token ", tokenObj);
+    getFav(tokenObj); //changes favorites props
+    // setSavedResults(favorites);
+  }, []);
 
   return (
     <div className="saved">
-      {savedResults.map(result => (
+      {favorites.map(
+        result => (
+          <SavedCard
+            {...props}
+            result={result}
+            key={result.id}
+            fadeIn={fadeIn}
+          />
+        )
         // <Link to={`movies/${movie.id}`}>
-        <SavedCard {...props} key={result.id} result={result} fadeIn={fadeIn} />
+        // <SavedCard  key={result.id} result={result}  />
+
         // </Link>
-      ))}
+      )}
     </div>
   );
 };
 
 const mapStateToProps = state => {
-  console.log("SavedList: mstp: state: decodedToken username: ", state.favorites)
+  // console.log(
+  //   "SavedList: mstp: state: decodedToken username: ",
+  //   state.favorites
+  // );
   return {
     decodedToken: state.decodedToken.token.username,
     favorites: state.favorites
-  }
-}
+  };
+};
 
 export default connect(
   mapStateToProps,

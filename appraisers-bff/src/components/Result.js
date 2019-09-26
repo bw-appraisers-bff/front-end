@@ -44,6 +44,7 @@ const dummyData = [
 ];
 
 const Result = ({ history, values, errors, touched, status }) => {
+  console.log("HISTORY FROM RESULT: ", history)
   let example = history.location.state;
   // const dollarValue = example.price.toString();
   const fadeIn = useSpring({

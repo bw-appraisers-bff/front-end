@@ -68,12 +68,13 @@ const SavedCard = ({
       <h2>{`Name: ${name} Interest: ${interestLevel}`}</h2>
       {/* <InterestForm /> */}
       <ResultCard
-        price={price}
-        bedrooms={bedrooms}
-        bathrooms={bathrooms}
-        yearBuilt={yearBuilt}
-        squareFootage={squareFootage}
-        zipCode={zipCode}
+        // price={price}
+        // bedrooms={bedrooms}
+        // bathrooms={bathrooms}
+        // yearBuilt={yearBuilt}
+        // squareFootage={squareFootage}
+        // zipCode={zipCode}
+        house={result}
       />
       <Form>
         <Field type="text" name="title" placeholder="Title" />

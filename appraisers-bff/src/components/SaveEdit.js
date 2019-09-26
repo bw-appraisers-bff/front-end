@@ -6,7 +6,7 @@ const SaveEdit = (props) => {
     const name = props.name;
     const interestLevel = props.interestLevel;
     const [toggle, set] = useState(true);
-    const onClick = () => set(!toggle);
+    const clickHandler = () => set(!toggle);
     const transitions = useTransition(toggle, null, {
     from: { position: 'absolute', opacity: 0 },
     enter: { opacity: 1 },
@@ -17,11 +17,11 @@ const SaveEdit = (props) => {
 
     return transitions.map(({ item, key, props }) => 
     item
-    ? <animated.div style={props} onClick={onClick} className="size-box">
-        <h2>{`Name: ${name} Interest: ${interestLevel}`}</h2>
+    ? <animated.div style={props} className="size-box">
+        <h2>{`Name: ${name} Interest: ${interestLevel}`}<button onClick={clickHandler}>Edit?</button></h2>
         </animated.div>
-    : <animated.div style={props} onClick={onClick} className="size-box">
-        <span>Form will go here</span><button>Submit</button>
+    : <animated.div style={props} className="size-box">
+        <span>Form will go here</span><button onClick={clickHandler}>Submit</button>
         </animated.div>
     );
 }

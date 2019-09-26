@@ -13,6 +13,7 @@ const SavedCard = props => {
         <SaveEdit name={name} interestLevel={interestLevel} />
       </div>
       <ResultCard house={house} />
+      <button>Delete</button>
     </animated.div>
   );
 };

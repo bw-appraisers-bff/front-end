@@ -6,13 +6,14 @@ import PrivateRoute from "../utils/PrivateRoute.js";
 //components
 import Signup from "./Signup";
 import Appraise from "./Appraise";
-import Result from "./Result";
+import FormikSaved from "./Result";
 import SavedList from "./SavedList";
 import FormikLogin from "./Login";
+import AboutUs from "./AboutUs";
 
 class Content extends React.Component {
   constructor(props) {
-    super();
+    super(props);
   }
 
   render() {
@@ -29,7 +30,7 @@ class Content extends React.Component {
 
         <Switch>
           <PrivateRoute path="/appraise" component={Appraise} />
-          <PrivateRoute path="/result" component={Result} />
+          <PrivateRoute path="/result" component={FormikSaved} />
           <PrivateRoute path="/saved" component={SavedList} />
           <Route
             path="/login"
@@ -46,6 +47,11 @@ class Content extends React.Component {
           exact
           path="/"
           component={this.props.isLoggedIn ? Appraise : Signup}
+        />
+
+        <Route
+          path="/aboutus" 
+          component={AboutUs}
         />
         {/* Note: is not rending "Appraise" even if "isLoggedIn" is true */}
       </div>

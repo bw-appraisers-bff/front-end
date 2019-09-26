@@ -3,7 +3,7 @@ import AppraiseForm from './AppraiseForm'
 import {useSpring, animated } from 'react-spring'
 
 
-const Appraise = () => { 
+const Appraise = props => { 
     const fadeIn = useSpring({
         opacity: 1,
         from: { opacity: 0 },
@@ -13,7 +13,7 @@ const Appraise = () => {
     return (
         <animated.div className="form-container" style={fadeIn}>
             <h2>Appraise Now</h2>
-            <AppraiseForm />
+            <AppraiseForm {...props}/>
         </animated.div>
     );
     }

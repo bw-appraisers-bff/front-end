@@ -1,0 +1,4 @@
+[build]
+base = "appraisers-bff/"
+publish = "appraisers-bff/build/"
+command = "yarn build"

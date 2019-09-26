@@ -1,12 +1,12 @@
 import React from "react";
-import { connect } from 'react-redux';
-import { login } from '../actions';
+import { connect } from "react-redux";
+import { login } from "../actions";
 import { withFormik, Form, Field } from "formik";
 import { useSpring, animated } from 'react-spring'
 import { NavLink } from "react-router-dom";
 import * as Yup from "yup";
 
-const Login = ({ values, errors, touched, status }) => {
+const Login = ({history, values, errors, touched, status }) => {
 
   const fadeIn = useSpring({
     opacity: 1,
@@ -30,7 +30,9 @@ const Login = ({ values, errors, touched, status }) => {
           )}
 
           <div className="button-container">
-            <button type="submit" className="primary-button">Log in</button>
+            <button type="submit" className="primary-button">
+              Log in
+            </button>
           </div>
         </Form>
         <div className="button-container">
@@ -58,17 +60,21 @@ const FormikLogin = withFormik({
       .min(8, "Password must be 8 characters minimum")
   }),
   handleSubmit(values, { resetForm, props }) {
-    props.login(values, props.history)
+    // console.log("LOGIN PROPS: ", props);
+    props.login(values, props.history);
     resetForm({ username: "", password: "" });
   }
 })(Login);
 
 const mapStateToProps = state => {
-  return{
+  return {
     isLogginIn: state.login.isLogginIn,
     isLoggedIn: state.login.isLogginIn,
     error: state.login.error
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, { login })(FormikLogin);
+export default connect(
+  mapStateToProps,
+  { login }
+)(FormikLogin);

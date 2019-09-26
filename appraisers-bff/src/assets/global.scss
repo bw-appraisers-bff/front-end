@@ -112,6 +112,11 @@ a {
   }
 }
 
+.size-box {
+  height: 75px;
+  @include flex-style(row, nowrap, center, center);
+}
+
 // App Container
 
 .root {

@@ -46,21 +46,7 @@ const initialState = {
   },
   house: {
     priceOfHouse: {}
-    // id: "",
-    // zipCode: "",
-    // yearBuilt: "",
-    // squareFootage: "",
-    // bedrooms: "",
-    // bathrooms: "",
-    // price: "",
   },
-  // price: {
-  //   id: "",
-  //   houseId: "",
-  //   priceBase: "",
-  //   priceMargin: "",
-  //   confidenceInterval: ""
-  // }
 };
 
 export const reducer = (state = initialState, action) => {

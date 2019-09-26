@@ -99,6 +99,26 @@ export const getFav = user => dispatch => {
     .catch(err => {
       console.log("err user: ", user);
       console.log("err res: ", err.response.data);
-      dispatch({ type: GET_PRICE_FAIL, payload: err });
+      dispatch({ type: GET_FAVORITES_FAIL, payload: err });
+    });
+};
+
+//to save property
+export const POST_FAVORITES_START = "POST_FAVORITES_START";
+export const POST_FAVORITES_SUCCESS = "POST_FAVORITES_SUCCESS";
+export const POST_FAVORITES_FAIL = "POST_FAVORITES_FAIL";
+
+export const postFav = loved => dispatch => {
+  dispatch({ type: POST_FAVORITES_START });
+  axiosWithAuth()
+    .post(`/fav`, { username: "admin" })
+    .then(res => {
+      console.log("then loved: ", loved);
+      console.log("POSTFAVORITE: RES: ", res);
+    })
+    .catch(err => {
+      console.log("err loved: ", loved);
+      console.log("err res: ", err.response.data);
+      dispatch({ type: POST_FAVORITES_FAIL, payload: err });
     });
 };

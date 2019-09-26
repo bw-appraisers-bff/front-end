@@ -77,5 +77,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getFav, getHouse }
+  { getFav, getHouse, postFav }
 )(Result);

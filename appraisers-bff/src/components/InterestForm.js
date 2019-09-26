@@ -1,7 +1,19 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-const InterestForm = ({ errors, touched, value, status }) => (
+const InterestForm = ({
+  // Formik props
+  errors,
+  touched,
+  value,
+  status,
+
+  //props destructuring
+  values,
+  decoded,
+  history,
+  postFav
+}) => (
   <div>
     <Formik
       initialValues={{ name: "", rating: "" }}
@@ -15,10 +27,16 @@ const InterestForm = ({ errors, touched, value, status }) => (
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+        // console.log("RESULT: SAVED FORM: PROPS: ", props);
+        // console.log("RESULT: SAVED FORM: HOUSEID: ", props.history.location.state.id);
+        const postThisObj = {
+          name: values.title,
+          interestLevel: Number(values.interestLevel),
+          userID: decoded,
+          //add houseID
+          houseID: history.location.state.id
+        };
+        postFav(postThisObj);
       }}
     >
       {({ isSubmitting }) => (

@@ -6,7 +6,7 @@ import AboutCard from "./AboutCard";
 
 const AboutUs = ( ) => {
     const teamData = [
-        {image: "../../../images/teamPics/SeanFinal.png", name: "Sean Doyle", role: "Program Manager/Backend", github: "https://github.com/sdoylelambda" },
+        {image: "../../../images/teamPics/SeanFinal.png", name: "Sean Doyle", role: "Project Manager/BE", github: "https://github.com/sdoylelambda" },
         {image: "../../../images/teamPics/KevinFinal.png", name: "Kevin Afable", role: "Frontend", github: "https://github.com/Vyraal1" },
         {image: "../../../images/teamPics/LouisFinal.png", name: "Louis Galinas", role: "Frontend", github: "https://github.com/gelinas" },
         {image: "../../../images/teamPics/BriannaFinal.png", name: "Brianna Keune", role: "Frontend", github: "https://github.com/briannakeune"},

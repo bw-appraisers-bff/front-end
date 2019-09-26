@@ -19,16 +19,22 @@ const AboutUs = ( ) => {
 
    console.log(teamData)
     return (
-       
-      <div>
-        {teamData.map((title, role) => {
-            return(
-                <AboutCard title={title} index={role}/>
-            )
-        })}
-          <h1>ahsdklf</h1>
-      </div>
-
+        <div className="about-container">
+            <div className="description-container">
+                <h1>About the Team</h1>
+                <p className="about-description">
+                Bringing you a way to find the value you your home is a team of devs from across the nation. We strive to make sure that you get the best house estimate with the volumes of information in our grasp. Whether you are a buyer or seller we hop to bring you everything you need to get you the home that you want.
+                </p>
+            </div>
+            <div>
+                {teamData.map((title, role) => {
+                    return(
+                        <AboutCard title={title} index={role}/>
+                    )
+                })}
+                <h1>ahsdklf</h1>
+            </div>
+        </div>
     );
     
 };

@@ -62,6 +62,7 @@ const SavedList = props => {
   });
 
   const [savedResults, setSavedResults] = useState(dummyData);
+  //learning how to avoid merge conflicts
 
   const tokenObj = {
     username: decodedToken

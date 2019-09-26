@@ -23,9 +23,10 @@ const InterestForm = ({ errors, touched, value, status }) => (
     >
       {({ isSubmitting }) => (
         <Form>
-          <Field type="text" name="name" />
+          <Field type="text" name="name" placeholder="Please name this entry" />
           <ErrorMessage name="name" component="p" />
           <Field component="select" name="rating">
+            <option>Rating</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

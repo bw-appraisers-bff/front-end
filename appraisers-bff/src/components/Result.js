@@ -10,7 +10,7 @@ import * as Yup from "yup";
 
 const Result = ({ history, values, errors, touched, status }) => {
   let example = history.location.state;
-  const dollarValue = example.price.toLocaleString();
+  // const dollarValue = example.price.toString();
   const fadeIn = useSpring({
     opacity: 1,
     from: { opacity: 0 },

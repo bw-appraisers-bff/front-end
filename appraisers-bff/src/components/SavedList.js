@@ -66,8 +66,9 @@ const SavedList = props => {
   const tokenObj = {
     username: decodedToken
   }
-
+  console.log("tokenObj ", tokenObj)
   useEffect(() => {
+    console.log("useEffect token ", tokenObj)
     getFav(tokenObj);
   }, [])
 

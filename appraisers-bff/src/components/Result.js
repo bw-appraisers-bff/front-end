@@ -64,7 +64,7 @@ const Result = ({ history, values, errors, touched, status }) => {
             {touched.title && errors.title && (
               <p className="error">{errors.title}</p>
             )}
-            <Field type="text" name="interestLevel" placeholder="69" />
+            <Field type="text" name="interestLevel" placeholder="50" />
             {touched.interestLevel && errors.interestLevel && (
               <p className="error">{errors.interestLevel}</p>
             )}

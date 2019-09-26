@@ -6,7 +6,7 @@ import { useSpring, animated } from 'react-spring'
 import { NavLink } from "react-router-dom";
 import * as Yup from "yup";
 
-const Login = ({ values, errors, touched, status }) => {
+const Login = ({history, values, errors, touched, status }) => {
 
   const fadeIn = useSpring({
     opacity: 1,

@@ -4,6 +4,7 @@ import {useSpring, animated} from 'react-spring'
 import SavedCard from "./SavedCard";
 
 const SavedList = props => {
+  console.log("SavedList: Props: ", props)
   const dummyData = [
     {"id":1,"name":"First Saved","interestLevel":5,"house":
       {"id":7,"zipCode":90210,"yearBuilt":1960,"squareFootage":1000,"bedrooms":10,"bathrooms":5.5,"value":100500}

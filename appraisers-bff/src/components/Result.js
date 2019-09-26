@@ -57,7 +57,12 @@ const Result = () => {
     <>
       <animated.div className="result-card" style={fadeIn}>
         <ResultCard house={example} />
-        <InterestForm />
+        <InterestForm
+          title={title}
+          decoded={decoded}
+          interestLevel={interestLevel}
+          history={history}
+        />
         <div className="size-box">{/* <ResultSave /> */}</div>
       </animated.div>
 

@@ -197,6 +197,7 @@ a {
   border-top: 2px solid $nav-border;
   width: 100%;
   height: 50px;
+  z-index: 200;
   @include flex-style(row, nowrap, center, center);
 }
 .footer {

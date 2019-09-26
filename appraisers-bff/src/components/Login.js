@@ -6,10 +6,6 @@ import { useSpring, animated } from 'react-spring'
 import { NavLink } from "react-router-dom";
 import * as Yup from "yup";
 
-<<<<<<< HEAD
-const Login = ({ history, values, errors, touched, status }) => {
-  // console.log("LOGIN: ", history)
-=======
 const Login = ({ values, errors, touched, status }) => {
 
   const fadeIn = useSpring({
@@ -18,7 +14,6 @@ const Login = ({ values, errors, touched, status }) => {
     config: { mass: 1, tension: 140, friction: 70 }
   });
 
->>>>>>> 3689900ddaabcc6d92ab25dcf382b11a5b25a76a
   return (
     <animated.div style={fadeIn} className="login">
       <div className="form-container">
@@ -42,17 +37,9 @@ const Login = ({ values, errors, touched, status }) => {
         </Form>
         <div className="button-container">
           <span>Don't have an account?</span>
-<<<<<<< HEAD
-          <a href="/signup">
-            <button type="button" className="secondary-button">
-              Get Started
-            </button>
-          </a>
-=======
           <NavLink to="/signup">
             <button type="button" className="secondary-button" >Get Started</button>
           </NavLink>
->>>>>>> 3689900ddaabcc6d92ab25dcf382b11a5b25a76a
         </div>
       </div>
     </animated.div>

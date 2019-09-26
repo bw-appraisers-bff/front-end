@@ -79,10 +79,11 @@ export const getFav = user => dispatch => {
     console.log("GET ACTION: ", user)
   dispatch({ type: GET_FAVORITES_START });
   axiosWithAuth()
-    .get(`/fav`, user)
+    .post(`/fav/user`, user)
     .then(res => {
       console.log("then user: ", user);
       console.log("GETFAVORITE: RES: ", res);
+      dispatch({ type: GET_FAVORITES_SUCCESS, payload: res.data });
     })
     .catch(err => {
       console.log("err user: ", user);
@@ -101,10 +102,10 @@ export const postFav = loved => dispatch => {
   axiosWithAuth()
     .post(`/fav`, loved)
     .then(res => {
-      // console.log("POSTFAVORITE: RES: ", res);
+      console.log("POSTFAVORITE: RES: ", res);
     })
     .catch(err => {
-      // console.log("err loved: ", loved);
+      console.log("err loved: ", loved);
       console.log("err res: ", err.response.data);
       dispatch({ type: POST_FAVORITES_FAIL, payload: err });
     });

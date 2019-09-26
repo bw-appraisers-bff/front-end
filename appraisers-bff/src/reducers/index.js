@@ -11,6 +11,9 @@ import {
   POST_HOUSE_START,
   POST_HOUSE_SUCCESS,
   POST_HOUSE_FAIL,
+  GET_FAVORITES_START,
+  GET_FAVORITES_SUCCESS,
+  GET_FAVORITES_FAIL,
   POST_FAVORITES_START,
   POST_FAVORITES_SUCCESS,
   POST_FAVORITES_FAIL,
@@ -118,6 +121,11 @@ export const reducer = (state = initialState, action) => {
           ...state,
           error: action.payload
         }
+      case GET_FAVORITES_SUCCESS: 
+      return {
+        ...state,
+        favorites: action.payload
+      }
     default:
       return state;
   }

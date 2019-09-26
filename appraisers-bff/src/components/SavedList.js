@@ -62,12 +62,14 @@ const SavedList = props => {
   });
 
   const [savedResults, setSavedResults] = useState(dummyData);
+  //learning how to avoid merge conflicts
 
   const tokenObj = {
     username: decodedToken
   }
-
+  console.log("tokenObj ", tokenObj)
   useEffect(() => {
+    console.log("useEffect token ", tokenObj)
     getFav(tokenObj);
   }, [])
 
@@ -83,9 +85,10 @@ const SavedList = props => {
 };
 
 const mapStateToProps = state => {
-  console.log("SavedList: mstp: state: decodedToken username: ", state.decodedToken.token.username)
+  console.log("SavedList: mstp: state: decodedToken username: ", state.favorites)
   return {
-    decodedToken: state.decodedToken.token.username
+    decodedToken: state.decodedToken.token.username,
+    favorites: state.favorites
   }
 }
 

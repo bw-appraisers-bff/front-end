@@ -75,4 +75,52 @@
       cursor: not-allowed !important;
     }
   }
+  
+  
 }
+
+
+
+.description-container {
+  width: 100%;
+  border: 1px solid green;
+}
+.about-container {
+  width: 100%;
+  margin: 3% 0;
+  
+  border: 1px solid pink;
+ 
+
+}
+
+.bio-card {
+  // background-color: $brand-aqua;
+  
+  border: 1px solid red;
+  width: 40%;
+
+}
+
+.about-card {
+  width: 33%;
+  position: relative;
+  width: 95%;
+  margin:1%;
+  border: 1px solid dodgerblue;
+
+}
+
+.bio-data {
+  position: absolute;
+  top: 65%;
+
+
+  h1 {
+    color: $brand-aqua;
+    font-size: 2rem;
+  }
+}
+
+
+

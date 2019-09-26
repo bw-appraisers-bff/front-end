@@ -1,7 +1,7 @@
 import React from "react";
 
 const ResultCard = props => {
-  console.log("Result Cards: Props: ", props);
+  // console.log("Result Cards: Props: ", props);
   const {
     zipCode,
     yearBuilt,

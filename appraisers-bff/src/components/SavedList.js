@@ -12,6 +12,12 @@ const SavedList = props => {
 
   console.log("Favourites!!!!, ", favorites)
 
+  const fadeIn = useSpring({
+    opacity: 1,
+    from: {opacity: 0},
+    config: {mass:1, tension: 140, friction: 70}
+  });
+
   const tokenObj = {
     username: decodedToken
   };

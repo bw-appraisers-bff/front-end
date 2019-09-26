@@ -99,9 +99,8 @@ export const POST_FAVORITES_FAIL = "POST_FAVORITES_FAIL";
 export const postFav = loved => dispatch => {
   dispatch({ type: POST_FAVORITES_START });
   axiosWithAuth()
-    .post(`/fav`, { username: "admin" })
+    .post(`/fav`, loved)
     .then(res => {
-      console.log("then loved: ", loved);
       console.log("POSTFAVORITE: RES: ", res);
     })
     .catch(err => {

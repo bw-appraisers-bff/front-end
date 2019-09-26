@@ -10,7 +10,7 @@ const AboutUs = ( ) => {
         {image: "../../../images/teamPics/BriannaFinal.png", name: "Brianna Keune", role: "Frontend", github: "https://github.com/briannakeune"},
         {image: "../../../images/teamPics/ArvinFinal.png", name: "Arvin Agas", role: "Backend", github: "https://github.com/arvagas" },
         {image: "../../../images/teamPics/SeanFinal.png", name: "Sean Doyle", role: "Backend/TL", github: "https://github.com/sdoylelambda" },
-        {image: "../../../images/teamPics/JaydenFinal.png", name: "Jayden Kim", role: 'Data Engineer', github: "https://github.com/" },
+        {image: "../../../images/teamPics/JaydenFinal.png", name: "Jayden Kim", role: 'Data Engineer', github: "https://github.com/Jaydenzk" },
         {image: "../../../images/teamPics/MatthewFinal.png", name: "Matthew Mauney", role: 'Data Engineer', github: "https://github.com/mauney "},
         {image: "../../../images/teamPics/TaylorFinal.png", name: 'Taylor Bickell', role: 'Machine Learning', github: "https://github.com/tcbic" },
         {image: "../../../images/teamPics/MarvinFinal.png", name: 'Marvin Davila', role: 'Machine Learning', github: 'https://github.com/MAL3X-01' }, 

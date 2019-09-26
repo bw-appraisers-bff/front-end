@@ -64,6 +64,7 @@ const dummyData = [
           name: values.title,
           interestLevel: values.interestLevel,
           userID: props.decoded,
+          //add houseID
         }
         props.postFav(postThisObj);
       }

@@ -134,7 +134,7 @@ export const DELETE_FAVORITES_START = "DELETE_FAVORITES_START";
 export const DELETE_FAVORITES_SUCCESS = "DELETE_FAVORITES_SUCCESS";
 export const DELETE_FAVORITES_FAIL = "DELETE_FAVORITES_FAIL";
 
-export const deleteFav = (id, edited) => dispatch => {
+export const deleteFav = (id) => dispatch => {
   dispatch({ type: DELETE_FAVORITES_START });
   axiosWithAuth()
     .delete(`/fav/${id}`)

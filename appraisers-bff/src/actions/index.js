@@ -79,7 +79,7 @@ export const getFav = user => dispatch => {
     console.log("GET ACTION: ", user)
   dispatch({ type: GET_FAVORITES_START });
   axiosWithAuth()
-    .get(`/fav`, {"username": "admin"})
+    .post(`/fav/user`, user)
     .then(res => {
       console.log("then user: ", user);
       console.log("GETFAVORITE: RES: ", res);

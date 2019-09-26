@@ -13,7 +13,7 @@ import FormikLogin from "./Login";
 
 class Content extends React.Component {
   constructor(props) {
-    super();
+    super(props);
   }
   render() {
     return (

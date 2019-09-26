@@ -10,7 +10,7 @@ const dummyData = [
     {"id":3,"zipCode":60007,"yearBuilt":1920,"squareFootage":5200,"bedrooms":3,"bathrooms":2,"value":100500}]
 
 const Result = props => {
-    console.log("Results: ", props)
+    console.log("Result: Props: ", props)
     let example = dummyData[0];
     const dollarValue = example.value.toLocaleString();
 

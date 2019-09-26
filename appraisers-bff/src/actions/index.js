@@ -1,71 +1,74 @@
-import { axiosWithAuth } from '../utils/axiosWithAuth.js';
-import axios from 'axios';
-import decode from 'jwt-decode';
+import { axiosWithAuth } from "../utils/axiosWithAuth.js";
+import axios from "axios";
+import decode from "jwt-decode";
 
-export const LOGIN_START = 'LOGIN_START';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_DECODE = 'LOGIN_DECODE'
-export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGIN_START = "LOGIN_START";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_DECODE = "LOGIN_DECODE";
+export const LOGIN_FAIL = "LOGIN_FAIL";
 
 //posting to BE api for token
 export const login = (creds, history) => dispatch => {
-    dispatch({ type: LOGIN_START });
-    axios.post(`https://appraisersbff.herokuapp.com/auth/login`, creds)
+  console.log("LOGIN: HISTORY: ", history);
+  dispatch({ type: LOGIN_START });
+  axios
+    .post(`https://appraisersbff.herokuapp.com/auth/login`, creds)
     .then(res => {
-        dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
-        localStorage.setItem('token', res.data.token);
-        console.log('decodedToken: ', decode(res.data.token))
-        dispatch({ type: LOGIN_DECODE, payload: decode(res.data.token) })
-        history.push('/appraise');
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
+      localStorage.setItem("token", res.data.token);
+      console.log("decodedToken: ", decode(res.data.token));
+      dispatch({ type: LOGIN_DECODE, payload: decode(res.data.token) });
+      history.push("/appraise");
     })
-    .catch(err => dispatch({ type: LOGIN_FAIL, payload: err}))
+    .catch(err => dispatch({ type: LOGIN_FAIL, payload: err }));
 };
 
 //creating a user from BE api
-export const SIGNUP_START = 'SIGNUP_START';
-export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
-export const SIGNUP_FAIL = 'SIGNUP_FAIL';
+export const SIGNUP_START = "SIGNUP_START";
+export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
+export const SIGNUP_FAIL = "SIGNUP_FAIL";
 
-export const signUp = (user) => dispatch => {
-    dispatch({ type: SIGNUP_START });
-    axios
-        .post(`https://appraisersbff.herokuapp.com/auth/register`, user)
-        .then(res => dispatch({ type: SIGNUP_SUCCESS }))
-        .catch(err => dispatch({ type: SIGNUP_FAIL, payload: err }));
-}
+export const signUp = user => dispatch => {
+  dispatch({ type: SIGNUP_START });
+  axios
+    .post(`https://appraisersbff.herokuapp.com/auth/register`, user)
+    .then(res => dispatch({ type: SIGNUP_SUCCESS }))
+    .catch(err => dispatch({ type: SIGNUP_FAIL, payload: err }));
+};
 
-export const GET_HOUSE_START = 'GET_HOUSE_START';
-export const GET_HOUSE_SUCCESS = 'GET_HOUSE_SUCCESS';
-export const GET_HOUSE_FAIL = 'GET_HOUSE_FAIL';
+export const GET_HOUSE_START = "GET_HOUSE_START";
+export const GET_HOUSE_SUCCESS = "GET_HOUSE_SUCCESS";
+export const GET_HOUSE_FAIL = "GET_HOUSE_FAIL";
 
 export const getHouse = () => dispatch => {
-    dispatch({ type: GET_HOUSE_START });
-    axiosWithAuth()
-        .get(`/houses`)
-        .then(res => console.log("GETHOUSE RES: ", res.data))
-        .catch(err => dispatch({ type: GET_HOUSE_FAIL, payload:err }));
-}
+  dispatch({ type: GET_HOUSE_START });
+  axiosWithAuth()
+    .get(`/houses`)
+    .then(res => console.log("GETHOUSE RES: ", res.data))
+    .catch(err => dispatch({ type: GET_HOUSE_FAIL, payload: err }));
+};
 
 //sends information to BE -> DS to be put into algo
-export const POST_HOUSE_START = 'POST_HOUSE_START';
-export const POST_HOUSE_SUCCESS = 'POST_HOUSE_SUCCESS';
-export const POST_HOUSE_FAIL = 'POST_HOUSE_FAIL';
+export const POST_HOUSE_START = "POST_HOUSE_START";
+export const POST_HOUSE_SUCCESS = "POST_HOUSE_SUCCESS";
+export const POST_HOUSE_FAIL = "POST_HOUSE_FAIL";
 //price from here.
 export const postHouse = (aHouse, history) => dispatch => {
-    console.log("HOUSE IN ACTIONS: ", aHouse)
-    console.log("HISTORY IN ACTIONS: ", history)
-    dispatch({ type: POST_HOUSE_START });
-    axiosWithAuth()
-        .post(`/houses`, aHouse)
-        .then(res => {
-            console.log("POSTHOUSE RES: ", res.data)
-            dispatch({ type: POST_HOUSE_SUCCESS, payload: res.data })
-        })
-        .catch(err => {
-            console.log("I'm an error for postHouse", err)
-            // dispatch({ type: POST_HOUSE_FAIL, payload:err })
-        });
-}
+  console.log("HOUSE IN ACTIONS: ", aHouse);
+  console.log("HISTORY IN ACTIONS: ", history);
+  dispatch({ type: POST_HOUSE_START });
+  axiosWithAuth()
+    .post(`/houses`, aHouse)
+    .then(res => {
+      console.log("POSTHOUSE RES: ", res.data);
+      dispatch({ type: POST_HOUSE_SUCCESS, payload: res.data });
+      history.push("/result");
+    })
+    .catch(err => {
+      console.log("I'm an error for postHouse", err);
+      // dispatch({ type: POST_HOUSE_FAIL, payload:err })
+    });
+};
 
 // hoping this will get price from DS to display
 export const GET_PRICE_START = 'GET_PRICE_START';
@@ -75,27 +78,27 @@ export const GET_PRICE_FAIL = 'GET_PRICE_FAIL';
 export const getPrice = (user) => dispatch => {
     dispatch({ type: GET_PRICE_START });
     axiosWithAuth()
-        .get(`/prices`, user)
+        .get(`/prices`, {username: 'admin'})
         .then(res => console.log('GETPRICE: RES: ', res))
         .catch(err => dispatch({ type: GET_PRICE_FAIL, payload: err }));
 }
 
 // saved properties
-export const GET_FAVORITES_START = 'GET_FAVORITES_START';
-export const GET_FAVORITES_SUCCESS = 'GET_FAVORITES_SUCCESS';
-export const GET_FAVORITES_FAIL = 'GET_FAVORITES_FAIL'; 
+export const GET_FAVORITES_START = "GET_FAVORITES_START";
+export const GET_FAVORITES_SUCCESS = "GET_FAVORITES_SUCCESS";
+export const GET_FAVORITES_FAIL = "GET_FAVORITES_FAIL";
 
 export const getFav = user => dispatch => {
-    dispatch({ type: GET_FAVORITES_START });
-    axiosWithAuth()
-        .get(`/fav`, {'username': 'admin'})
-        .then(res => {
-            console.log("then user: ", user)
-            console.log('GETFAVORITE: RES: ', res)
-        })
-        .catch(err => {
-            console.log("err user: ", user)
-            console.log("err res: ", err.response.data)
-            dispatch({ type: GET_PRICE_FAIL, payload: err })
-        });
-}
+  dispatch({ type: GET_FAVORITES_START });
+  axiosWithAuth()
+    .get(`/fav`, { username: "admin" })
+    .then(res => {
+      console.log("then user: ", user);
+      console.log("GETFAVORITE: RES: ", res);
+    })
+    .catch(err => {
+      console.log("err user: ", user);
+      console.log("err res: ", err.response.data);
+      dispatch({ type: GET_PRICE_FAIL, payload: err });
+    });
+};

@@ -1,7 +1,7 @@
 import React from "react";
 
-const ResultCard = props => {
-  console.log("Result Cards: Props: ", props);
+const ResultCard = ({ house }) => {
+  // console.log("Result Cards: Props: ", );
   const {
     zipCode,
     yearBuilt,
@@ -9,13 +9,13 @@ const ResultCard = props => {
     bathrooms,
     price,
     squareFootage
-  } = props;
+  } = house;
 
-  // const dollarValue = price.toString();
+  const dollarValue = price.toLocaleString();
 
   return (
     <div className="result-data">
-      <h2>{`Appraised at $${price}`}</h2>
+      <h2>{`Appraised at $${dollarValue}`}</h2>
       <p>Your Appraisal Inputs:</p>
       <p>
         {`${squareFootage} square foot home, built in ${yearBuilt} in zip code ${zipCode}`}

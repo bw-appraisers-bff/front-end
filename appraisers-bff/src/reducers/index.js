@@ -46,7 +46,8 @@ const initialState = {
   house: {
     priceOfHouse: {}
   },
-  error: ''
+  error: '',
+  isToggled: false
 };
 
 export const reducer = (state = initialState, action) => {
@@ -126,6 +127,16 @@ export const reducer = (state = initialState, action) => {
         ...state,
         favorites: action.payload
       }
+      case DELETE_FAVORITES_SUCCESS:
+        return {
+          ...state,
+          isToggled: !state.isToggled
+        }
+      case PUT_FAVORITES_SUCCESS:
+        return{
+          ...state,
+          isToggled: !state.isToggled,
+        }
     default:
       return state;
   }

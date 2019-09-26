@@ -85,9 +85,10 @@ const SavedList = props => {
 };
 
 const mapStateToProps = state => {
-  console.log("SavedList: mstp: state: decodedToken username: ", state.decodedToken.token.username)
+  console.log("SavedList: mstp: state: decodedToken username: ", state.favorites)
   return {
-    decodedToken: state.decodedToken.token.username
+    decodedToken: state.decodedToken.token.username,
+    favorites: state.favorites
   }
 }
 

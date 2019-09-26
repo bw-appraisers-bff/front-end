@@ -76,9 +76,10 @@ export const GET_FAVORITES_SUCCESS = "GET_FAVORITES_SUCCESS";
 export const GET_FAVORITES_FAIL = "GET_FAVORITES_FAIL";
 
 export const getFav = user => dispatch => {
+    console.log("GET ACTION: ", user)
   dispatch({ type: GET_FAVORITES_START });
   axiosWithAuth()
-    .get(`/fav`, { username: "admin" })
+    .get(`/fav`, user)
     .then(res => {
       console.log("then user: ", user);
       console.log("GETFAVORITE: RES: ", res);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
 import { connect } from "react-redux";
 import { getFav } from "../actions";
@@ -7,6 +7,9 @@ import SavedCard from "./SavedCard";
 
 const SavedList = props => {
   console.log("SavedList: Props: ", props);
+
+  const { getFav, decodedToken } = props;
+
   const dummyData = [
     {
       id: 1,
@@ -60,6 +63,14 @@ const SavedList = props => {
 
   const [savedResults, setSavedResults] = useState(dummyData);
 
+  const tokenObj = {
+    username: decodedToken
+  }
+
+  useEffect(() => {
+    getFav(tokenObj);
+  }, [])
+
   return (
     <div className="saved">
       {savedResults.map(result => (
@@ -72,9 +83,9 @@ const SavedList = props => {
 };
 
 const mapStateToProps = state => {
-  console.log("SavedList: mstp: state: decodedToken username: ", state.decodedToken)
+  console.log("SavedList: mstp: state: decodedToken username: ", state.decodedToken.token.username)
   return {
-    decodedToken: state.decodedToken
+    decodedToken: state.decodedToken.token.username
   }
 }
 

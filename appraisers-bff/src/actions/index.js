@@ -122,6 +122,7 @@ export const putFav = (id, edited) => dispatch => {
     .then(res => {
       console.log("then edited: ", edited);
       console.log("PUTFAVORITE: RES: ", res);
+      dispatch({ type: PUT_FAVORITES_SUCCESS })
     })
     .catch(err => {
       console.log("err edited: ", edited);
@@ -135,10 +136,14 @@ export const DELETE_FAVORITES_SUCCESS = "DELETE_FAVORITES_SUCCESS";
 export const DELETE_FAVORITES_FAIL = "DELETE_FAVORITES_FAIL";
 
 export const deleteFav = (id) => dispatch => {
+  console.log("id in deleteFav: ", id);
   dispatch({ type: DELETE_FAVORITES_START });
   axiosWithAuth()
     .delete(`/fav/${id}`)
-    .then(res => console.log("DELETEFAVORITE: RES: ", res))
+    .then(res => {
+      console.log("DELETEFAVORITE: RES: ", res)
+      dispatch({ type: DELETE_FAVORITES_SUCCESS })
+    })
     .catch(err => {
       console.log("err res: ", err.response.data);
       dispatch({ type: DELETE_FAVORITES_FAIL, payload: err });

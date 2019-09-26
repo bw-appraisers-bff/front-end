@@ -6,11 +6,16 @@ import { getFav } from "../actions";
 import SavedCard from "./SavedCard";
 
 const SavedList = props => {
-  const { getFav, decodedToken, favorites } = props;
+  console.log("SavedList Props: ", props)
+  const { getFav, decodedToken, favorites, isToggled } = props;
   // console.log("favorites default", favorites);
   // console.log("SavedList: Props: ", props);
 
-  console.log("Favourites!!!!, ", favorites)
+  const [toggle, setToggle] = useState(false);
+
+  const flipSwitch = () => {
+    setToggle(!toggle)
+  }
 
   const fadeIn = useSpring({
     opacity: 1,
@@ -27,7 +32,9 @@ const SavedList = props => {
     // console.log("useEffect token ", tokenObj);
     getFav(tokenObj); //changes favorites props
     // setSavedResults(favorites);
-  }, []);
+    // console.log("rerending component: ", toggle)
+    // flipSwitch();
+  }, [isToggled]);
 
   return (
     <div className="saved">
@@ -38,6 +45,7 @@ const SavedList = props => {
             result={result}
             key={result.id}
             fadeIn={fadeIn}
+            flipSwitch={flipSwitch}
           />
         )
         // <Link to={`movies/${movie.id}`}>
@@ -56,7 +64,8 @@ const mapStateToProps = state => {
   // );
   return {
     decodedToken: state.decodedToken.token.username,
-    favorites: state.favorites
+    favorites: state.favorites,
+    isToggled: state.isToggled,
   };
 };
 

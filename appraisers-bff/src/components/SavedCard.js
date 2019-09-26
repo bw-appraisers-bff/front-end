@@ -13,7 +13,20 @@ import { putFav, deleteFav } from "../actions";
 //we could save that to a local useState to be passed to a saved list
 //and then we could edit and delete name and interest level for saved.
 
-const SavedCard = ({ result, match, favorites, fadeIn, values, errors, touched, status }) => {
+const SavedCard = ({
+  decodedToken,
+  deleteFav,
+  isToggled,
+  flipSwitch,
+  result,
+  match,
+  favorites,
+  fadeIn,
+  values,
+  errors,
+  touched,
+  status
+}) => {
   const {
     id,
     name,
@@ -39,8 +52,13 @@ const SavedCard = ({ result, match, favorites, fadeIn, values, errors, touched, 
       console.log(cardToUpdate);
       setCard(cardToUpdate);
     }
-  }, [match, favorites]);
+  }, [match, favorites, isToggled]);
 
+  const handleDelete = () => {
+    console.log(result.id);
+    deleteFav(result.id,);
+    flipSwitch();
+  };
 
   return (
     <animated.div key={id} className="result-card" style={fadeIn}>
@@ -66,9 +84,15 @@ const SavedCard = ({ result, match, favorites, fadeIn, values, errors, touched, 
         {touched.interestLevel && errors.interestLevel && (
           <p className="error">{errors.interestLevel}</p>
         )}
-        <button type="submit" className="edit-btn">Edit</button>
+        <button type="submit" className="edit-btn">
+          Edit
+        </button>
       </Form>
-      <button>Delete</button>
+      <button
+        onClick={() => handleDelete()}
+      >
+        Delete
+      </button>
     </animated.div>
   );
 };
@@ -96,13 +120,15 @@ const FormikUpdateInterests = withFormik({
     };
     const putThisId = props.result.id;
     props.putFav(putThisId, postThisObj);
+    props.flipSwitch();
   }
 })(SavedCard);
 
 const mapStateToProps = state => {
   console.log("SavedCard: mstp: state: ", state);
   return {
-    decoded: state.decodedToken.token.id
+    decoded: state.decodedToken.token.id,
+    isToggled: state.isToggled,
   };
 };
 

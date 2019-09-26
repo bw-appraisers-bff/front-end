@@ -2,7 +2,7 @@ import React from 'react';
 
 const ResultCard = props => {
   // const { id, zipCode, yearBuilt, squareFootage, bedrooms, bathrooms, value } = props.house;
-  console.log("Result Cards: Props: ", props)
+  // console.log("Result Cards: Props: ", props)
   const {id, zipCode, yearBuilt, bedrooms, bathrooms, price, squareFootage} = props.house
 
   const dollarValue = price.toLocaleString();

@@ -123,17 +123,10 @@ const FormikAppraise = withFormik({
 })(Appraise); // currying functions in Javascript
 
 const mapStateToProps = state => {
-  console.log("Appraise: mstp: state.house: ", state.house);
-  console.log("Appraise: mstp: state.house: ", state.house.house);
+//   console.log("Appraise: mstp: state.house: ", state.house);
+//   console.log("Appraise: mstp: state.house: ", state.house.house);
   return {
     house: {
-      // id: state.id,
-      // zipCode: state.zipCode,
-      // yearBuilt: state.yearBuilt,
-      // squareFootage: state.squareFootage,
-      // bedrooms: state.bedrooms,
-      // bathrooms: state.bathrooms,
-      // price: state.price,
       priceOfHouse: state.priceOfHouse
     }
   };

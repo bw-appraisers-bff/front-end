@@ -6,40 +6,53 @@ import { getFav } from "../actions";
 import SavedCard from "./SavedCard";
 
 const SavedList = props => {
-  console.log("SavedList: Props: ", props);
-
-
   const { getFav, decodedToken, favorites } = props;
+  // console.log("favorites default", favorites);
+  // console.log("SavedList: Props: ", props);
 
   console.log("Favourites!!!!, ", favorites)
 
-  const [savedResults, setSavedResults] = useState(favorites);
-  //learning how to avoid merge conflicts
-
   const tokenObj = {
     username: decodedToken
-  }
-  console.log("tokenObj ", tokenObj)
+  };
+
+  // console.log("tokenObj ", tokenObj);
   useEffect(() => {
-    console.log("useEffect token ", tokenObj)
-    getFav(tokenObj);
-  }, [])
+    // console.log("useEffect token ", tokenObj);
+    getFav(tokenObj); //changes favorites props
+    // setSavedResults(favorites);
+  }, []);
 
   return (
     <div className="saved">
-      {favorites.map(result => {
-        console.log("INSIDE MAP: result, ", result); })}
+      {favorites.map(
+        result => (
+          <SavedCard
+            {...props}
+            result={result}
+            key={result.id}
+            fadeIn={fadeIn}
+          />
+        )
+        // <Link to={`movies/${movie.id}`}>
+        // <SavedCard  key={result.id} result={result}  />
+
+        // </Link>
+      )}
     </div>
   );
 };
 
 const mapStateToProps = state => {
-  console.log("SavedList: mstp: state: decodedToken username: ", state.favorites)
+  // console.log(
+  //   "SavedList: mstp: state: decodedToken username: ",
+  //   state.favorites
+  // );
   return {
     decodedToken: state.decodedToken.token.username,
     favorites: state.favorites
-  }
-}
+  };
+};
 
 export default connect(
   mapStateToProps,

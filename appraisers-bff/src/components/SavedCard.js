@@ -12,19 +12,32 @@ import { putFav, deleteFav } from "../actions";
 //and then we could edit and delete name and interest level for saved.
 
 const SavedCard = props => {
-  const { id, name, interestLevel, house } = props.result;
-  console.log("SavedCard in SavedList", props);
-
-  const [card, setCard] = useState(); //some prop I pull from reducer will go here
-
+  const {
+    id,
+    name,
+    interestLevel,
+    zipCode,
+    squareFootage,
+    yearBuilt,
+    bedrooms,
+    bathrooms,
+    price
+  } = props.result;
   return (
-    <animated.div className="result-card" style={props.fadeIn}>
+    <animated.div key={id} className="result-card" style={props.fadeIn}>
       {/* <div className="size-box">
         <SaveEdit name={name} interestLevel={interestLevel} />
       </div> */}
       <h2>{`Name: ${name} Interest: ${interestLevel}`}</h2>
-      <InterestForm />
-      <ResultCard house={house} />
+      {/* <InterestForm /> */}
+      <ResultCard
+        price={price}
+        bedrooms={bedrooms}
+        bathrooms={bathrooms}
+        yearBuilt={yearBuilt}
+        squareFootage={squareFootage}
+        zipCode={zipCode}
+      />
       <button>Delete</button>
     </animated.div>
   );
@@ -33,7 +46,7 @@ const SavedCard = props => {
 const mapStateToProps = state => {
   console.log("SavedCard: mstp: state: ", state);
   return {
-    
+
   }
 };
 

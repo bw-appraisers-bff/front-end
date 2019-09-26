@@ -60,10 +60,23 @@ const dummyData = [
       }),
       handleSubmit(values, { props }) {
         console.log("RESULT: SAVED FORM: PROPS: ", props);
-        props.postFav(values);
+        const postThisObj = {
+          name: values.title,
+          interestLevel: values.interestLevel,
+          userID: props.decoded,
+        }
+        props.postFav(postThisObj);
       }
     })(Result)
+
+    const mapStateToProps = state => {
+      console.log("result: mstp: state: ", state.decodedToken.token.id)
+      return{
+        decoded: state.decodedToken.token.id
+      }
+    }
+
     export default connect(
-      null,
+      mapStateToProps,
       { postFav }
     )(FormikSaved);

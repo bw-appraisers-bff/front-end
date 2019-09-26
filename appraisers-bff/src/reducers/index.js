@@ -25,7 +25,7 @@ const initialState = {
     error: ""
   },
   decodedToken: {
-    username: ""
+    token: {},
   },
   user: {
     // id: '',
@@ -64,7 +64,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         decodedToken: {
-          username: action.payload.username
+          token: action.payload
         }
       };
     case LOGIN_FAIL:

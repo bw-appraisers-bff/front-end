@@ -83,35 +83,47 @@
 
 .description-container {
   width: 100%;
-  border: 1px solid green;
+  // border: 1px solid green;
 }
 .about-container {
   width: 100%;
+  max-width: 100%;
   margin: 3% 0;
+
   
-  border: 1px solid pink;
+ 
+  // border: 1px solid pink;
  
 
 }
 
+
 .bio-card {
   // background-color: $brand-aqua;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: space-around;
   
-  border: 1px solid red;
-  width: 40%;
+
+  // border: 1px solid red;
+  width: 100%;
 
 }
 
 .about-card {
-  width: 33%;
+  width: 100%;
   position: relative;
-  width: 95%;
+  width: 26%;
   margin:1%;
-  border: 1px solid dodgerblue;
+  z-index: -1;
+  // border: 1px solid dodgerblue;
 
 }
 
 .bio-data {
+  display: flex;
+  flex-direction: column;
+  
   position: absolute;
   top: 65%;
 
@@ -119,6 +131,11 @@
   h1 {
     color: $brand-aqua;
     font-size: 2rem;
+  }
+
+  p {
+    color: $brand-aqua;
+    font-size: 1.5rem;
   }
 }
 

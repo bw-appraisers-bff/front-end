@@ -1,9 +1,11 @@
 import React from "react";
 import { Card, Icon } from "semantic-ui-react";
 
-import '../assets/saved.scss';
+import "../assets/saved.scss";
 
-const Saved = (props) => {
+// Proof that Brianna was here (not used in production )
+
+const Saved = props => {
   return (
     <div className="container saved">
       <div className="saved-list-card">

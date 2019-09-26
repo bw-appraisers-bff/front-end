@@ -11,19 +11,19 @@ import Footer from "./components/Footer";
 import Content from "./components/Content";
 
 const App = props => {
-    return (
-      <div className="app-container">
-        {/*NAVBAR COMPONENT: authenticated vs unauthenticated rendering */}
-        <Navbar isLoggedIn={props.isLoggedIn} />
+  return (
+    <div className="app-container">
+      {/*NAVBAR COMPONENT: authenticated vs unauthenticated rendering */}
+      <Navbar isLoggedIn={props.isLoggedIn} />
 
-        {/* Content COMPONENT: authenticated vs unauthenticated rendering */}
-        <Content />
+      {/* Content COMPONENT: authenticated vs unauthenticated rendering */}
+      <Content />
 
-        {/*FOOTER COMPONENT*/}
-        <Footer />
-      </div>
-    );
-}
+      {/*FOOTER COMPONENT*/}
+      <Footer />
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
   return {

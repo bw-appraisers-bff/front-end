@@ -35,14 +35,16 @@ const Appraise = ({ errors, touched, values, status, history }) => {
       <Field component="select" className="form-select" name="bathrm">
         <option>Select number of Bathrooms</option>
         <option value="1">1</option>
+        <option value="1.5">1.5</option>
         <option value="2">2</option>
+        <option value="2.5">2.5</option>
         <option value="3">3</option>
+        <option value="3.5">3.5</option>
         <option value="4">4</option>
+        <option value="4.5">4.5</option>
         <option value="5">5</option>
+        <option value="5.5">5.5</option>
         <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
       </Field>
       {touched.bathrm && errors.bathrm && (
         <p className="error">{errors.bathrm}</p>
@@ -90,11 +92,15 @@ const FormikAppraise = withFormik({
     squareFootage: Yup.number()
       .typeError("Please enter the number of square feet")
       .positive("Please enter the number of square feet")
+      .min(650, "Minimum 650 sq.ft.")
+      .max(10000, "You really don't have a house that big")
       .required("Please enter the number of square feet"),
     yearbuilt: Yup.number()
       .typeError("Please enter the year built")
       .positive("Please enter the year built")
-      .required("Please enter the year built"),
+      .required("Please enter the year built")
+      .min(1900, "Enter year after 1900.")
+      .max(2019, "2019 or earlier please."),
     bedrm: Yup.number()
       .positive("Please select the number of bedrooms")
       .required("Please select the number of bedrooms"),
@@ -104,6 +110,8 @@ const FormikAppraise = withFormik({
     zipcode: Yup.number()
       .positive("You must enter a number")
       .required("You must enter a number")
+      .min(10000, "You must enter 5-digit zip code")
+      .max(99999, "You must enter 5-digit zip code"),
   }),
 
   handleSubmit(values, { props }) {

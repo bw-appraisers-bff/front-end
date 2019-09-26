@@ -6,13 +6,13 @@ import PrivateRoute from "../utils/PrivateRoute.js";
 //components
 import Signup from "./Signup";
 import Appraise from "./Appraise";
-import Result from "./Result";
+import FormikSaved from "./Result";
 import SavedList from "./SavedList";
 import FormikLogin from "./Login";
 
 class Content extends React.Component {
   constructor(props) {
-    super();
+    super(props);
   }
 
   render() {
@@ -29,7 +29,7 @@ class Content extends React.Component {
 
         <Switch>
           <PrivateRoute path="/appraise" component={Appraise} />
-          <PrivateRoute path="/result" component={Result} />
+          <PrivateRoute path="/result" component={FormikSaved} />
           <PrivateRoute path="/saved" component={SavedList} />
           <Route
             path="/login"

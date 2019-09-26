@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import {useSpring, animated} from 'react-spring'
+
 import SavedCard from "./SavedCard";
 
 const SavedList = props => {
@@ -13,13 +15,19 @@ const SavedList = props => {
       {"id":9,"zipCode":60007,"yearBuilt":1920,"squareFootage":5200,"bedrooms":3,"bathrooms":2,"value":100500}
     }];
 
+    const fadeIn = useSpring({
+      opacity: 1,
+      from: { opacity: 0 },
+      config: { mass: 1, tension: 140, friction: 70 }
+    });
+
   const [savedResults, setSavedResults] = useState(dummyData)
 
   return (
     <div className="saved">
       {savedResults.map(result => (
         // <Link to={`movies/${movie.id}`}>
-        <SavedCard {...props} key={result.id} result={result} />
+        <SavedCard {...props} key={result.id} result={result} fadeIn={fadeIn} />
         // </Link>
       ))}
     </div>

@@ -25,8 +25,7 @@ const AboutUs = ( ) => {
             <div className="description-container">
                 <h1>About the Team</h1>
                 <p className="about-description">
-                Bringing you a way to find the value you your home is a team of devs from across the nation. We strive to make sure that you get the best house estimate with the volumes of information in our grasp. Whether you are a buyer or seller we hop to bring you everything you need to get you the home that you want.
-                </p>
+                Bringing you a way to find the value of your home is a team of developers and engineers from across the United States. We strive to make sure you are getting the best home estimates possible given the information within our grasp. Whether you are a buyer or a seller, we hope to bring value to your housing needs and desires.                </p>
             </div>
             <div className="bio-card">
                 {teamData.map((title, role) => {

@@ -177,7 +177,6 @@ a {
 
 .content {
   width: 100%;
-  // z-index: -20;
   max-width: 800px;
   @include flex-style(column, nowrap, space-between, center);
 }

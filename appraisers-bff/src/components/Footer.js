@@ -23,7 +23,7 @@ const Footer = () => {
             <img src="../../../images/FBNavLogo.png" />{" "}
           </a>
         </div>
-        <div>
+        {/* <div>
           <span>Dark Mode</span>
           <div className="dark-mode__toggle">
             <div
@@ -31,7 +31,7 @@ const Footer = () => {
               className={darkMode ? "toggle toggled" : "toggle"}
             />
           </div>
-        </div>
+        </div> */}
         <div className="footer-links">
           <Link to="/">Contact Us</Link>
           <Link to="/">Terms of Use</Link>

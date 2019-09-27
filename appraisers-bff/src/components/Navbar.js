@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = props => {
   const logout = () => {
     localStorage.removeItem("token");
-    // localStorage.clear();
+    console.log("In logout function", props)
     // props.history.push("/login")
   };
 

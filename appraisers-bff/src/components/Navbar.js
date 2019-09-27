@@ -1,10 +1,10 @@
 import React from "react";
-
 import { NavLink } from "react-router-dom";
 
 const Navbar = props => {
-  //setting props.isLoggedIn to true
-  //   props.isLoggedIn = true;
+  const logout = () => {
+    localStorage.removeItem('token');
+  }
   function NavLinks() {
     if (!props.isLoggedIn) {
       return (
@@ -20,7 +20,7 @@ const Navbar = props => {
           <NavLink to="/AboutUs">About Us</NavLink>
           <NavLink to="/appraise">Appraise</NavLink>
           <NavLink to="/saved">Saved List</NavLink>
-          <NavLink to="/login">Logout</NavLink>
+          <NavLink onClick={() => logout()} to="/signup">Logout</NavLink>
         </div>
       );
     }

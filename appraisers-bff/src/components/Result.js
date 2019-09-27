@@ -63,17 +63,28 @@ const Result = ({ history, values, errors, touched, status }) => {
       <>
         <animated.div className="result-card" style={fadeIn}>
           <ResultCard house={example} />
-          <Form>
-            <Field type="text" name="title" placeholder="Title" />
-            {touched.title && errors.title && (
-              <p className="error">{errors.title}</p>
-            )}
-            <Field type="text" name="interestLevel" placeholder="50" />
-            {touched.interestLevel && errors.interestLevel && (
-              <p className="error">{errors.interestLevel}</p>
-            )}
-            <button type="submit">Save Result</button>
-          </Form>
+          <div className="result-form">
+            <Form>
+              <Field type="text" name="title" placeholder="Name your saved result" />
+                {touched.title && errors.title && (
+                  <p className="error">{errors.title}</p>
+                )}
+              <Field component="select" className="form-select" name="interestLevel">
+                <option>Do you like it?</option>
+                <option value="5">🤩</option>
+                <option value="4">😃</option>
+                <option value="3">🙂</option>
+                <option value="2">😐</option>
+                <option value="1">🤔</option>
+              </Field>
+                {touched.interestLevel && errors.interestLevel && (
+                  <p className="error">{errors.interestLevel}</p>
+                )}
+              <div className="saveform-row">
+                <button type="submit">Save Result</button>
+              </div>
+            </Form>
+          </div>
         </animated.div>
         <animated.div className="result-card" style={fadeIn} onClick={appraiseNew}>
           <h2>Want to appraise another house?</h2>
@@ -106,10 +117,14 @@ const FormikSaved = withFormik({
     };
   },
   validationSchema: Yup.object().shape({
-    title: Yup.string(),
-    interestLevel: Yup.string()
+    title: Yup.string()
+      .typeError("Please name your entry")
+      .required("Please name your entry"),
+    interestLevel: Yup.number()
+      .typeError("Please select level of interest")
+      .required("Please select level of interest")
   }),
-  handleSubmit(values, { props }) {
+  handleSubmit(values, { props, resetForm }) {
     // console.log("RESULT: SAVED FORM: PROPS: ", props);
     // console.log("RESULT: SAVED FORM: HOUSEID: ", props.history.location.state.id);
     const postThisObj = {
@@ -120,6 +135,7 @@ const FormikSaved = withFormik({
       houseID: props.history.location.state.id
     };
     props.postFav(postThisObj);
+    resetForm();
   }
 })(Result);
 

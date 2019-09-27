@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = props => {
   const handleLogout = () => {
     localStorage.removeItem('token')
-    window.location.reload()
+    // window.location.reload()
   }
 
   //setting props.isLoggedIn to true

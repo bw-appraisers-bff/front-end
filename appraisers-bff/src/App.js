@@ -14,7 +14,7 @@ const App = props => {
   return (
     <div className="app-container">
       {/*NAVBAR COMPONENT: authenticated vs unauthenticated rendering */}
-      <Navbar isLoggedIn={props.isLoggedIn} />
+      <Navbar {...props} isLoggedIn={props.isLoggedIn} />
 
       {/* Content COMPONENT: authenticated vs unauthenticated rendering */}
       <Content />

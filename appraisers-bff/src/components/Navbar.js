@@ -1,8 +1,13 @@
 import React from "react";
-
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const Navbar = props => {
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    window.location.reload()
+  }
+
   //setting props.isLoggedIn to true
   //   props.isLoggedIn = true;
   function NavLinks() {
@@ -20,7 +25,7 @@ const Navbar = props => {
           <NavLink to="/AboutUs">About Us</NavLink>
           <NavLink to="/appraise">Appraise</NavLink>
           <NavLink to="/saved">Saved List</NavLink>
-          <NavLink to="/login">Logout</NavLink>
+          <NavLink to="/login" onClick={handleLogout}>Logout</NavLink>
         </div>
       );
     }
@@ -46,4 +51,8 @@ const Navbar = props => {
   );
 };
 
-export default Navbar;
+const mapStateToProps = state => {
+  return {isToggled: state.isToggled}
+}
+
+export default connect(mapStateToProps)(Navbar);

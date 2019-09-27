@@ -53,6 +53,10 @@ const Result = ({ history, values, errors, touched, status }) => {
     config: { mass: 1, tension: 140, friction: 70 }
   });
 
+  const appraiseNew = () => {
+    history.push("/appraise");
+  }  
+
   return (
     example,
     (
@@ -71,9 +75,10 @@ const Result = ({ history, values, errors, touched, status }) => {
             <button type="submit">Save Result</button>
           </Form>
         </animated.div>
-        <animated.div className="form-container" style={fadeIn}>
-          <h2>Re-appraise</h2>
-          <AppraiseForm />
+        <animated.div className="result-card" style={fadeIn} onClick={appraiseNew}>
+          <h2>Want to appraise another house?</h2>
+          <br /><br />
+          <button className="secondary-button">Appraise Again</button>
         </animated.div>
       </>
     )

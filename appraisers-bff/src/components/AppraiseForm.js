@@ -50,12 +50,7 @@ const Appraise = ({ errors, touched, values, status, history }) => {
         <p className="error">{errors.bathrm}</p>
       )}
 
-      <Field component="select" className="form-select" name="zipcode">
-        <option>Zip Code</option>
-        <option value="12345">12345</option>
-        <option value="12345">12345</option>
-        <option value="12345">12345</option>
-      </Field>
+      <Field type="text" name="zipcode" placeholder="Enter 5 digit zip code."/>
       {touched.zipcode && errors.zipcode && (
         <p className="error">{errors.zipcode}</p>
       )}

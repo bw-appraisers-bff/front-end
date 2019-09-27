@@ -25,10 +25,7 @@ class Content extends React.Component {
           <PrivateRoute path="/result" component={FormikSaved} />
           <PrivateRoute path="/saved" component={SavedList} />
           <PrivateRoute path="/aboutus" component={AboutUs} />
-          <Route
-            path="/login"
-            component={this.props.isLoggedIn ? Appraise : FormikLogin}
-          />
+          <Route path="/login" component={FormikLogin} />
         </Switch>
 
         <Route

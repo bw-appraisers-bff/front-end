@@ -3,8 +3,9 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = props => {
   const logout = () => {
-    localStorage.removeItem('token');
-  }
+    localStorage.removeItem("token");
+  };
+
   function NavLinks() {
     if (!props.isLoggedIn) {
       return (
@@ -20,7 +21,9 @@ const Navbar = props => {
           <NavLink to="/AboutUs">About Us</NavLink>
           <NavLink to="/appraise">Appraise</NavLink>
           <NavLink to="/saved">Saved List</NavLink>
-          <NavLink onClick={() => logout()} to="/login">Logout</NavLink>
+          <NavLink onClick={() => logout()} to="/login">
+            Logout
+          </NavLink>
         </div>
       );
     }

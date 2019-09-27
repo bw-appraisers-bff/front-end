@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { NavLink, Route, Switch } from "react-router-dom";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import PrivateRoute from "../utils/PrivateRoute.js";
 
@@ -12,16 +12,14 @@ import FormikLogin from "./Login";
 import AboutUs from "./AboutUs";
 
 class Content extends React.Component {
-
-
   render() {
     return (
       <div className="content">
-
         <Switch>
           <PrivateRoute path="/appraise" component={Appraise} />
           <PrivateRoute path="/result" component={FormikSaved} />
           <PrivateRoute path="/saved" component={SavedList} />
+          <PrivateRoute path="/aboutus" component={AboutUs} />
           <Route
             path="/login"
             component={this.props.isLoggedIn ? Appraise : FormikLogin}
@@ -39,20 +37,7 @@ class Content extends React.Component {
           component={this.props.isLoggedIn ? Appraise : Signup}
         />
 
-        <Route
-          path="/aboutus" 
-          component={AboutUs}
-        />
-        {/* Test routes for react-router-dom */}
-        {/* <div>
-          <span>Test routes:</span>
-          <NavLink to="/login">Login</NavLink>
-          <NavLink to="/signup">Signup</NavLink>
-          <NavLink to="/appraise">Appraise</NavLink>
-          <NavLink to="/result">Result</NavLink>
-          <NavLink to="/saved">Saved</NavLink>
-        </div> */}
-
+        <Route path="/aboutus" component={AboutUs} />
       </div>
     );
   }

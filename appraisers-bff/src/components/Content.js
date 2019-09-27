@@ -19,14 +19,6 @@ class Content extends React.Component {
   render() {
     return (
       <div className="content">
-        <div>
-          <span>Test routes:</span>
-          <NavLink to="/login">Login</NavLink>
-          <NavLink to="/signup">Signup</NavLink>
-          <NavLink to="/appraise">Appraise</NavLink>
-          <NavLink to="/result">Result</NavLink>
-          <NavLink to="/saved">Saved</NavLink>
-        </div>
 
         <Switch>
           <PrivateRoute path="/appraise" component={Appraise} />
@@ -53,7 +45,16 @@ class Content extends React.Component {
           path="/aboutus" 
           component={AboutUs}
         />
-        {/* Note: is not rending "Appraise" even if "isLoggedIn" is true */}
+        {/* Test routes for react-router-dom */}
+        {/* <div>
+          <span>Test routes:</span>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/signup">Signup</NavLink>
+          <NavLink to="/appraise">Appraise</NavLink>
+          <NavLink to="/result">Result</NavLink>
+          <NavLink to="/saved">Saved</NavLink>
+        </div> */}
+
       </div>
     );
   }

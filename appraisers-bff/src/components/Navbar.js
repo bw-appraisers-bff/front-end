@@ -25,12 +25,19 @@ const Navbar = props => {
       );
     }
   }
+
+  const handleClick = () => {
+    console.log(props.history);
+  };
+
   return (
     <div className="nav-placeholder">
       <div className="nav-wrapper">
         <nav className="navbar">
-          <div className="navbar-img">
-            <img src="images/nav-logo.png" alt="Appraisers bff logo"></img>
+          <div className="navbar-img" onClick={handleClick}>
+            <NavLink to="/">
+              <img src="images/nav-logo.png" alt="Appraisers bff logo" />
+            </NavLink>
           </div>
           <NavLinks />
         </nav>

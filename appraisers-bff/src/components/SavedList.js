@@ -4,23 +4,30 @@ import { connect } from "react-redux";
 import { getFav } from "../actions";
 
 import SavedCard from "./SavedCard";
+import { useListToGrid } from "../hooks/useListToGrid.js";
 
 const SavedList = props => {
-  console.log("SavedList Props: ", props)
+  console.log("SavedList Props: ", props);
   const { getFav, decodedToken, favorites, isToggled } = props;
   // console.log("favorites default", favorites);
   // console.log("SavedList: Props: ", props);
 
   const [toggle, setToggle] = useState(false);
+  const [grid, setGrid] = useListToGrid(false);
 
   const flipSwitch = () => {
-    setToggle(!toggle)
-  }
+    setToggle(!toggle);
+  };
+
+  const toggleMode = e => {
+    e.preventDefault();
+    setGrid(!grid);
+  };
 
   const fadeIn = useSpring({
     opacity: 1,
-    from: {opacity: 0},
-    config: {mass:1, tension: 140, friction: 70}
+    from: { opacity: 0 },
+    config: { mass: 1, tension: 140, friction: 70 }
   });
 
   const tokenObj = {
@@ -38,6 +45,15 @@ const SavedList = props => {
 
   return (
     <div className="saved">
+      {/* <div>
+        <span>List or Grid?</span>
+        <div className="grid-mode__toggle">
+          <div
+            onClick={toggleMode}
+            className={grid ? "toggle toggled" : "toggle"}
+          />
+        </div>
+      </div> */}
       {favorites.map(
         result => (
           <SavedCard
@@ -65,7 +81,7 @@ const mapStateToProps = state => {
   return {
     decodedToken: state.decodedToken.token.username,
     favorites: state.favorites,
-    isToggled: state.isToggled,
+    isToggled: state.isToggled
   };
 };
 

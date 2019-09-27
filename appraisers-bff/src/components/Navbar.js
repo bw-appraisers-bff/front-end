@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 const Navbar = props => {
   const logout = () => {
     localStorage.removeItem("token");
+    // localStorage.clear();
+    // props.history.push("/login")
   };
 
   function NavLinks() {
@@ -21,9 +23,11 @@ const Navbar = props => {
           <NavLink to="/AboutUs">About Us</NavLink>
           <NavLink to="/appraise">Appraise</NavLink>
           <NavLink to="/saved">Saved List</NavLink>
-          <NavLink onClick={() => logout()} to="/login">
+          {/* <NavLink to="/login">Logout</NavLink> */}
+          <button type="button" onClick={logout}>Logout</button>
+          {/* <NavLink onClick={() => logout()} to="/login">
             Logout
-          </NavLink>
+          </NavLink> */}
         </div>
       );
     }

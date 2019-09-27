@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDarkMode } from "../hooks/useDarkMode.js";
+// import { useDarkMode } from "../hooks/useDarkMode.js";
 
 const Footer = () => {
-  const [darkMode, setDarkMode] = useDarkMode(false);
-  const toggleMode = e => {
-    e.preventDefault();
-    setDarkMode(!darkMode);
-  };
+  // const [darkMode, setDarkMode] = useDarkMode(false);
+  // const toggleMode = e => {
+  //   e.preventDefault();
+  //   setDarkMode(!darkMode);
+  // };
   return (
     <footer className="footer-wrapper">
       <div className="footer">

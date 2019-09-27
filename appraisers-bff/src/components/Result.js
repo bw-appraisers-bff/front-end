@@ -1,47 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { postFav } from "../actions";
-import AppraiseForm from "./AppraiseForm";
+// import AppraiseForm from "./AppraiseForm";
 import ResultCard from "./ResultCard";
 import { useSpring, animated } from "react-spring";
-import axios from "axios";
 
-import ResultSave from "./ResultSave";
-import InterestForm from "./InterestForm";
+// import ResultSave from "./ResultSave";
+// import InterestForm from "./InterestForm";
 
 //temp imports until we're ready to modify Brianna's code
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-
-const dummyData = [
-  {
-    id: 1,
-    zipCode: 90210,
-    yearBuilt: 1960,
-    squareFootage: 1000,
-    bedrooms: 10,
-    bathrooms: 5.5,
-    value: 100500
-  },
-  {
-    id: 2,
-    zipCode: 10024,
-    yearBuilt: 1975,
-    squareFootage: 2500,
-    bedrooms: 1,
-    bathrooms: 0.5,
-    value: 100500
-  },
-  {
-    id: 3,
-    zipCode: 60007,
-    yearBuilt: 1920,
-    squareFootage: 5200,
-    bedrooms: 3,
-    bathrooms: 2,
-    value: 100500
-  }
-];
 
 const Result = ({ history, values, errors, touched, status }) => {
   console.log("HISTORY FROM RESULT: ", history)
@@ -70,12 +39,32 @@ const Result = ({ history, values, errors, touched, status }) => {
                   <p className="error">{errors.title}</p>
                 )}
               <Field component="select" className="form-select" name="interestLevel">
-                <option>Do you like it?</option>
-                <option value="5">🤩</option>
-                <option value="4">😃</option>
-                <option value="3">🙂</option>
-                <option value="2">😐</option>
-                <option value="1">🤔</option>
+              <option>Change your feelings?</option>
+            <option value="5">
+              <span role="img" aria-label="jsx-a11y/accessible-emoji">
+                🤩
+              </span>
+            </option>
+            <option value="4">
+              <span role="img" aria-label="jsx-a11y/accessible-emoji">
+                😃
+              </span>
+            </option>
+            <option value="3">
+              <span role="img" aria-label="jsx-a11y/accessible-emoji">
+                🙂
+              </span>
+            </option>
+            <option value="2">
+              <span role="img" aria-label="jsx-a11y/accessible-emoji">
+                😐
+              </span>
+            </option>
+            <option value="1">
+              <span role="img" aria-label="jsx-a11y/accessible-emoji">
+                🤔
+              </span>
+            </option>
               </Field>
                 {touched.interestLevel && errors.interestLevel && (
                   <p className="error">{errors.interestLevel}</p>

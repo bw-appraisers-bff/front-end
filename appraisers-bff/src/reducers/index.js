@@ -20,9 +20,7 @@ import {
   PUT_FAVORITES_START,
   PUT_FAVORITES_SUCCESS,
   PUT_FAVORITES_FAIL,
-  DELETE_FAVORITES_START,
   DELETE_FAVORITES_SUCCESS,
-  DELETE_FAVORITES_FAIL,
 } from "../actions";
 
 //make auth state for conditional rendering on nav bar
@@ -34,14 +32,14 @@ const initialState = {
     error: ""
   },
   decodedToken: {
-    token: {},
+    token: {}
   },
   user: {
     username: "",
     password: ""
   },
   favorites: [],
-  error: '',
+  error: "",
   isToggled: false
 };
 
@@ -103,35 +101,58 @@ export const reducer = (state = initialState, action) => {
           priceOfHouse: action.payload
         }
       };
-      case POST_FAVORITES_START:
-        return {
-          ...state,
-        }
-      case POST_FAVORITES_SUCCESS:
-        return {
-          ...state,
-          favorites: [action.payload]
-        }
-      case POST_FAVORITES_FAIL:
-        return {
-          ...state,
-          error: action.payload
-        }
-      case GET_FAVORITES_SUCCESS: 
+    case POST_HOUSE_FAIL:
+      return {
+        ...state,
+        error: action.payload
+      };
+    case POST_FAVORITES_START:
+      return {
+        ...state
+      };
+    case POST_FAVORITES_SUCCESS:
+      return {
+        ...state,
+        favorites: [action.payload]
+      };
+    case POST_FAVORITES_FAIL:
+      return {
+        ...state,
+        error: action.payload
+      };
+    case GET_FAVORITES_START:
+      return {
+        ...state
+      };
+    case GET_FAVORITES_SUCCESS:
       return {
         ...state,
         favorites: action.payload
-      }
-      case DELETE_FAVORITES_SUCCESS:
-        return {
-          ...state,
-          isToggled: !state.isToggled
-        }
-      case PUT_FAVORITES_SUCCESS:
-        return{
-          ...state,
-          isToggled: !state.isToggled,
-        }
+      };
+    case GET_FAVORITES_FAIL:
+      return {
+        ...state,
+        error: action.payload
+      };
+    case DELETE_FAVORITES_SUCCESS:
+      return {
+        ...state,
+        isToggled: !state.isToggled
+      };
+    case PUT_FAVORITES_START:
+      return {
+        ...state
+      };
+    case PUT_FAVORITES_SUCCESS:
+      return {
+        ...state,
+        isToggled: !state.isToggled
+      };
+    case PUT_FAVORITES_FAIL:
+      return {
+        ...state,
+        error: action.payload
+      };
     default:
       return state;
   }

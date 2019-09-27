@@ -14,13 +14,13 @@ const Footer = () => {
         <span>Copyright Appraiser's BFF 2019</span>
         <div className="footer-links">
           <a href="https://www.pinterest.com">
-            <img src="../../../images/PinterestNavLogo.png" />
+            <img src="../../../images/PinterestNavLogo.png" alt="pinterest icon" />
           </a>
           <a href="https://www.twitter.com">
-            <img src="../../../images/TwitterNavLogo.png" />
+            <img src="../../../images/TwitterNavLogo.png" alt="twitter icon" />
           </a>
           <a href="https://www.facebook.com">
-            <img src="../../../images/FBNavLogo.png" />{" "}
+            <img src="../../../images/FBNavLogo.png" alt="facebook icon" />
           </a>
         </div>
         {/* <div>

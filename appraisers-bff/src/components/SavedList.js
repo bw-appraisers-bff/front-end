@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useSpring, animated } from "react-spring";
+import { useSpring } from "react-spring";
 import { connect } from "react-redux";
 import { getFav } from "../actions";
 
 import SavedCard from "./SavedCard";
-import { useListToGrid } from "../hooks/useListToGrid.js";
+// import { useListToGrid } from "../hooks/useListToGrid.js";
 
 const SavedList = props => {
   console.log("SavedList Props: ", props);
@@ -13,16 +13,16 @@ const SavedList = props => {
   // console.log("SavedList: Props: ", props);
 
   const [toggle, setToggle] = useState(false);
-  const [grid, setGrid] = useListToGrid(false);
+  // const [grid, setGrid] = useListToGrid(false);
 
   const flipSwitch = () => {
     setToggle(!toggle);
   };
 
-  const toggleMode = e => {
-    e.preventDefault();
-    setGrid(!grid);
-  };
+  // const toggleMode = e => {
+  //   e.preventDefault();
+  //   setGrid(!grid);
+  // };
 
   const fadeIn = useSpring({
     opacity: 1,

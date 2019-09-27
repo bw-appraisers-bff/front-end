@@ -4,8 +4,8 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 import ResultCard from "./ResultCard";
-import SaveEdit from "./SaveEdit";
-import InterestForm from "./InterestForm";
+// import SaveEdit from "./SaveEdit";
+// import InterestForm from "./InterestForm";
 import { connect } from "react-redux";
 import { putFav, deleteFav } from "../actions";
 
@@ -56,70 +56,94 @@ const SavedCard = ({
 
   const handleDelete = () => {
     console.log(result.id);
-    deleteFav(result.id,);
+    deleteFav(result.id);
     flipSwitch();
   };
 
-  const emojiInterest = (input) => {
+  const emojiInterest = input => {
     if (input === 1) {
       return "🤔";
-    } if (input === 2) {
+    }
+    if (input === 2) {
       return "😐";
-    } if (input === 3) {
+    }
+    if (input === 3) {
       return "🙂";
-    } if (input === 4) {
+    }
+    if (input === 4) {
       return "😃";
-    } if (input === 5) {
+    }
+    if (input === 5) {
       return "🤩";
     } else {
       return input;
     }
-  }
+  };
 
   return (
     <animated.div key={id} className="result-card" style={fadeIn}>
       {/* <div className="size-box">
         <SaveEdit name={name} interestLevel={interestLevel} />
       </div> */}
-      <h2>{`Saved Result: `}<span className="underline">{`${name}`}</span></h2>
+      <h2>
+        {`Saved Result: `}
+        <span className="underline">{`${name}`}</span>
+      </h2>
       <h3>{`Interest Level: ${emojiInterest(interestLevel)}`}</h3>
       {/* <InterestForm /> */}
-      <ResultCard
-        // price={price}
-        // bedrooms={bedrooms}
-        // bathrooms={bathrooms}
-        // yearBuilt={yearBuilt}
-        // squareFootage={squareFootage}
-        // zipCode={zipCode}
-        house={result}
-      />
+      <ResultCard house={result} />
       <div className="result-form">
         <Form>
-          <Field type="text" name="title" placeholder="Edit saved result's name" />
-            {touched.title && errors.title && (
-              <p className="error">{errors.title}</p>
-            )}
-          <Field component="select" className="form-select" name="interestLevel">
+          <Field
+            type="text"
+            name="title"
+            placeholder="Edit saved result's name"
+          />
+          {touched.title && errors.title && (
+            <p className="error">{errors.title}</p>
+          )}
+          <Field
+            component="select"
+            className="form-select"
+            name="interestLevel"
+          >
             <option>Change your feelings?</option>
-            <option value="5">🤩</option>
-            <option value="4">😃</option>
-            <option value="3">🙂</option>
-            <option value="2">😐</option>
-            <option value="1">🤔</option>
+            <option value="5">
+              <span role="img" aria-label="jsx-a11y/accessible-emoji">
+                🤩
+              </span>
+            </option>
+            <option value="4">
+              <span role="img" aria-label="jsx-a11y/accessible-emoji">
+                😃
+              </span>
+            </option>
+            <option value="3">
+              <span role="img" aria-label="jsx-a11y/accessible-emoji">
+                🙂
+              </span>
+            </option>
+            <option value="2">
+              <span role="img" aria-label="jsx-a11y/accessible-emoji">
+                😐
+              </span>
+            </option>
+            <option value="1">
+              <span role="img" aria-label="jsx-a11y/accessible-emoji">
+                🤔
+              </span>
+            </option>
           </Field>
-            {touched.interestLevel && errors.interestLevel && (
-              <p className="error">{errors.interestLevel}</p>
-            )}
+          {touched.interestLevel && errors.interestLevel && (
+            <p className="error">{errors.interestLevel}</p>
+          )}
           <div className="editform-row">
             <button type="submit">Update</button>
             <h3 className="spacer">or</h3>
-            <button
-            onClick={() => handleDelete()}
-            className="delete-button"
-          >
-            Delete
-          </button>
-        </div>
+            <button onClick={() => handleDelete()} className="delete-button">
+              Delete
+            </button>
+          </div>
         </Form>
       </div>
     </animated.div>
@@ -162,7 +186,7 @@ const mapStateToProps = state => {
   console.log("SavedCard: mstp: state: ", state);
   return {
     decoded: state.decodedToken.token.id,
-    isToggled: state.isToggled,
+    isToggled: state.isToggled
   };
 };
 

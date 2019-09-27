@@ -118,6 +118,14 @@
     
   }
 
+  .editform-row {
+    @include flex-style(row, nowrap, space-between, center);
+    margin-top: 16px;
+
+    h3 {
+      margin: 0px 10px;
+    }
+  }
 
   .error {
     margin: 0;
@@ -198,6 +206,30 @@
   .button-container{
     margin-top: 32px;
     @include flex-style(column, nowrap, space-between, center);
+  }
+
+  .delete-button {
+    background-color: $delete-red;
+    border: 2px solid $primary-aqua;
+    border-radius: 5px;
+    color: $text-white;
+    max-width: 250px;
+    margin: auto;
+    padding: 12px 20px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    font-size: 1.7rem;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+  
+    &:active {
+      background-color: $secondary-beige;
+    }
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed !important;
+    }
   }
 
 }

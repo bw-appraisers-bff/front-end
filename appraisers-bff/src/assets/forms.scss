@@ -127,11 +127,15 @@
     }
   }
 
+  .saveform-row {
+    margin-top: 16px;
+  }
+
   .error {
     margin: 0;
     position: absolute;
-    color: $delete-red;
-    font-size: 1.0rem;
+    color: rgb(255, 92, 92);
+    font-size: 1.6rem;
   }
 
   input,

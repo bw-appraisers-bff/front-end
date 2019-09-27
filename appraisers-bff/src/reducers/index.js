@@ -37,15 +37,10 @@ const initialState = {
     token: {},
   },
   user: {
-    // id: '',
     username: "",
     password: ""
-    // name: ''
   },
   favorites: [],
-  house: {
-    priceOfHouse: {}
-  },
   error: '',
   isToggled: false
 };

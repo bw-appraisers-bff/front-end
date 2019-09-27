@@ -216,6 +216,8 @@ a {
 // Footer styles
 
 .footer-wrapper {
+  position: fixed;
+  bottom: 0;
   background-color: $brand-aqua;
   border-top: 2px solid $nav-border;
   width: 100%;
@@ -224,6 +226,7 @@ a {
   @include flex-style(row, nowrap, center, center);
 }
 .footer {
+  
   width: 100%;
   z-index: 50;
   max-width: 800px;

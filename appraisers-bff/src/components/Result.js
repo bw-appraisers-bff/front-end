@@ -63,15 +63,22 @@ const Result = ({ history, values, errors, touched, status }) => {
       <>
         <animated.div className="result-card" style={fadeIn}>
           <ResultCard house={example} />
-          <Form>
-            <Field type="text" name="title" placeholder="Title" />
-            {touched.title && errors.title && (
-              <p className="error">{errors.title}</p>
-            )}
-            <Field type="text" name="interestLevel" placeholder="50" />
-            {touched.interestLevel && errors.interestLevel && (
-              <p className="error">{errors.interestLevel}</p>
-            )}
+          <Form className="result-form">
+            <Field type="text" name="title" placeholder="Name your saved result" />
+              {touched.title && errors.title && (
+                <p className="error">{errors.title}</p>
+              )}
+            <Field component="select" className="form-select" name="interestLevel">
+              <option>Do you like it?</option>
+              <option value="5">🤩</option>
+              <option value="4">😃</option>
+              <option value="3">🙂</option>
+              <option value="2">😐</option>
+              <option value="1">🤔</option>
+            </Field>
+              {touched.interestLevel && errors.interestLevel && (
+                <p className="error">{errors.interestLevel}</p>
+              )}
             <button type="submit">Save Result</button>
           </Form>
         </animated.div>

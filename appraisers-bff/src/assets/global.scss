@@ -186,13 +186,48 @@ a {
     .navbar-img {
       img {
         height: 50px;
-        padding: 5px
+        padding: 5px;
+        float: right;
+        display: block;
       }
     }
     .nav-links {
+      @media #{$responsive-phone} {
+        display: none;
+      }
       a {
         @include nav-link-style;
-        margin: 0px 10px;
+      }
+    }
+    .nav-links-mobile {
+      display: none;
+
+      @media #{$responsive-phone} {
+        display: flex;
+      }
+
+      img {
+        height: 24px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 13px;
+      }
+
+      .mobile-links-hidden {
+        display: none;
+      }
+
+      .mobile-links-displayed {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50px;
+        background-color: $brand-aqua;
+
+        a {
+          @include mobile-link-style;
+        }
       }
     }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
@@ -10,7 +10,7 @@ const Navbar = props => {
 
   const [displayed, setDisplayed] = useState(false);
 
-  const openMenu = () => {
+  const toggleMenu = () => {
     console.log("button clicked");
     setDisplayed(!displayed);
     console.log("displayed is now", displayed);
@@ -56,8 +56,8 @@ const Navbar = props => {
             <NavLinks />
           </div>
           <div className="nav-links-mobile">
-            <img src="../../../images/hamburger.png" onClick={openMenu} />
-            <div className={displayed ? "mobile-links-displayed" : "mobile-links-hidden"}>
+            <img src="../../../images/hamburger.png" onClick={toggleMenu} />
+            <div className={displayed ? "mobile-links-displayed" : "mobile-links-hidden"} onClick={toggleMenu}>
               <NavLinks />
             </div>
           </div>

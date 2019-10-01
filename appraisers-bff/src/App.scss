@@ -50,7 +50,7 @@ $nav-border: $inactive-aqua;
 @mixin footer-link-style {
   color: $text-white;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   position: relative;
 
   @include animate-link

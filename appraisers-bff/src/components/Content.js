@@ -24,11 +24,8 @@ class Content extends React.Component {
           <PrivateRoute path="/appraise" component={Appraise} />
           <PrivateRoute path="/result" component={FormikSaved} />
           <PrivateRoute path="/saved" component={SavedList} />
-          <PrivateRoute path="/aboutus" component={AboutUs} />
-          <Route
-            path="/login"
-            component={this.props.isLoggedIn ? Appraise : FormikLogin}
-          />
+          {/* <PrivateRoute path="/aboutus" component={AboutUs} /> */}
+          <Route path="/login" component={FormikLogin} />
         </Switch>
 
         <Route
@@ -43,7 +40,7 @@ class Content extends React.Component {
         />
 
         <Route
-          path="/aboutus" 
+          path="/about" 
           component={AboutUs}
         />
         {/* Test routes for react-router-dom */}

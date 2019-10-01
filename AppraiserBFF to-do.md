@@ -2,7 +2,7 @@
 [X]() comment out social links / other dead links
 [ ]() make navbar update properly on sign out
 [ ]() Improve emoji interest UI
-[ ]() navbar/footer mobile responsive
+[X]() navbar/footer mobile responsive
 
 
 # Static Page Updates

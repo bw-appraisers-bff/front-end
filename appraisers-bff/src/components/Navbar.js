@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
@@ -8,25 +8,33 @@ const Navbar = props => {
     // window.location.reload()
   }
 
+  const [displayed, setDisplayed] = useState(false);
+
+  const openMenu = () => {
+    console.log("button clicked");
+    setDisplayed(!displayed);
+    console.log("displayed is now", displayed);
+  }
+
   //setting props.isLoggedIn to true
   //   props.isLoggedIn = true;
   function NavLinks() {
     if (!props.isLoggedIn) {
       return (
-        <div className="nav-links">
+        <>
           <NavLink to="/about">About Us</NavLink>
           <NavLink to="/login">Log In</NavLink>
           <NavLink to="/signup">Sign Up</NavLink>
-        </div>
+        </>
       );
     } else {
       return (
-        <div className="nav-links">
+        <>
           <NavLink to="/about">About Us</NavLink>
           <NavLink to="/appraise">Appraise</NavLink>
           <NavLink to="/saved">Saved List</NavLink>
           <NavLink to="/login" onClick={handleLogout}>Logout</NavLink>
-        </div>
+        </>
       );
     }
   }
@@ -44,7 +52,15 @@ const Navbar = props => {
               <img src="images/nav-logo.png" alt="Appraisers bff logo" />
             </NavLink>
           </div>
-          <NavLinks />
+          <div className="nav-links">
+            <NavLinks />
+          </div>
+          <div className="nav-links-mobile">
+            <img src="../../../images/hamburger.png" onClick={openMenu} />
+            <div className={displayed ? "mobile-links-displayed" : "mobile-links-hidden"}>
+              <NavLinks />
+            </div>
+          </div>
         </nav>
       </div>
     </div>

@@ -15,7 +15,7 @@ const Footer = () => {
           </div> */}
           <div className="footer-links">
             <Link to="/about">About Appraiser BFF</Link>
-            {/* no terms of use or privacy policy
+            {/* No terms of use or privacy policy published
             <Link to="/">Terms of Use</Link>
             <Link to="/">Privacy Policy</Link> */}
           </div>

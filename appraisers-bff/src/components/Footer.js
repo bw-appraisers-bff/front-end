@@ -6,16 +6,18 @@ const Footer = () => {
     <div className="footer-placeholder">
       <footer className="footer-wrapper">
         <div className="footer">
-          <span>Copyright Appraiser's BFF 2019</span>
+          <span>Copyright Appraiser BFF 2019</span>
+          {/* no social media presence
           <div className="footer-links">
             <a href="https://www.pinterest.com"><img src='../../../images/PinterestNavLogo.png'/></a>
             <a href="https://www.twitter.com"><img src='../../../images/TwitterNavLogo.png'/></a>
             <a href="https://www.facebook.com"><img src="../../../images/FBNavLogo.png"/> </a>
-          </div>
+          </div> */}
           <div className="footer-links">
-            <Link to="/">Contact Us</Link>
+            <Link to="/about">About Appraiser BFF</Link>
+            {/* no terms of use or privacy policy
             <Link to="/">Terms of Use</Link>
-            <Link to="/">Privacy Policy</Link>
+            <Link to="/">Privacy Policy</Link> */}
           </div>
         </div>
      </footer>

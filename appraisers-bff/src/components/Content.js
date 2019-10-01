@@ -40,7 +40,7 @@ class Content extends React.Component {
         />
 
         <Route
-          path="/aboutus" 
+          path="/about" 
           component={AboutUs}
         />
         {/* Test routes for react-router-dom */}

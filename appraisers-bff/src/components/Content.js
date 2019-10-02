@@ -29,7 +29,7 @@ class Content extends React.Component {
     axios
     .get(`https://appraisers-bff.herokuapp.com/?&yearbuilt=1983&bedrooms=1&bathrooms=2&squarefeet=1800`)
     .then(res => {
-      console.log("datascience mdel awake", res)
+      console.log("datascience model awake", res)
     })
     .catch(err => console.log(err));
   }

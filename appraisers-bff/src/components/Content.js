@@ -11,6 +11,8 @@ import FormikSaved from "./Result";
 import SavedList from "./SavedList";
 import FormikLogin from "./Login";
 import AboutUs from "./AboutUs";
+import SplashPage from "./SplashPage";
+
 
 class Content extends React.Component {
   constructor(props) {
@@ -18,7 +20,7 @@ class Content extends React.Component {
   }
 
   componentDidMount() {
-    //wake up backend
+    //wake up backend and datascience model
     axios
     .get("https://appraisersbff.herokuapp.com")
     .then(res => {
@@ -47,7 +49,7 @@ class Content extends React.Component {
         <Route
           exact
           path="/"
-          component={this.props.isLoggedIn ? Appraise : Signup}
+          component={this.props.isLoggedIn ? Appraise : SplashPage }
         />
 
         <Route

@@ -248,6 +248,11 @@ a {
   width: 100%;
 }
 
+.splash-page {
+  width: 100%;
+  // @include flex-style(column, nowrap, space-between, center);
+}
+
 // Footer styles
 
 .footer-placeholder {

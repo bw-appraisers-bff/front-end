@@ -6,15 +6,15 @@
 [ ][5] Hide/reveal edit form on saved results page
 [ ][6] Initialize each savedCard’s edit form to be its data
 
-
 # Static Page Updates
 [ ]() Add marketing splash page prior to login-signup flow
 [X]() About Us - make GitHub buttons match page style
-[ ]() About Us - add linked in buttons
+[-]() About Us - add linked in buttons
 [ ]() About Us - Add section about technology stack
 
 # Site Functionality
-[ ]() Wake-up backend and data science model on homepage visit to reduce loading time for initial request
+[X]() Wake-up backend on homepage visit to reduce loading time for initial signup/login
+[ ]() Wake-up data science model on homepage visit to reduce loading time for initial appraise/save/edit
 [ ]() Display error when invalid credentials are entered into login page
 [ ]() Display confirmation of result saving from Results page
 [ ]() Display confirmation of result updating from Saved page

@@ -25,13 +25,6 @@ class Content extends React.Component {
       console.log("backend awake", res)
     })
     .catch(err => console.log(err));
-    //wake up datscience model 
-    axios
-    .get(`https://appraisers-bff.herokuapp.com/?&yearbuilt=1983&bedrooms=1&bathrooms=2&squarefeet=1800`)
-    .then(res => {
-      console.log("datascience mdel awake", res)
-    })
-    .catch(err => console.log(err));
   }
 
   render() {

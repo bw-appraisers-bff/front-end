@@ -10,7 +10,7 @@ const AboutCard = props => {
             <div className="bio-data">
                 <h1 className="about-name">{props.title.name}</h1>
                 <p className="about-role">Role:{props.title.role}</p>
-                <a href={props.title.github} > <img src="../../../images/gitlogo.png" className="git-pic"/> </a>
+                <a href={props.title.github} > <img src="../../../images/GitHub_Logo_White.png" className="git-pic"/> </a>
             </div>
         </div>
 

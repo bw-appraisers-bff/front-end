@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import PrivateRoute from "../utils/PrivateRoute.js";
+import axios from 'axios';
 
 //components
 import Signup from "./Signup";
@@ -14,6 +15,23 @@ import AboutUs from "./AboutUs";
 class Content extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    //wake up backend
+    axios
+    .get("https://appraisersbff.herokuapp.com")
+    .then(res => {
+      console.log("backend awake", res)
+    })
+    .catch(err => console.log(err));
+    //wake up datscience model 
+    axios
+    .get(`https://appraisers-bff.herokuapp.com/?&yearbuilt=1983&bedrooms=1&bathrooms=2&squarefeet=1800`)
+    .then(res => {
+      console.log("datascience mdel awake", res)
+    })
+    .catch(err => console.log(err));
   }
 
   render() {

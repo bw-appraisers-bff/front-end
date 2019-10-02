@@ -1,13 +1,15 @@
 # Overall Site Polish
 [X]() comment out social links / other dead links
 [ ]() make navbar update properly on sign out
-[ ]() Improve emoji interest UI
-[ ]() navbar/footer mobile responsive
+[X]() Improve emoji interest UI
+[X]() navbar/footer mobile responsive
+[ ][5] Hide/reveal edit form on saved results page
+[ ][6] Initialize each savedCard’s edit form to be its data
 
 
 # Static Page Updates
 [ ]() Add marketing splash page prior to login-signup flow
-[ ]() About Us - make GitHub buttons match page style
+[X]() About Us - make GitHub buttons match page style
 [ ]() About Us - add linked in buttons
 [ ]() About Us - Add section about technology stack
 
@@ -21,3 +23,5 @@
 — [ ]() When waiting for response from login
 — [ ]() When waiting for response from signup
 
+[5]:	%20
+[6]:	%20

@@ -70,7 +70,7 @@ const Result = ({ history, values, errors, touched, status }) => {
                   <p className="error">{errors.title}</p>
                 )}
               <Field component="select" className="form-select" name="interestLevel">
-                <option>Do you like it?</option>
+                <option>Your level of interest?</option>
                 <option value="5">🤩</option>
                 <option value="4">😃</option>
                 <option value="3">🙂</option>

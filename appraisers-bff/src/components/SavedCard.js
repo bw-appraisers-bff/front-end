@@ -100,7 +100,7 @@ const SavedCard = ({
               <p className="error">{errors.title}</p>
             )}
           <Field component="select" className="form-select" name="interestLevel">
-            <option>Change your feelings?</option>
+            <option>New interest level?</option>
             <option value="5">🤩</option>
             <option value="4">😃</option>
             <option value="3">🙂</option>

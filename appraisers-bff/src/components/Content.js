@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { NavLink, Route, Switch } from "react-router-dom";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import PrivateRoute from "../utils/PrivateRoute.js";
 import axios from 'axios';
@@ -15,9 +15,6 @@ import SplashPage from "./SplashPage";
 
 
 class Content extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     //wake up backend and datascience model

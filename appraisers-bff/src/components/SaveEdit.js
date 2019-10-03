@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {useSpring, useTransition, animated } from 'react-spring'
+import React, { useState } from 'react';
+import { useTransition, animated } from 'react-spring'
 
 const SaveEdit = (props) => {
 

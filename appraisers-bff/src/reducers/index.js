@@ -10,26 +10,26 @@ import {
   SIGNUP_FAIL,
   POST_HOUSE_START,
   POST_HOUSE_SUCCESS,
-  POST_HOUSE_FAIL,
-  GET_FAVORITES_START,
+  // POST_HOUSE_FAIL,
+  // GET_FAVORITES_START,
   GET_FAVORITES_SUCCESS,
-  GET_FAVORITES_FAIL,
+  // GET_FAVORITES_FAIL,
   POST_FAVORITES_START,
   POST_FAVORITES_SUCCESS,
   POST_FAVORITES_FAIL,
-  PUT_FAVORITES_START,
+  // PUT_FAVORITES_START,
   PUT_FAVORITES_SUCCESS,
-  PUT_FAVORITES_FAIL,
-  DELETE_FAVORITES_START,
+  // PUT_FAVORITES_FAIL,
+  // DELETE_FAVORITES_START,
   DELETE_FAVORITES_SUCCESS,
-  DELETE_FAVORITES_FAIL,
+  // DELETE_FAVORITES_FAIL,
 } from "../actions";
 
 //make auth state for conditional rendering on nav bar
 
 const initialState = {
   login: {
-    isLoggingIn: false,
+    isLoggingIn: false, 
     isLoggedIn: false,
     error: ""
   },

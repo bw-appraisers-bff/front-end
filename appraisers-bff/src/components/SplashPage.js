@@ -13,7 +13,7 @@ const SplashPage = () => {
             <div className="banner">
                 <h1>Appraise A Home's Value Instantly</h1>
             </div>
-            <NavLink to="/signup"><button className="cta-button">Signup Now</button></NavLink>
+            <NavLink to="/signup"><button className="cta-button">Sign Up Now</button></NavLink>
             <a href="#learn"><h2>Want to learn more?</h2></a>
         </div>
         <div id="learn" className="product-description">

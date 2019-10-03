@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import AppraiseForm from './AppraiseForm'
 import {useSpring, animated } from 'react-spring'
-import axios from 'axios';
 
 const Appraise = props => { 
     const fadeIn = useSpring({

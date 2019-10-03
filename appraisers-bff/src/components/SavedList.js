@@ -6,7 +6,7 @@ import { getFav } from "../actions";
 import SavedCard from "./SavedCard";
 
 const SavedList = props => {
-  console.log("SavedList Props: ", props)
+  // console.log("SavedList Props: ", props)
   const { getFav, decodedToken, favorites, isToggled } = props;
   // console.log("favorites default", favorites);
   // console.log("SavedList: Props: ", props);
@@ -37,7 +37,7 @@ const SavedList = props => {
   }, [isToggled]);
 
   return (
-    <div className="saved">
+    <animated.div className="saved" style={fadeIn}>
       {favorites.map(
         result => (
           <SavedCard
@@ -53,7 +53,7 @@ const SavedList = props => {
 
         // </Link>
       )}
-    </div>
+    </animated.div>
   );
 };
 

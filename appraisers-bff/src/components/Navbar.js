@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
@@ -56,7 +56,7 @@ const Navbar = props => {
             <NavLinks />
           </div>
           <div className="nav-links-mobile">
-            <img src="../../../images/hamburger.png" onClick={toggleMenu} />
+            <img src="../../../images/hamburger.png" onClick={toggleMenu} alt="menu icon" />
             <div className={displayed ? "mobile-links-displayed" : "mobile-links-hidden"} onClick={toggleMenu}>
               <NavLinks />
             </div>

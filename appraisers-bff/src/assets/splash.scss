@@ -9,21 +9,76 @@
     height: 90vh;
     padding: 10px;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.85);
-    @include flex-style(row, nowrap, space-between, center)
+    @include flex-style(column, nowrap, space-around, center);
 
-    h1 {
+    .banner {
+        width: 100%;
+        margin-top: 6rem;
+
+        h1 {
+            color: $text-white;
+            font-size: 8rem;
+            text-shadow: 0 0 20px #000;
+
+            @media #{$responsive-phone} {
+                font-size: 6rem;
+            }
+        }
+    }
+
+    .cta-button {
+        border-style: solid 1px $text-white;
+        border-radius: 5px;
+        background-color: $brand-aqua;
+        color:$text-white;
+        max-width: 250px;
+        margin: auto;
+        padding: 12px;
+        box-shadow: 0px 2px 2px $text-white;
+        font-family: $font-header;
+        font-size: 4rem;
+        font-weight: 900;
+        cursor: pointer;
+        outline: none;
+        -webkit-appearance: none;
+        
+        &:active {
+            background-color: $primary-aqua;
+        }
+        
+        
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed !important;
+        }
+    }
+    a {
+        text-decoration: none;
+    }
+    h2 {
         color: $text-white;
-        font-size: 8rem;
         text-shadow: 0 0 20px #000;
+        margin-bottom: 4rem;
     }
 }
 
 .product-description {
     align-items: center;
+    padding-top: 6rem;
     
     .top-content-section{
         align-items: center;
         margin-left: 2rem;
+
+        .aqua-line{
+            border-top: 6px solid $brand-aqua;
+            width: 90%;
+            height: 0;
+
+            @media #{$responsive-phone}{
+                width: 100%;
+            }
+        }
 
         @media #{$responsive-phone} { 
             display:flex;
@@ -37,7 +92,7 @@
             font-size: 6rem;
             color: black;
             font-weight: 900;
-            padding-top: 6rem;
+            padding-top: 1rem;
 
             @media #{$responsive-phone} {
                 width: 100%;

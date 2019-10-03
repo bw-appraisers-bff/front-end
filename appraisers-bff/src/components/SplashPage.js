@@ -1,21 +1,26 @@
 import React from 'react';
+import { NavLink } from "react-router-dom";
 
 const SplashPage = () => {
+
+    const scrollToLearn = () => {
+
+    }
+
     return (
     <div className="splash-page">
         <div className="splash-jumbo">
-            <div>
+            <div className="banner">
                 <h1>Appraise A Home's Value Instantly</h1>
             </div>
-            <div>
-                <h2>Signup for Appraiser BFF Now</h2>
-                <h2>Learn More...</h2>
-            </div>
+            <NavLink to="/signup"><button className="cta-button">Signup Now</button></NavLink>
+            <a href="#learn"><h2>Want to learn more?</h2></a>
         </div>
-        <div className="product-description">
+        <div id="learn" className="product-description">
             {/*top content section*/}
 
             <div class="top-content-section">
+                <div class="aqua-line"></div>
                 <h1>
                     Instant Appraisal Solution
                 </h1>

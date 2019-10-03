@@ -104,6 +104,10 @@ $responsive-phone: "only screen and (max-width : 480px)";
 // -- Global Styles
 @import './assets/global.scss';
 
+// -- Splash Page Styles
+
+@import './assets/splash.scss';
+
 // -- Form Styles
 
 @import './assets/forms.scss';

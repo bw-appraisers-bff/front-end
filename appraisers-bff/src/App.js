@@ -10,7 +10,7 @@ import "./App.scss";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Content from "./components/Content";
-import HeroPage from './components/HeroPage.js'
+import HeroPage from './components/HeroPage.jsx'
 
 const App = props => {
   return (

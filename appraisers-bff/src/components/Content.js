@@ -49,8 +49,6 @@ class Content extends React.Component {
 
         <Route path="/about" component={AboutUs} />
 
-        {/* Route for image for preview links: */}
-        <Route path="/heropage" component={HeroPage} />
         {/* Test routes for react-router-dom */}
         {/* <div>
           <span>Test routes:</span>

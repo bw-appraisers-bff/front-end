@@ -1,6 +1,7 @@
 //libraries and frameworks
 import React from "react";
 import { connect } from "react-redux";
+import { Route } from "react-router-dom";
 
 //style
 import "./App.scss";
@@ -21,6 +22,12 @@ const App = props => {
 
       {/*FOOTER COMPONENT*/}
       <Footer />
+
+      {/* 
+        Route for image for preview links
+        added here so it does not have Nav and Footer
+      */}
+      <Route path="/heropage" component={HeroPage} />
     </div>
   );
 };

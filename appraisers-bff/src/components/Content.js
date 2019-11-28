@@ -12,7 +12,6 @@ import SavedList from "./SavedList";
 import FormikLogin from "./Login";
 import AboutUs from "./AboutUs";
 import SplashPage from "./SplashPage";
-import HeroPage from './HeroPage'
 
 class Content extends React.Component {
   componentDidMount() {

@@ -1,4 +1,5 @@
-# front-end
-Welcome to units 2 and 3 build week. 
+# Appraiser BFF Front End
 
-Intructions- Clone the master branch onto your machine and create a branch that you can work on. Use <firstname-lastname> for name. We will discuss how to proceed on Monday. 
+React client for interacting with property assessment machine learning algorithm.
+
+Demo deployed at https://www.appraiserbff.xyz

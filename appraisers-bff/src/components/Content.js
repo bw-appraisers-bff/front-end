@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import PrivateRoute from "../utils/PrivateRoute.js";
-import axios from 'axios';
+import axios from "axios";
 
 //components
 import Signup from "./Signup";
@@ -13,23 +13,20 @@ import FormikLogin from "./Login";
 import AboutUs from "./AboutUs";
 import SplashPage from "./SplashPage";
 
-
 class Content extends React.Component {
-
   componentDidMount() {
     //wake up backend and datascience model
     axios
-    .get("https://appraisersbff.herokuapp.com")
-    .then(res => {
-      console.log("backend awake", res)
-    })
-    .catch(err => console.log(err));
+      .get("https://appraisersbff.herokuapp.com")
+      .then(res => {
+        console.log("backend awake", res);
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
     return (
       <div className="content">
-
         <Switch>
           <PrivateRoute path="/appraise" component={Appraise} />
           <PrivateRoute path="/result" component={FormikSaved} />
@@ -46,13 +43,11 @@ class Content extends React.Component {
         <Route
           exact
           path="/"
-          component={this.props.isLoggedIn ? Appraise : SplashPage }
+          component={this.props.isLoggedIn ? Appraise : SplashPage}
         />
 
-        <Route
-          path="/about" 
-          component={AboutUs}
-        />
+        <Route path="/about" component={AboutUs} />
+
         {/* Test routes for react-router-dom */}
         {/* <div>
           <span>Test routes:</span>
@@ -62,7 +57,6 @@ class Content extends React.Component {
           <NavLink to="/result">Result</NavLink>
           <NavLink to="/saved">Saved</NavLink>
         </div> */}
-
       </div>
     );
   }
